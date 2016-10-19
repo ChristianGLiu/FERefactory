@@ -91,7 +91,7 @@ class ET_GoogleCaptcha
             return 1;
         }
 
-        $myCategory = get_term_by('slug', $content['thread_category'] , 'thread_category');
+        $myCategory = get_term_by('slug', $content['category'] , 'category');
         $google_captcha_cat=get_option( 'google_captcha_cat' );
         $response=1;
         if(!empty($google_captcha_cat)){
@@ -119,7 +119,7 @@ class ET_GoogleCaptcha
 function check_google_captcha(){
 
     $data               = $_POST['content'];
-    $myCategory         = get_term_by('slug', $data , 'thread_category');
+    $myCategory         = get_term_by('slug', $data , 'category');
     $google_captcha_cat = get_option( 'google_captcha_cat' );
     $useCaptcha         = et_get_option('google_captcha') ;
 
@@ -144,7 +144,7 @@ add_action( 'wp_ajax_fe_check_google_captcha', 'check_google_captcha' );
 function render_captcha(){
     $useCaptcha = et_get_option('google_captcha') ;
     if(!$useCaptcha){ return false; }
-    if( !is_singular( 'thread' ) ){
+    if( !is_singular( 'post' ) ){
         $captcha = ET_GoogleCaptcha::getInstance();
         $api     = $captcha->get_api();
         if( et_get_option( 'google_captcha') && $api['public_key'] && et_get_option( 'google_captcha_cat') && et_get_option( 'google_captcha_user_role') ){

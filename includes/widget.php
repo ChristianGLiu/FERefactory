@@ -121,7 +121,7 @@ class FE_Thread_Discuss_Widget extends WP_Widget
 		global $post;
 		$thread 	= FE_Threads::convert($post);
 		$thread_id = $post->ID;
-		if($thread->post_status != "pending" && is_singular('thread')){
+		if($thread->post_status != "pending" && is_singular('post')){
 	?>
 	<div class="widget hide-discuss-tablet who-in-discuss">
 		<h2><?php echo esc_attr($instance['title']) ?></h2>
@@ -171,7 +171,7 @@ class FE_Statistic_Widget extends WP_Widget
 
 	function widget( $args, $instance ) {
 		$users = count_users();
-		$threads = wp_count_posts('thread');
+		$threads = wp_count_posts('post');
 		$replies = wp_count_posts('reply');
 	?>
 	<div class="widget statistics-wg">
@@ -262,7 +262,7 @@ class FE_Thread_Hot_Widget extends WP_Widget
 					LEFT JOIN $wpdb->postmeta as postmeta
 					ON post.ID = postmeta.post_id
 					WHERE ({$status_query_string})
-						AND post_type = 'thread'
+						AND post_type = 'post'
 						AND ( postmeta.meta_key = 'et_replies_count' )  ";
 				$query .= $custom;
 				$query .="	GROUP BY post.ID
@@ -280,7 +280,7 @@ class FE_Thread_Hot_Widget extends WP_Widget
 			if(get_transient( 'latest_topics_query' ) === false){
 				$query ="
 					SELECT * FROM $wpdb->posts as post
-					WHERE post_type = 'thread'
+					WHERE post_type = 'post'
 					";
 				$query .="
 					ORDER BY post_date DESC
@@ -433,14 +433,14 @@ class FE_Related_Threads_Widget extends WP_Widget
 	}
 
 	function widget( $args, $instance ) {
-		if(is_singular( 'thread' )):
+		if(is_singular( 'post' )):
 			global $post;
 
 			if(get_transient( 'related_topics_query' ) === false){
 
 				$tags_id = array();
 				$tags = get_the_terms($post->ID,'fe_tag');
-				$category = array_pop(get_the_terms($post->ID,'thread_category'));
+				$category = array_pop(get_the_terms($post->ID,'category'));
 
 				if(!empty($tags)):
 					foreach ($tags as $tag) {
@@ -448,7 +448,7 @@ class FE_Related_Threads_Widget extends WP_Widget
 					}
 					$status = apply_filters('fe_thread_status', array( 'publish' ));
 					$args = array(
-						'post_type' => 'thread',
+						'post_type' => 'post',
 						'post_status' => $status,
 						'posts_per_page' => $instance['number'],
 						'post__not_in' => array($post->ID),
@@ -464,10 +464,10 @@ class FE_Related_Threads_Widget extends WP_Widget
 					$threads = get_posts($args);
 				else:
 					$threads = get_posts( array(
-						'post_type' => 'thread',
+						'post_type' => 'post',
 						'post__not_in' => array($post->ID),
 						'posts_per_page' => $instance['number'],
-						'thread_category' => $category->slug
+						'category' => $category->slug
 					));
 				endif;
 

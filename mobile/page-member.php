@@ -101,7 +101,7 @@ $user_hide_info = get_user_meta($author->ID,'user_hide_info',true);
 					<?php
 						$page = get_query_var('paged') ? get_query_var('paged') : 1;
 						$thread_query = FE_Threads::get_threads(array(
-							'post_type' 	=> 'thread',
+							'post_type' 	=> 'post',
 							'author' 	=> $author->ID,
 							'paged' 		=> $page
 						));						

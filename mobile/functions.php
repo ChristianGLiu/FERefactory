@@ -331,7 +331,7 @@ function et_mobile_categories($parent = 0, $level = 1, $categories = false){
 		foreach ($cats as $cat) {
 			if ( $cat->parent != $parent ) continue;
 
-			$cat_link = get_term_link( $cat, 'thread_category' );
+			$cat_link = get_term_link( $cat, 'category' );
 
 			$has_child = false;
 			foreach ($cats as $child) {
@@ -343,7 +343,7 @@ function et_mobile_categories($parent = 0, $level = 1, $categories = false){
 			$color = FE_ThreadCategory::get_category_color($cat->term_id);
 			?>
 			<li class="<?php echo $current_cat == $cat->slug ? "fe-current" : '' ?> <?php if ($has_child) echo 'fe-has-child' ?>">
-				<a href="<?php echo get_term_link( $cat, 'thread_category' ) ?>">
+				<a href="<?php echo get_term_link( $cat, 'category' ) ?>">
 					<span class="arrow"><span class="fe-sprite"></span></span>
 					<span class="name"><?php echo $cat->name ?></span>
 					<span class="flags color-<?php echo $color ?>"></span>

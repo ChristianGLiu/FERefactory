@@ -389,7 +389,7 @@ ForumMobile.Views.Single = Backbone.View.extend({
 			fe_nonce = target.find("input#fe_nonce").val(),
 			title    = target.find("input#thread_title").val(),
 			content  = target.find("textarea#thread_content").val(),
-			category = target.find("select#thread_category").val();
+			category = target.find("select#category").val();
 
 		if(content == "" || title == "" || category == "") return false;
 
@@ -404,7 +404,7 @@ ForumMobile.Views.Single = Backbone.View.extend({
 					fe_nonce		: fe_nonce,
 					post_title		: title,
 					post_content 	: content,
-					thread_category : category,
+					category : category,
 				}
 			},
 			beforeSend : function(){

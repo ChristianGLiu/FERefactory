@@ -6,7 +6,7 @@ $et_updated_date 	= et_the_time(strtotime($thread->et_updated_date));
 $sticky 			= et_get_option('et_sticky_threads');
 $user_authorize_to_view = wp_parse_args(array(),get_option( 'authorize_to_view'));
 
-$term_id = !empty($thread->thread_category[0]) ? $thread->thread_category[0]->term_id : '';
+$term_id = !empty($thread->category[0]) ? $thread->category[0]->term_id : '';
 $check_authorize = in_array($term_id, $user_authorize_to_view);
 // Allow to view 
 if($check_authorize || is_user_logged_in() || !get_option('user_view', false)){
@@ -16,7 +16,7 @@ if($check_authorize || is_user_logged_in() || !get_option('user_view', false)){
 }
 
 ?>
-	<li class="<?php echo et_is_highlight($thread->ID); ?> thread-item <?php //echo in_array($post->ID, $sticky) ? 'sticky' : '' ?>" data-id="<?php echo $post->ID ?>" data-cat="<?php echo $thread->thread_category[0]->slug ?>">
+	<li class="<?php echo et_is_highlight($thread->ID); ?> thread-item <?php //echo in_array($post->ID, $sticky) ? 'sticky' : '' ?>" data-id="<?php echo $post->ID ?>" data-cat="<?php echo $thread->category[0]->slug ?>">
 		<?php do_action('forumengine_before_thread_item', $thread) ?>
 		<?php if(!is_author() && !is_page_template( 'page-member.php' )) {?>
 		<?php if($authorize){?>
@@ -46,16 +46,16 @@ if($check_authorize || is_user_logged_in() || !get_option('user_view', false)){
 				<span class="times-create"><?php printf( __( 'Updated %s in', ET_DOMAIN ),$et_updated_date); ?></span>
 				<span class="type-category">
 					<?php
-					if ( !empty($thread->thread_category[0]) )
-						$color = FE_ThreadCategory::get_category_color($thread->thread_category[0]->term_id);
+					if ( !empty($thread->category[0]) )
+						$color = FE_ThreadCategory::get_category_color($thread->category[0]->term_id);
 					else
 						$color = 0;
 					?>
-					<a href="<?php if($thread->thread_category){ echo get_term_link( $thread->thread_category[0]->slug, 'thread_category' );}else{echo '#';} ?>">
+					<a href="<?php if($thread->category){ echo get_term_link( $thread->category[0]->slug, 'category' );}else{echo '#';} ?>">
 						<span class="flags color-<?php echo $color ?>"></span>
 						<?php
-						if($thread->thread_category) {
-							echo $thread->thread_category[0]->name;
+						if($thread->category) {
+							echo $thread->category[0]->name;
 						} else {
 							_e('No category', ET_DOMAIN);
 						}
@@ -111,7 +111,7 @@ if($check_authorize || is_user_logged_in() || !get_option('user_view', false)){
 		</div>
 		<?php do_action('forumengine_after_thread_item', $thread) ?>
 
-		<?php if ( (et_is_sticky_thread($post->ID, true) && $et_sticky_pagename == 'home') || (et_is_sticky_thread($post->ID) && $et_sticky_pagename == 'thread_category') ){
+		<?php if ( (et_is_sticky_thread($post->ID, true) && $et_sticky_pagename == 'home') || (et_is_sticky_thread($post->ID) && $et_sticky_pagename == 'category') ){
 				echo '<div class="sticky-bar color-' . $color . '"></div>';
 		} ?>
 	</li>

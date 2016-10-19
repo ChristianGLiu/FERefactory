@@ -6,7 +6,7 @@ get_header();
 global $wp_query, $wp_rewrite, $post, $current_user , $user_ID, $wpdb;
 
 $data = et_get_unread_follow();
-$term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
+$term = get_term_by( 'slug' , get_query_var( "term" ), 'category') ;
 ?>
 <div class="header-bottom header-filter">
 	<div class="main-center container">
@@ -20,6 +20,7 @@ $term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
 </div>
 <!--end header Bottom-->
 <div class="container main-center">
+<?php echo "this is page-front.php<br />"; ?>
 	<div class="row">
 		<div class="col-md-9 col-sm-12 marginTop30">
 			<?php get_template_part('template/post', 'thread'); ?>
@@ -27,7 +28,7 @@ $term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
 			$page 			= get_query_var('page') ? get_query_var('page') : 1;
 			$sticky_threads = et_get_sticky_threads();
 			$thread_query = FE_Threads::get_threads(array(
-				'post_type' 	=> 'thread',
+				'post_type' 	=> 'post',
 				'paged' 		=> $page,
 				'post__not_in' 	=> $sticky_threads[0]
 			));

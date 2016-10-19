@@ -290,15 +290,15 @@
 		 */
 		afterEdit: function(data){
 			// update
-			if ( data.post_type == 'thread' ){
+			if ( data.post_type == 'post' ){
 				$('.title-thread').text(data.post_title);
-				if ( typeof data.thread_category[0] != 'undefined' ){
-					$('.thread-information .thread-cat-name').text(data.thread_category[0].name);
-					$('.thread-information .times-create').text(data.thread_category[0].update_time_string);
+				if ( typeof data.category[0] != 'undefined' ){
+					$('.thread-information .thread-cat-name').text(data.category[0].name);
+					$('.thread-information .times-create').text(data.category[0].update_time_string);
 					$('.thread-information .flags')
 						.attr('class', '')
 						.addClass('flags')
-						.addClass('color-' + data.thread_category[0].color);
+						.addClass('color-' + data.category[0].color);
 				}
 			}
 		},

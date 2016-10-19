@@ -177,8 +177,8 @@ ForumMobile.Views.App = Backbone.View.extend({
 			container.addClass('fe-expanded')
 		}
 
-		var select = $('#thread_category').val();
-		$( "#thread_category" ).change(function(e) {
+		var select = $('#category').val();
+		$( "#category" ).change(function(e) {
 			if( currentUser.ID != 0 ){
 				if(currentUser.captcha && currentUser.captcha_cat.length != 0){
 					if( currentUser.captcha_cat.toString().indexOf($(this).val()) != -1 ){

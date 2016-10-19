@@ -63,7 +63,7 @@
                     return false;
                 }
                 var title = $("#form_thread form input.inp-title").val(),
-                    category = $("#form_thread form select#thread_category").val(),
+                    category = $("#form_thread form select#category").val(),
                     content = tinyMCE.activeEditor.getContent();
                 if (title == '' || category == '' || /^(?:\s|<br *\/?>)*$/.test(content)
                 	|| content == '' || ($.trim(title)).length == 0 || ($.trim(content)).length == 0) {

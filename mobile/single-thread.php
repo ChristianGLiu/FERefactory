@@ -8,8 +8,8 @@ the_post();
 $thread 		= FE_Threads::convert($post);
 $user_following = explode(',', (string) get_post_meta( $post->ID, 'et_users_follow',true));
 $is_followed    = in_array($user_ID, $user_following);
-if ( !empty($thread->thread_category[0]) )
-	$color = FE_ThreadCategory::get_category_color($thread->thread_category[0]->term_id);
+if ( !empty($thread->category[0]) )
+	$color = FE_ThreadCategory::get_category_color($thread->category[0]->term_id);
 else
 	$color = 0;
 
@@ -50,7 +50,7 @@ else
 				<h1 itemprop="name" class="fe-title"><?php the_title(); ?></h1>
 				<span class="time"><?php printf( __( 'Updated %s in', ET_DOMAIN ),et_the_time(strtotime($thread->et_updated_date))); ?></span>
 				<?php if ( $thread->has_category ) {  ?>
-				<span class="time"><span class="flags color-<?php echo $color ?>"></span><?php echo $thread->thread_category[0]->name ?>.</span>
+				<span class="time"><span class="flags color-<?php echo $color ?>"></span><?php echo $thread->category[0]->name ?>.</span>
 				<?php } else {  ?>
 				<span class="time"><span class="flags color-0"></span><?php _e('No Category', ET_DOMAIN) ?>.</span>
 				<?php } ?>
@@ -107,9 +107,9 @@ else
 						<div class="fe-topic-input">
 							<input type="hidden" name="fe_nonce" id="fe_nonce" value="<?php echo wp_create_nonce( 'edit_thread' ) ?>">
 							<div class="fe-topic-dropbox">
-								<select name="thread_category" id="thread_category">
+								<select name="category" id="category">
 									<?php
-										$current_cat = empty($thread->thread_category[0]) ? false : $thread->thread_category[0]->term_id;
+										$current_cat = empty($thread->category[0]) ? false : $thread->category[0]->term_id;
 										$categories = FE_ThreadCategory::get_categories();
 										et_the_cat_select($categories,$current_cat);
 									?>

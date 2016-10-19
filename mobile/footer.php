@@ -41,7 +41,7 @@
 	 	?>;
 	</script>
 	<?php
-		//if( is_singular( 'thread' ) ){
+		//if( is_singular( 'post' ) ){
 			get_template_part( 'mobile/template-js/reply', 'item' );
 	?>
 

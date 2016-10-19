@@ -2,7 +2,7 @@
 	<div class="title font-quicksand"><?php _e("Thread Categories",ET_DOMAIN);?></div>
 	<div class="desc">
 		<?php _e("Users can filter their thread searches by Thread Categories",ET_DOMAIN);?>
-		<div class="cat-list-container" id="thread-categories">
+		<div class="cat-list-container" id="categories">
 			<?php
 				$thread_category	=	new FE_BackendCategory ();
 				$thread_category->print_backend_terms();

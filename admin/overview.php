@@ -141,7 +141,7 @@ class ET_AdminOverview extends ET_AdminMenuItem{
 		$status = apply_filters('fe_thread_status', array('publish','pending','closed'));
 		$status = "'" . implode("','", $status) . "'";
 		$sql = "SELECT DATE(post_date) AS `date`, COUNT(ID) as `count` FROM {$wpdb->posts} 
-				WHERE post_type = 'thread' AND 
+				WHERE post_type = 'post' AND
 				post_status IN ({$status}) AND
 				STRCMP(post_date, '$from_date') >= 0 AND 
 				STRCMP(post_date, '$to_date' ) <=0
@@ -194,7 +194,7 @@ class ET_AdminOverview extends ET_AdminMenuItem{
 		$status = apply_filters('fe_thread_status', array('publish','pending','closed'));
 		$status = "'" . implode("','", $status) . "'";
 		$sql 	= "SELECT post_status as status, COUNT(ID) as count FROM {$wpdb->posts} 
-					WHERE post_type = 'thread' 
+					WHERE post_type = 'post'
 					AND post_status IN ({$status})
 					GROUP BY post_status";
 

@@ -46,8 +46,8 @@ if ( $post->post_status == 'closed'){
 						'order' => 'ASC'
 					)) ;
 
-					if ( !empty($thread->thread_category[0]) )
-						$color = FE_ThreadCategory::get_category_color($thread->thread_category[0]->term_id);
+					if ( !empty($thread->category[0]) )
+						$color = FE_ThreadCategory::get_category_color($thread->category[0]->term_id);
 					else
 						$color = 0;
 
@@ -59,9 +59,9 @@ if ( $post->post_status == 'closed'){
 							<span class="times-create"><?php printf( __( 'Updated %s in', ET_DOMAIN ),$et_updated_date );?></span>
 							<span class="type-category">
 								<?php if ( $thread->has_category ) {  ?>
-									<a href="<?php echo get_term_link( $thread->thread_category[0], 'thread_category' ) ?>">
+									<a href="<?php echo get_term_link( $thread->category[0], 'category' ) ?>">
 										<span class="flags color-<?php echo $color ?>"></span>
-										<span class="thread-cat-name"><?php echo $thread->thread_category[0]->name ?></span>
+										<span class="thread-cat-name"><?php echo $thread->category[0]->name ?></span>
 									</a>
 								<?php } else {  ?>
 									<span class="flags color-<?php echo 0 ?>"></span><?php _e('No Category', ET_DOMAIN) ?>
@@ -192,6 +192,7 @@ if ( $post->post_status == 'closed'){
 									<?php } ?>
 								</div>
 							</div>
+							<?php echo "this is single-thread.php<br />"; ?>
 							<!-- EDITOR -->
 							<div id="form_thread" class="post-edit thread-form edit-thread collapse">
 								<form class="form-post-edit" action="" method="post">
@@ -207,11 +208,11 @@ if ( $post->post_status == 'closed'){
 												<span class="text-select"></span>
 												<span class="caret"></span>
 											</button>
-											<?php $current_cat = empty($thread->thread_category[0]) ? false : $thread->thread_category[0]->term_id ?>
+											<?php $current_cat = empty($thread->category[0]) ? false : $thread->category[0]->term_id ?>
 											<?php
 											$categories = FE_ThreadCategory::get_categories();;//FE_Threads::get_categories(array('hide_empty'=>false));
 											?>
-											<select class="collapse" name="thread_category" id="thread_category">
+											<select class="collapse" name="category" id="category">
 												<option value=""><?php _e('Please select' , ET_DOMAIN) ?></option>
 												<?php et_the_cat_select($categories, $current_cat); ?>
 											</select>

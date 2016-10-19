@@ -75,8 +75,8 @@ class ET_PostType extends ET_Base{
         $result = wp_insert_post( $data['args'], true );
 
 		if ( !($result instanceof WP_Error) ){
-			if (isset($args['tax_input']['thread_category']) && term_exists($args['tax_input']['thread_category'],'thread_category')){
-				$terms = wp_set_object_terms($result, $args['tax_input']['thread_category'], 'thread_category');
+			if (isset($args['tax_input']['category']) && term_exists($args['tax_input']['category'],'category')){
+				$terms = wp_set_object_terms($result, $args['tax_input']['category'], 'category');
 			}
 		}
 
@@ -112,8 +112,8 @@ class ET_PostType extends ET_Base{
         $result = wp_update_post( $data['args'], true );
 
 		if ( !($result instanceof WP_Error) ){
-			if (isset($args['tax_input']['thread_category']) && term_exists($args['tax_input']['thread_category'],'thread_category')){
-				$terms = wp_set_object_terms($result, $args['tax_input']['thread_category'], 'thread_category');
+			if (isset($args['tax_input']['category']) && term_exists($args['tax_input']['category'],'category')){
+				$terms = wp_set_object_terms($result, $args['tax_input']['category'], 'category');
 			}
 		}
 
@@ -202,7 +202,7 @@ class ET_PostType extends ET_Base{
  * Class FE_Threads
  */
 class FE_Threads extends ET_PostType{
-	CONST POST_TYPE = 'thread';
+	CONST POST_TYPE = 'post';
 
 	static $instance = null;
 
@@ -211,7 +211,7 @@ class FE_Threads extends ET_PostType{
 		$this->args = array(
 			'labels' => array(
 			    'name' => __( 'Threads', ET_DOMAIN ),
-			    'singular_name' => __('Thread', ET_DOMAIN ),
+			    'singular_name' => __('post', ET_DOMAIN ),
 			    'add_new' => __('Add New', ET_DOMAIN ),
 			    'add_new_item' => __('Add New Thread', ET_DOMAIN ),
 			    'edit_item' => __('Edit Thread', ET_DOMAIN ),
@@ -230,7 +230,7 @@ class FE_Threads extends ET_PostType{
 		    'show_in_menu' => true,
 		    'query_var' => true,
 		    'rewrite' => array(
-		    	'slug' => apply_filters( 'fe_thread_slug' , et_get_option('et_thread_slug', 'thread') )
+		    	'slug' => apply_filters( 'fe_thread_slug' , et_get_option('et_thread_slug', 'post') )
 		    	),
 		    'capability_type' => 'post',
 		    'capabilities' => array(
@@ -250,7 +250,7 @@ class FE_Threads extends ET_PostType{
 		    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields' )
 		);
 		$this->taxonomies =  array(
-			'thread_category' => array(
+			'category' => array(
 				'hierarchical'      => true,
 				'labels'            => array(
 					'name'              => __( 'Thread Categories', ET_DOMAIN ),
@@ -360,7 +360,7 @@ class FE_Threads extends ET_PostType{
 
 		// update counter for user
 		if ( !is_wp_error( $return ) && $return && isset($data['post_author']) ){
-			FE_Member::update_counter( $data['post_author'], 'thread' );
+			FE_Member::update_counter( $data['post_author'], 'post' );
 		}
 
 		return $return;
@@ -376,13 +376,13 @@ class FE_Threads extends ET_PostType{
 		//if(isset($data['post_title'])) $data['post_title'] = substr($data['post_title'],0,90);
 
 		// update thread category
-		if (isset($data['thread_category'])){
+		if (isset($data['category'])){
 
 			// change the input data
 			$data['tax_input'] = array(
-				'thread_category' => $data['thread_category']
+				'category' => $data['category']
 			);
-			unset($data['thread_category']);
+			unset($data['category']);
 		}
 
 		// update old status
@@ -398,7 +398,7 @@ class FE_Threads extends ET_PostType{
 		// update counter for user
 		if ( !is_wp_error( $return ) && $return ){
 			$post = get_post($return);
-			FE_Member::update_counter( $post->post_author, 'thread' );
+			FE_Member::update_counter( $post->post_author, 'post' );
 
 			// update old status
 			if ( !empty($data['post_status']) ){
@@ -452,7 +452,7 @@ class FE_Threads extends ET_PostType{
 			if ( wp_trash_post( $id ) != false)
 				do_action('et_delete_' . self::POST_TYPE, $id);
 		}
-		FE_Member::update_counter( $post->post_author, 'thread');
+		FE_Member::update_counter( $post->post_author, 'post');
 		FE_Member::update_unread($id);
 	}
 
@@ -474,7 +474,7 @@ class FE_Threads extends ET_PostType{
 		$result->liked 				= in_array($current_user->ID, $result->et_likes);
 		$result->replied 			= in_array($current_user->ID, (array)$result->et_reply_authors);
 		$result->reported  			= in_array($current_user->ID,(array)get_post_meta($post->ID, 'et_users_report', true ));
-		$result->has_category 		= !empty($result->thread_category);
+		$result->has_category 		= !empty($result->category);
 		$result->user_badge   		= get_option( 'user_badges' ) && isset($badges[$user_role]) && $user_role ? '<span class="user-badge">'.$badges[$user_role].'</span>' : '';
 		$result->avatar   			= et_get_avatar($result->post_author);
 		$result->et_updated_date_string 	= sprintf( __( 'Updated %s in', ET_DOMAIN ), et_the_time(strtotime($result->et_updated_date)) );
@@ -482,9 +482,9 @@ class FE_Threads extends ET_PostType{
 
 		$result->author_badge 		= isset($badges[get_user_role($result->post_author)]) && get_user_role($result->post_author) ? $badges[get_user_role($result->post_author)] : '';
 
-		foreach ( $result->thread_category as $category ) {
+		foreach ( $result->category as $category ) {
 			$category->color = FE_ThreadCategory::get_category_color($category->term_id); //$color[$category->term_id];
-			$category->link  = get_term_link( $category, 'thread_category' );
+			$category->link  = get_term_link( $category, 'category' );
 		}
 
 		if ( !empty($result->et_last_author) ){
@@ -558,7 +558,7 @@ class FE_Threads extends ET_PostType{
 		/*$content = preg_replace('/\[code\].*(<br\s*\/?>\s*).*\[\/code\]/', '\n', $content);
 		*/
 		if ( empty($category) ) return new WP_Error(__('Category must not empty', ET_DOMAIN));
-		if ( !term_exists($category, 'thread_category') ) return new WP_Error(__('Category doest not exist', ET_DOMAIN));
+		if ( !term_exists($category, 'category') ) return new WP_Error(__('Category doest not exist', ET_DOMAIN));
 		if ( empty($title) ) return new WP_Error(__('Title must not empty', ET_DOMAIN));
 
 		$data = array(
@@ -569,7 +569,7 @@ class FE_Threads extends ET_PostType{
 			'post_status' 		=> $status,//'publish', // auto set publish for posts,
 			'tax_input'			=> array(
 				'fe_tag' 		=> et_generate_tag($content),
-				'thread_category' 	=> $category
+				'category' 	=> $category
 			),
 			'et_updated_date' 		=> current_time( 'mysql' ),
 
@@ -625,7 +625,7 @@ class FE_Threads extends ET_PostType{
 		$report_tx = '';
 
 		switch ($post_type) {
-			case 'thread':
+			case 'post':
 				$title     = $post->post_title;
 				$link      = $post->guid;
 				$report_tx = 'report-thread';
@@ -756,9 +756,9 @@ class FE_Threads extends ET_PostType{
 	 */
 	public static function add_category($name, $color, $parent = 0){
 		if ( $parent )
-			$result = wp_insert_term( $name, 'thread_category', array('parent' => $parent));
+			$result = wp_insert_term( $name, 'category', array('parent' => $parent));
 		else
-			$result = wp_insert_term( $name, 'thread_category');
+			$result = wp_insert_term( $name, 'category');
 
 		if ( !is_wp_error( $result ) ){
 			$colors 					= get_option('et_category_colors', array());
@@ -779,7 +779,7 @@ class FE_Threads extends ET_PostType{
 		if (!empty($args)){
 			// update normal params
 			if ( !empty($args['name']) ){
-				wp_update_term( $id, 'thread_category', array('name' => $args['name']) );
+				wp_update_term( $id, 'category', array('name' => $args['name']) );
 			}
 
 			// update color
@@ -799,7 +799,7 @@ class FE_Threads extends ET_PostType{
 	 */
 	public static function delete_category($term_id, $alternative){
 
-		wp_delete_term( $term_id, 'thread_category', array('default' => $alternative) );
+		wp_delete_term( $term_id, 'category', array('default' => $alternative) );
 
 	}
 
@@ -808,7 +808,7 @@ class FE_Threads extends ET_PostType{
 	 * @param array $args
 	 */
 	public static function get_categories(array $args = array()){
-		$terms = get_terms( 'thread_category', $args );
+		$terms = get_terms( 'category', $args );
 
 		if ( !is_wp_error( $terms ) ){
 			$colors = get_option('et_category_colors', array());
@@ -876,7 +876,7 @@ class FE_Threads extends ET_PostType{
 	 * Restore all Likes when undo trash thread
 	 */
 	static public function restore_thread_likes($id){
-		if(get_post_type( $id ) == "thread"){
+		if(get_post_type( $id ) == "post"){
 			$post = get_post($id);
 			$likes = (int) get_post_meta( $id, 'et_like_count', true );
 
@@ -894,7 +894,7 @@ class FE_Threads extends ET_PostType{
 			    	FE_Member::update_counter( $reply->post_author, 'reply');
 			    }
 			}
-			FE_Member::update_counter( $post->post_author, 'thread');
+			FE_Member::update_counter( $post->post_author, 'post');
 		}
 	}
 
@@ -972,7 +972,7 @@ class FE_Threads extends ET_PostType{
 	static public function save_following_threads($id){
 		global $user_ID;
 
-		if(get_post_type($id) != "reply" && get_post_type($id) != "thread") {return '';}
+		if(get_post_type($id) != "reply" && get_post_type($id) != "post") {return '';}
 
 			if(get_post_type($id) == "reply"){
 				$reply = get_post( $id );
@@ -1012,7 +1012,7 @@ class FE_Threads extends ET_PostType{
 			add_action('posts_orderby', array('FE_Threads', 'meta_order_orderby'), 20);
 		}
 		$args = wp_parse_args(  $args, array(
-			'post_type'   => 'thread'
+			'post_type'   => 'post'
 		) );
 		$query = new WP_Query($args);
 		// remove modified query
@@ -1540,7 +1540,7 @@ function et_add_tag_links($content){
 /**
  * Retrieve thread counter by post status
  */
-function et_get_counter($post_status = false, $post_type = 'thread'){
+function et_get_counter($post_status = false, $post_type = 'post'){
 	$counter = wp_count_posts( $post_type );
 	if ( $post_status == false ){
 		return $counter;
@@ -1562,7 +1562,7 @@ function et_get_user_following_threads(){
 	}
 	$status_query_string = implode(' OR ', $status_query);
 	$sql = "SELECT p.ID FROM {$wpdb->posts} AS p INNER JOIN {$wpdb->postmeta} AS pmt ON p.ID = pmt.post_id
-			WHERE p.post_type = 'thread' AND ({$status_query_string}) AND pmt.meta_key = 'et_users_follow' AND FIND_IN_SET({$user_ID},pmt.meta_value) > 0
+			WHERE p.post_type = 'post' AND ({$status_query_string}) AND pmt.meta_key = 'et_users_follow' AND FIND_IN_SET({$user_ID},pmt.meta_value) > 0
 			GROUP BY p.ID ";
 
 	$results = $wpdb->get_results($sql);

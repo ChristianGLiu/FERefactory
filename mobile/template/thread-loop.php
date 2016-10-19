@@ -2,8 +2,8 @@
 global $post, $et_sticky_pagename;
 	$thread 			= FE_Threads::convert($post);
 	$et_updated_date 	= et_the_time(strtotime($thread->et_updated_date));
-	if ( !empty($thread->thread_category[0]) )
-		$color = FE_ThreadCategory::get_category_color($thread->thread_category[0]->term_id);
+	if ( !empty($thread->category[0]) )
+		$color = FE_ThreadCategory::get_category_color($thread->category[0]->term_id);
 	else
 		$color = 0;
 ?>
@@ -35,7 +35,7 @@ global $post, $et_sticky_pagename;
 		<div class="fe-post-content">
 			<div class="fe-post-title">
 				<?php
-				if(!is_user_logged_in() && get_option('user_view', false) && get_option('authorize_to_view') && !in_array($thread->thread_category[0]->term_id, get_option('authorize_to_view')))
+				if(!is_user_logged_in() && get_option('user_view', false) && get_option('authorize_to_view') && !in_array($thread->category[0]->term_id, get_option('authorize_to_view')))
 					echo '<a class="login_to_view" href="#">'.get_the_title().'</a>';
 				else
 					echo '<a target="_self" href="'.get_permalink().'">'.get_the_title().'</a>';
@@ -45,11 +45,11 @@ global $post, $et_sticky_pagename;
 				<span class="fe-post-time"><?php printf( __( 'Updated %s', ET_DOMAIN ),$et_updated_date); ?></span>
 				<span class="fe-post-cat">
 					<?php _e('in',ET_DOMAIN);?>
-					<a href="<?php if($thread->thread_category){ echo get_term_link( $thread->thread_category[0]->slug, 'thread_category' );}else{echo '#';} ?>">
+					<a href="<?php if($thread->category){ echo get_term_link( $thread->category[0]->slug, 'category' );}else{echo '#';} ?>">
 						<span class="flags color-<?php echo $color ?>"></span>
 						<?php
-							if($thread->thread_category){
-								echo $thread->thread_category[0]->name;
+							if($thread->category){
+								echo $thread->category[0]->name;
 							} else {
 								_e('No category', ET_DOMAIN);
 							}
@@ -79,7 +79,7 @@ global $post, $et_sticky_pagename;
 			</div>
 		</div>
 	</div>
-	<?php if ( (et_is_sticky_thread($post->ID, true) && $et_sticky_pagename == 'home') || (et_is_sticky_thread($post->ID) && $et_sticky_pagename == 'thread_category') ){
+	<?php if ( (et_is_sticky_thread($post->ID, true) && $et_sticky_pagename == 'home') || (et_is_sticky_thread($post->ID) && $et_sticky_pagename == 'category') ){
 		echo '<div class="sticky-bar color-' . $color . '"></div>';
 	} ?>
 </article>

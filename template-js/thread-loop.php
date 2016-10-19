@@ -23,10 +23,10 @@
 					{{= et_updated_date_string }}
 				</span>
 				<span class="type-category">
-					<# if(thread_category[0]) { #>
-					<a href="{{= thread_category[0].link }}">
-						<span class="flags color-{{= thread_category[0].color }}"></span>
-						{{= thread_category[0].name }}
+					<# if(category[0]) { #>
+					<a href="{{= category[0].link }}">
+						<span class="flags color-{{= category[0].color }}"></span>
+						{{= category[0].name }}
 					</a>.
 					<# } else { #>
 						<?php _e( 'No category.', ET_DOMAIN ); ?>

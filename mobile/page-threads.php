@@ -20,13 +20,13 @@ $data = et_get_unread_follow();
 			<?php get_template_part( 'mobile/template', 'profile-menu' ) ?>
 			<div class="fe-tab">
 				<ul class="fe-tab-items">
-					<li class="fe-tab-item fe-tab-item-3 <?php if (!is_tax( 'thread_category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
+					<li class="fe-tab-item fe-tab-item-3 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
 							<span class="fe-tab-name"><?php _e('ALL POSTS',ET_DOMAIN) ?>
 							<?php
 								if(!empty($data) && count($data['unread']['data']) > 0){
 							?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'thread_category' )) { echo 'mana'; }?>"><?php echo count($data['unread']['data']) ?></span>
+								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['unread']['data']) ?></span>
 							<?php } ?>
 							</span>
 						</a>
@@ -39,7 +39,7 @@ $data = et_get_unread_follow();
 						<?php } ?>
 							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
 							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'thread_category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
+								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
 							<?php } ?>
 							</span>
 						</a>
@@ -52,7 +52,7 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
-					<?php } else if ( is_tax( 'thread_category' ) ){ ?>
+					<?php } else if ( is_tax( 'category' ) ){ ?>
 						<li class="fe-tab-item fe-tab-item-3 fe-tab-3 current fe-current">
 							<a href="#">
 								<span class="fe-tab-name"><?php single_term_title( ) ?>
@@ -67,7 +67,7 @@ $data = et_get_unread_follow();
 				<div class="fe-topic-form">
 					<div class="fe-topic-input">
 						<div class="fe-topic-dropbox">
-							<select name="thread_category" id="thread_category">
+							<select name="category" id="category">
 								<option value=""><?php _e('Please select',ET_DOMAIN) ?></option>
 								<?php
 									$categories = FE_ThreadCategory::get_categories();
@@ -117,7 +117,7 @@ $data = et_get_unread_follow();
 				<?php
 					$page = get_query_var('page') ? get_query_var('page') : 1;
 					$thread_query = FE_Threads::get_threads(array(
-						'post_type' 	=> 'thread',
+						'post_type' 	=> 'post',
 						'paged' 		=> $page,
 						'post__not_in' 	=> $sticky_threads[0]
 					));

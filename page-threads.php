@@ -6,7 +6,7 @@ get_header();
 global $wp_query, $wp_rewrite, $post,$current_user , $user_ID;
 
 $data = et_get_unread_follow();
-$term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
+$term = get_term_by( 'slug' , get_query_var( "term" ), 'category') ;
 ?>
 
 <div class="header-bottom header-filter">
@@ -21,6 +21,7 @@ $term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
 </div>
 <!--end header Bottom-->
 <div class="container main-center">
+<?php echo "this is page-threads.php<br />"; ?>
 	<div class="row">
 		<div class="col-md-9 col-sm-12 marginTop30">
 			<div id="form_thread" class="thread-form auto-form new-thread">
@@ -39,7 +40,7 @@ $term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
 							<?php
 							$categories = FE_ThreadCategory::get_categories();
 							?>
-							<select class="collapse" name="thread_category" id="thread_category">
+							<select class="collapse" name="category" id="category">
 								<option value=""><?php _e('Please select' , ET_DOMAIN) ?></option>
 								<?php et_the_cat_select($categories) ?>
 							</select>
@@ -109,7 +110,7 @@ $term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
 			}
 
 			$threads = new WP_Query( array(
-				'post_type' 	=> 'thread',
+				'post_type' 	=> 'post',
 				'paged' 		=> $paged
 			) );
 			if (  $threads->have_posts() ){ ?>

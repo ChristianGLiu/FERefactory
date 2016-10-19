@@ -166,9 +166,9 @@ class ET_ForumEngine extends ET_Base{
 	}
 	public function store_new_question_to_DB($post_id){
 		$current_user = wp_get_current_user();
-		if(get_post_type( $post_id ) != 'thread' && get_post_type( $post_id ) != 'reply' )
+		if(get_post_type( $post_id ) != 'post' && get_post_type( $post_id ) != 'reply' )
 			return $post_id;
-		if(get_post_type( $post_id ) == 'thread'){
+		if(get_post_type( $post_id ) == 'post'){
 			set_transient( 'qa_notify_' . mt_rand( 100000, 999999 ), array(
 				'title'		=>		__( 'New Thread', ET_DOMAIN ),
 				'content'	=>	 	__( 'There\'s a new post, why don\'t you give a look at', ET_DOMAIN ) .
@@ -927,23 +927,23 @@ function et_modify_breabcrumb($breadcrumb, $args){
 	if ( $id != '' ) $id = 'id="' . $id . '"';
 	if ( $item_class != '') $item_class = 'class="' . $item_class . '"';
 
-	if ( is_tax( 'thread_category' ) || is_singular( 'thread' ) ){
+	if ( is_tax( 'category' ) || is_singular( 'post' ) ){
 		$breadcrumb = '';
 		$breadcrumb .= '<ul class="breadcrumbs">';
 		global $post;
-		$terms = get_the_terms( $post->ID, 'thread_category' );
+		$terms = get_the_terms( $post->ID, 'category' );
 
 		if(!empty($terms)){
 			foreach ($terms as $term) {
-				$breadcrumb .= "<li $item_class><a href='" . get_term_link( $term, 'thread_category' ) . "'> $term->name</a></li>";
+				$breadcrumb .= "<li $item_class><a href='" . get_term_link( $term, 'category' ) . "'> $term->name</a></li>";
 				break;
 			}
-			//the_terms( $post->ID, 'thread_category', '', '</li><li ' . $item_class .'> ' );
+			//the_terms( $post->ID, 'category', '', '</li><li ' . $item_class .'> ' );
 		} else {
 			$breadcrumb .= "<li $item_class>" . __( 'No Category', ET_DOMAIN ) . '</li>';
 		}
 
-		if ( is_singular( 'thread' ) ){
+		if ( is_singular( 'post' ) ){
 			$breadcrumb .= '<li ' . $item_class .' >';
 			$breadcrumb .= get_the_title();
 			$breadcrumb .= '</li>';

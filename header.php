@@ -54,8 +54,8 @@
 								</div>
 								<div class="search-header col-md-8  col-sm-6">
 									<form id="fe_search_form" action="" method="post">
-										<?php if(is_tax( 'thread_category' ) || isset($_REQUEST['tax_cat'])){ ?>
-										<input type="hidden" id="thread_category" name="thread_category" value='<?php echo isset($_REQUEST['tax_cat']) ? $_REQUEST['tax_cat'] : get_query_var( 'term' ) ?>'>
+										<?php if(is_tax( 'category' ) || isset($_REQUEST['tax_cat'])){ ?>
+										<input type="hidden" id="category" name="category" value='<?php echo isset($_REQUEST['tax_cat']) ? $_REQUEST['tax_cat'] : get_query_var( 'term' ) ?>'>
 										<?php } ?>
 										<button class="btn" type="submit"><span class="icon-s"></span></button>
 										<div class="search-text">
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 
-			<?php if ( (!is_page_template( 'page-following.php' ) && !is_page_template( 'page-pending.php' ) && !is_search() && !is_front_page() && !is_tax('thread_category') && !is_tax('fe_tag') && !is_page_template( 'page-threads.php' ) ))  { ?>
+			<?php if ( (!is_page_template( 'page-following.php' ) && !is_page_template( 'page-pending.php' ) && !is_search() && !is_front_page() && !is_tax('category') && !is_tax('fe_tag') && !is_page_template( 'page-threads.php' ) ))  { ?>
 
 			<div class="header-bottom">
 				<div class="main-center">

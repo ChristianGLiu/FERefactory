@@ -168,7 +168,7 @@
 	<?php
 		$google_captcha	=	ET_GoogleCaptcha::get_api();
 		function fe_captcha_multi_categories_selector($option_name, $parent = null){
-			$categories = get_terms('thread_category', array(
+			$categories = get_terms('category', array(
 				'hide_empty' 	=> 	false,
 				'parent'		=>	$parent,
 			) );
@@ -189,7 +189,7 @@
 				}
 				if($subCat){
 					echo '<option value = "' . $category->term_id . '" ' . $selected . '>' . $category->name . '</option>';					
-					$subCategories = get_terms('thread_category', array(
+					$subCategories = get_terms('category', array(
 						'hide_empty' 	=> 	false,
 						'parent'		=>	$category->term_id,
 					));

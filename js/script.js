@@ -1,6 +1,6 @@
 (function($){
 $(document).ready(function(){
-	var select = $('#thread_category').val();
+	var select = $('#category').val();
 	if( currentUser.ID != 0 ){
 		if(currentUser.captcha && currentUser.captcha_cat.length != 0){
 			if( currentUser.captcha_cat.toString().indexOf(select) != -1 ){

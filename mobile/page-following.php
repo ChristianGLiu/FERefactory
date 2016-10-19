@@ -27,7 +27,7 @@ $data = et_get_unread_follow();
 							<?php 
 								if(!empty($data) && count($data['unread']['data']) > 0){
 							?>								
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'thread_category' )) { echo 'mana'; }?>"><?php echo count($data['unread']['data']) ?></span>
+								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['unread']['data']) ?></span>
 							<?php } ?>								
 							</span>
 						</a>
@@ -36,7 +36,7 @@ $data = et_get_unread_follow();
 						<a href="<?php echo et_get_page_link("following") ?>">
 							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
 							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'thread_category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
+								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
 							<?php } ?>
 							</span>
 						</a>
@@ -79,7 +79,7 @@ $data = et_get_unread_follow();
 					$follows = get_user_meta( $user_ID, 'et_following_threads',true);
 					$posts_in = ($follows) ? $follows : array(0);
 					$args = array(
-						'post_type' => 'thread',
+						'post_type' => 'post',
 						'post_status' => apply_filters('fe_thread_status', array('publish','pending','closed')),
 						'paged' => get_query_var('paged'),
 						'post__in' => $posts_in

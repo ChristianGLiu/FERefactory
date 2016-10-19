@@ -47,8 +47,8 @@ ForumMobile.Views.Index = Backbone.View.extend({
 		var active 	 = $('div.ui-page-active'),
 			title    = active.find("input#thread_title").val(),
 			content  = active.find("textarea#thread_content").val(),
-			category = active.find("select#thread_category").val(),
-			data = {post_title : title,post_content : content , thread_category : category};
+			category = active.find("select#category").val(),
+			data = {post_title : title,post_content : content , category : category};
 
 		if(content == "" || title == "") {
 			ForumMobile.app.notice('error', translation_text.fill_out);
@@ -60,7 +60,7 @@ ForumMobile.Views.Index = Backbone.View.extend({
 			data = {
 				post_title : title,
 				post_content : content ,
-				thread_category : category,
+				category : category,
 				recaptcha_challenge_field: captcha_challend,
 				recaptcha_response_field : catpcha_response
 			};
@@ -153,7 +153,7 @@ ForumMobile.Views.Index = Backbone.View.extend({
 				content : {
 					paged			: paged,
 					status 			: status,
-					thread_category : category,
+					category : category,
 					s				: s,
 					exclude 		: typeof threads_exclude == 'undefined' ? [] : threads_exclude
 					}
@@ -460,7 +460,7 @@ $(document).ready(function() {
     $(".login_to_view").click(function(){
     	ForumMobile.app.notice('error', fe_front.login_2_view);
     });
-    var select = $('#thread_category').val();
+    var select = $('#category').val();
 	if( currentUser.ID != 0 ){
 		if(currentUser.captcha && currentUser.captcha_cat.length != 0){
 			if( currentUser.captcha_cat.toString().indexOf(select) != -1 ){

@@ -95,23 +95,23 @@ class ET_ForumFront extends ET_ForumEngine{
 		return $result;
 	}
 	function category_slug_before($thread){
-		$t= (string)$thread->thread_category[0]->slug;
+		$t= (string)$thread->category[0]->slug;
 		echo '<input type="hidden" value="'.$t.'" class="thread_item" />';
 
 	}
 	function my_page_template_redirect()
 	{
-		if( is_singular('thread') )
+		if( is_singular('post') )
 		{
 			$post_id   = get_the_ID();
-			$term_list = wp_get_post_terms($post_id, 'thread_category', array("fields" => "all"));
+			$term_list = wp_get_post_terms($post_id, 'category', array("fields" => "all"));
 			$auth      = get_option('authorize_to_view',array());
 			$user_view = get_option('user_view');
 			$f         = true;
 			if($user_view){
 				if(!is_user_logged_in()){
 					foreach ($term_list as $term) {
-						$ancestor = get_ancestors($term->term_id, 'thread_category');
+						$ancestor = get_ancestors($term->term_id, 'category');
 						foreach ($ancestor as $key => $value) {
 
                             if(in_array((string)$value, $auth)){
@@ -164,7 +164,7 @@ class ET_ForumFront extends ET_ForumEngine{
 	}
 	public function filter_request_feed($request) {
 	    if (isset($request['feed']) && !isset($request['post_type'])):
-	        $request['post_type'] = array("thread");
+	        $request['post_type'] = array("post");
 	    endif;
 
 	    return $request;
@@ -220,9 +220,9 @@ class ET_ForumFront extends ET_ForumEngine{
 		if($user_view){
 			if($user_authorize_to_view){
 				foreach($user_authorize_to_view as $au){
-					$term=get_term_by("id",$au,"thread_category" );
+					$term=get_term_by("id",$au,"category" );
 					// auto add sub category
-					$sub_terms =  get_terms( 'thread_category', array( 'hide_empty' => 1, 'child_of' =>$term->term_id) ) ;
+					$sub_terms =  get_terms( 'category', array( 'hide_empty' => 1, 'child_of' =>$term->term_id) ) ;
 
 					if(!is_wp_error( $sub_terms ) ){
 						foreach ($sub_terms as $sub_term) {
@@ -273,27 +273,27 @@ class ET_ForumFront extends ET_ForumEngine{
 		if ( $id != '' ) $id = 'id="' . $id . '"';
 		if ( $item_class != '') $item_class = 'class="' . $item_class . '"';
 
-		if ( is_tax( 'thread_category' ) || is_singular( 'thread' ) ){
+		if ( is_tax( 'category' ) || is_singular( 'post' ) ){
 			$breadcrumb = '';
 			$breadcrumb .= '<ul class="breadcrumbs">';
 			$breadcrumb .= "<li class='icon'><a href='" . home_url() .  "'>" . __('Home', ET_DOMAIN) ."</a></li>";
 			global $post;
-			$terms = get_the_terms( $post->ID, 'thread_category' );
+			$terms = get_the_terms( $post->ID, 'category' );
 
 			if(!empty($terms)){
 				foreach ($terms as $term) {
-					$parent_term = get_term( $term->parent, 'thread_category' );
+					$parent_term = get_term( $term->parent, 'category' );
 					if($parent_term && !is_wp_error( $parent_term )){
-						$breadcrumb .= "<li $item_class><a href='" . get_term_link( $parent_term, 'thread_category' ) . "'> $parent_term->name</a></li>";
+						$breadcrumb .= "<li $item_class><a href='" . get_term_link( $parent_term, 'category' ) . "'> $parent_term->name</a></li>";
 					}
-					$breadcrumb .= "<li $item_class><a href='" . get_term_link( $term, 'thread_category' ) . "'> $term->name</a></li>";
+					$breadcrumb .= "<li $item_class><a href='" . get_term_link( $term, 'category' ) . "'> $term->name</a></li>";
 					break;
 				}
 			} else {
 				$breadcrumb .= "<li $item_class>" . __( 'No Category', ET_DOMAIN ) . '</li>';
 			}
 
-			if ( is_singular( 'thread' ) ){
+			if ( is_singular( 'post' ) ){
 				$breadcrumb .= '<li ' . $item_class .' >';
 				$breadcrumb .= get_the_title();
 				$breadcrumb .= '</li>';
@@ -380,7 +380,7 @@ class ET_ForumFront extends ET_ForumEngine{
 			);
 			wp_localize_script( 'site-front', 'fe_front', $front_texts );
 
-			if (is_front_page() || is_singular( 'thread' ) || is_tax()){
+			if (is_front_page() || is_singular( 'post' ) || is_tax()){
 				$this->add_script('fe-upload-images', TEMPLATEURL . '/js/upload-images.js', array('jquery', 'backbone', 'underscore'));
 				$this->add_existed_script( 'jquery-ui-core' );
 				$this->add_existed_script( 'plupload-all' );
@@ -399,7 +399,7 @@ class ET_ForumFront extends ET_ForumEngine{
 			else if (is_home() || is_category()){
 				$this->add_script('fe-blog', TEMPLATEURL . '/js/blog.js', array('jquery', 'backbone', 'underscore'));
 			}
-			else if (is_singular( 'thread' )){
+			else if (is_singular( 'post' )){
 				$this->add_script('magnific-popup', TEMPLATEURL . '/js/libs/jquery.magnific-popup.min.js', array('jquery'));
 				$this->add_script('fe-shcore', TEMPLATEURL . '/js/libs/syntaxhighlighter/shCore.js', array('jquery'));
 				$this->add_script('fe-brush-js', TEMPLATEURL . '/js/libs/syntaxhighlighter/shBrushJScript.js', array('jquery', 'fe-shcore'));
@@ -440,7 +440,7 @@ class ET_ForumFront extends ET_ForumEngine{
 	public function on_add_styles(){
 		parent::on_add_styles();
 
-		if (is_front_page() || is_singular( 'thread' ) || is_tax()){
+		if (is_front_page() || is_singular( 'post' ) || is_tax()){
 			//wp_enqueue_style( 'wp-jquery-ui-dialog' );
 		}
 		if(!et_load_mobile()){
@@ -453,7 +453,7 @@ class ET_ForumFront extends ET_ForumEngine{
 			$this->add_style( 'fe-ie', TEMPLATEURL . '/css/ie.css');
 			$this->add_style( 'fe-style', get_stylesheet_uri());
 
-			if(is_singular( 'thread' )){
+			if(is_singular( 'post' )){
 				$this->add_style('fe-shstyle', TEMPLATEURL . '/css/shCoreDefault.css');
 				$this->add_style('magnific-popup', TEMPLATEURL . '/css/libs/magnific-popup.css');
 			}
@@ -480,7 +480,7 @@ class ET_ForumFront extends ET_ForumEngine{
 			$this->add_filter("posts_orderby", "_thread_orderby");
 
 			// sticky thread in thread category
-			if ( is_tax( 'thread_category' ) || is_tax( 'fe_tag' )){
+			if ( is_tax( 'category' ) || is_tax( 'fe_tag' )){
 				$sticky_thread = et_get_sticky_threads();
 				$query->set('post__not_in', $sticky_thread[1]);
 			}
@@ -507,11 +507,11 @@ class ET_ForumFront extends ET_ForumEngine{
 			$this->add_filter('posts_join', '_thread_join');
 			$this->add_filter("posts_orderby", "_thread_orderby");
 			//add_filter('posts_orderby', array('FE_Threads', 'query_reply_orderby'));
-			$query->set('post_type', 'thread');
+			$query->set('post_type', 'post');
 			if(isset($_GET['tax_cat'])){
 				$query->set('tax_query', array(
 						array(
-							'taxonomy' => 'thread_category',
+							'taxonomy' => 'category',
 							'field'    => 'slug',
 							'terms'    => $_GET['tax_cat'],
 						)
@@ -585,7 +585,7 @@ class ET_ForumFront extends ET_ForumEngine{
 				} else {
 					$status = apply_filters('fe_thread_status', array( 'publish' ));
 					$threads = get_posts(array(
-							'post_type' => 'thread',
+							'post_type' => 'post',
 							'posts_per_page' => -1,
 							'post_status' =>$status
 						)
@@ -611,7 +611,7 @@ class ET_ForumFront extends ET_ForumEngine{
 					}
 
 				}
-			} elseif (is_singular( 'thread' )) {
+			} elseif (is_singular( 'post' )) {
 
 				FE_Member::update_unread();
 
@@ -632,7 +632,7 @@ class ET_ForumFront extends ET_ForumEngine{
 					$_COOKIE['fe_cookie_thread_viewed'] = json_encode($cookie_json);
 
 				}
-			} else if(is_singular( 'thread' )){
+			} else if(is_singular( 'post' )){
 
 				global $post;
 				//first time access single-thread page
@@ -693,7 +693,7 @@ class ET_ForumFrontPost extends ET_Base{
 			wp_logout();
 		}
 
-		if(is_singular( 'thread' )){
+		if(is_singular( 'post' )){
 			global $post;
 			if(!get_post_meta( $post->ID, 'et_like_count', true )){
 				$likes = get_post_meta( $post->ID, 'et_likes', true );
@@ -736,9 +736,9 @@ class ET_ForumFrontPost extends ET_Base{
 
 			$pending = et_get_option('pending_thread') ;
 			if($pending) {
-				$result = FE_Threads::insert_thread($_POST['post_title'], $_POST['post_content'], $_POST['thread_category'],"pending");
+				$result = FE_Threads::insert_thread($_POST['post_title'], $_POST['post_content'], $_POST['category'],"pending");
 			} else {
-				$result = FE_Threads::insert_thread($_POST['post_title'], $_POST['post_content'], $_POST['thread_category']);
+				$result = FE_Threads::insert_thread($_POST['post_title'], $_POST['post_content'], $_POST['category']);
 			}
 
 			do_action( 'fe_front_insert_thread', $result );
@@ -838,7 +838,7 @@ class ET_ForumFrontPost extends ET_Base{
 		global $wp_rewrite;
 		if ( $wp_rewrite->using_permalinks() && isset($_REQUEST['s']) ){
 			$keyword = str_replace('.php', ' php', $_REQUEST['s']);
-			$link    = isset($_REQUEST['thread_category']) ? add_query_arg( array('tax_cat' => $_REQUEST['thread_category']), fe_search_link( $keyword )) : fe_search_link( $keyword );
+			$link    = isset($_REQUEST['category']) ? add_query_arg( array('tax_cat' => $_REQUEST['category']), fe_search_link( $keyword )) : fe_search_link( $keyword );
 			wp_redirect( $link );
 			exit;
 		}
@@ -1003,7 +1003,7 @@ class ET_ForumAjax extends ET_Base{
 				throw new Exception("You must log in to create a thread.", 1);
 			}
 
-			if($args['post_title'] == "" || $args['post_content'] == "" || $args['thread_category'] == "" ){
+			if($args['post_title'] == "" || $args['post_content'] == "" || $args['category'] == "" ){
 				throw new Exception("Please fill out all fields required.", 1);
 			}
 
@@ -1016,9 +1016,9 @@ class ET_ForumAjax extends ET_Base{
 				$args['post_content'] = strip_tags($args['post_content'], '<p><br>');
 
 			if($pending) {
-				$result = FE_Threads::insert_thread($args['post_title'], $args['post_content'], $args['thread_category'],"pending",$user_ID);
+				$result = FE_Threads::insert_thread($args['post_title'], $args['post_content'], $args['category'],"pending",$user_ID);
 			} else {
-				$result = FE_Threads::insert_thread($args['post_title'], $args['post_content'], $args['thread_category'],"publish",$user_ID);
+				$result = FE_Threads::insert_thread($args['post_title'], $args['post_content'], $args['category'],"publish",$user_ID);
 			}
 
 			if(is_wp_error( $result )){
@@ -1167,10 +1167,10 @@ HTML;
 					'post_status' => array('pending'),
 				);
 			} else if($params['status'] == "index" || $params['status'] == "scroll-index") {
-				if(isset($params['thread_category'])){
+				if(isset($params['category'])){
 					$args = array(
 						'paged' 	  => $params['paged']+1,
-						'thread_category' => $params['thread_category'],
+						'category' => $params['category'],
 						'post_status' => $post_status,
 					);
 				} else if(isset($params['fe_tag'])){
@@ -1207,8 +1207,8 @@ HTML;
 					'post_status' => $post_status,
 					's'	  		  => $params['s']
 				);
-				if(isset($params['thread_category'])){
-					$args['thread_category'] = $params['thread_category'];
+				if(isset($params['category'])){
+					$args['category'] = $params['category'];
 				}
 			}
 
@@ -1290,7 +1290,7 @@ HTML;
 		$isHightLight 	= et_is_highlight($thread->ID);
 		$isLike 		= $thread->liked ? 'active' : '';
 		$isComment 		= $thread->replied ? 'active' : '';
-		if(!is_user_logged_in() && get_option('user_view', false) && get_option('authorize_to_view') && !in_array($thread->thread_category[0]->term_id, get_option('authorize_to_view')))
+		if(!is_user_logged_in() && get_option('user_view', false) && get_option('authorize_to_view') && !in_array($thread->category[0]->term_id, get_option('authorize_to_view')))
 		{
 			$permalink = "#";
 			$login_to_view = 'login_to_view';
@@ -1303,9 +1303,9 @@ HTML;
 		$thread_title 	= get_the_title($thread->ID);
 		$et_updated_date = sprintf( __( 'Updated %s', ET_DOMAIN ),et_the_time(strtotime($thread->et_updated_date)));
 
-		$thread_category = $thread->thread_category ? $thread->thread_category[0]->name : __('No category', ET_DOMAIN);
-		$thread_category_link = $thread->thread_category ? get_term_link( $thread->thread_category[0]->slug, 'thread_category' ) : '#';
-		$color = (!empty($thread->thread_category[0])) ? FE_ThreadCategory::get_category_color($thread->thread_category[0]->term_id) : 0;
+		$thread_category = $thread->category ? $thread->category[0]->name : __('No category', ET_DOMAIN);
+		$thread_category_link = $thread->category ? get_term_link( $thread->category[0]->slug, 'category' ) : '#';
+		$color = (!empty($thread->category[0])) ? FE_ThreadCategory::get_category_color($thread->category[0]->term_id) : 0;
 
 		$last_reply = $thread->et_last_author ? '<span class="last-reply"><a href="'.et_get_last_page($thread->ID).'">'.__('Last reply',ET_DOMAIN).'</a></span> '.__( 'by', ET_DOMAIN ).' <span class="semibold"><a href="'.get_author_posts_url($thread->et_last_author->ID).'">'.$thread->et_last_author->display_name.'</a></span>': __( 'No reply yet', ET_DOMAIN );
 		$approve = __('APPROVE', ET_DOMAIN);
@@ -1374,14 +1374,14 @@ HTML;
 			// check if post type is thread or reply
 			$post_type 	= 'reply';
 			if ( wp_verify_nonce( $args['fe_nonce'], 'edit_thread' ) )
-				$post_type = 'thread';
+				$post_type = 'post';
 
 			// prepare post
 			$post 		= get_post($args['ID']);
 
 			// if given id is wrong, return error
 			if (!$post)
-				if ( $post_type == 'thread' )
+				if ( $post_type == 'post' )
 					throw new Exception(__("Thread not found", ET_DOMAIN));
 				else
 					throw new Exception(__("Reply not found", ET_DOMAIN));
@@ -1391,14 +1391,14 @@ HTML;
 			// update post
 			unset($args['fe_nonce']);
 			$tags = et_generate_tag( $args['post_content'] );
-			if ($post->post_type == 'thread'){
+			if ($post->post_type == 'post'){
 				$result 		= FE_Threads::update($args);
 				do_action( 'fe_save_thread', $result );
 				$post 			= get_post($result);
 				$return_data 	= FE_Threads::convert($post);
 				//
-				if ( !empty($return_data->thread_category) && !empty($return_data->thread_category[0]) ){
-					$return_data->thread_category[0]->update_time_string = sprintf( __( 'Updated %s in', ET_DOMAIN ),time_elapsed_string( strtotime($post->post_date) ));
+				if ( !empty($return_data->category) && !empty($return_data->category[0]) ){
+					$return_data->category[0]->update_time_string = sprintf( __( 'Updated %s in', ET_DOMAIN ),time_elapsed_string( strtotime($post->post_date) ));
 				}
 				/* set tag for thread */
 				if(!empty( $tags )){
@@ -1452,7 +1452,7 @@ HTML;
 			if ($result->have_posts()){
 				while ($result->have_posts()){
 					$result->the_post();
-					if ( $parent_type == 'thread' ){
+					if ( $parent_type == 'post' ){
 
 						$reply = FE_Replies::convert($post);
 						$reply->html = $this->reply_desktop_template($reply);
@@ -2452,7 +2452,7 @@ HTML;
 				$thread->permalink = get_permalink( $post->ID );
 				$data[]            = $thread;
 			}
-			$search_link = isset($args['thread_category']) ? add_query_arg(array('tax_cat'=>$args['thread_category']), fe_search_link( $args['s'] )) : fe_search_link( $args['s'] );
+			$search_link = isset($args['category']) ? add_query_arg(array('tax_cat'=>$args['category']), fe_search_link( $args['s'] )) : fe_search_link( $args['s'] );
 			$resp = array(
 				'success' 	=> true,
 				'msg' 		=> '',

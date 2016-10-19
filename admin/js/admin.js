@@ -75,7 +75,7 @@ Backend.Views.OptionToggle = Backbone.View.extend({
  * Category list view
  */
 Backend.Views.CategoryList = Backbone.View.extend({
-	el: '#thread-categories',
+	el: '#categories',
 	events: {
 		//'submit #form_new_tax' : 'onCreateCategory'
 	},
@@ -125,7 +125,7 @@ Backend.Views.CategoryList = Backbone.View.extend({
 	},
 
 	initSortable: function(){
-		$('#thread-categories > ul').nestedSortable({
+		$('#categories > ul').nestedSortable({
 			handle: '.sort-handle',
 			listType: 'ul',
 			items: 'li',
@@ -137,7 +137,7 @@ Backend.Views.CategoryList = Backbone.View.extend({
 	},
 
 	updateCategoriesOrder: function(event, ui){
-		var element = $('#thread-categories > ul');
+		var element = $('#categories > ul');
 		var order 	= element.nestedSortable('serialize');
 
 		var params = {

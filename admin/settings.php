@@ -120,7 +120,7 @@ class ET_AdminSetting extends ET_AdminMenuItem{
 			foreach ($users as $user) {
 				if(!get_user_meta( $user->ID, 'et_like_count', true)){
 					$threads = get_posts(array(
-							'post_type' => array('thread','reply'),
+							'post_type' => array('post','reply'),
 							'author' => $user->ID,
 							'posts_per_page' => -1,
 							'meta_query' => array(

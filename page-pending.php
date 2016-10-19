@@ -29,7 +29,7 @@ $data = et_get_unread_follow();
 			 * Display threads
 			 */
 			$args = array(
-				'post_type' 	=> 'thread',
+				'post_type' 	=> 'post',
 				'post_status' 	=> 'pending',
 				'paged' 		=> get_query_var('paged'),
 			);

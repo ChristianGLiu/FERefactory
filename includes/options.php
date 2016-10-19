@@ -360,7 +360,7 @@ class FE_ThreadCategory extends ET_Term {
 	public $color_option = '';
 
 	public function __construct () {
-		parent::__construct('thread_category', __('Thread category', ET_DOMAIN));
+		parent::__construct('category', __('Thread category', ET_DOMAIN));
 		$this->color_option = 'et_color_thread_category';
 	}
 
@@ -498,7 +498,7 @@ class FE_ThreadCategory extends ET_Term {
  */
 class FE_ThreadCategoryAjax extends FE_ThreadCategory{
 	public function __construct(){
-		parent::__construct('thread_category', __('Thread category', ET_DOMAIN));
+		parent::__construct('category', __('Thread category', ET_DOMAIN));
 		add_action('wp_ajax_et_term_sync', array(&$this, 'sync_term'));
 	}
 
@@ -519,7 +519,7 @@ class FE_ThreadCategoryAjax extends FE_ThreadCategory{
 					$default 	= isset($_REQUEST['content']['default']) ? $_REQUEST['content']['default'] : false;
 
 					// check if category has children or not
-					$children = get_terms('thread_category', array('parent' => $term, 'hide_empty' => false));
+					$children = get_terms('category', array('parent' => $term, 'hide_empty' => false));
 
 					if ( !empty($children) )
 						throw new Exception(__('You cannot delete a parent category. You need to delete its sub-categories first.', ET_DOMAIN));

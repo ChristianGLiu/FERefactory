@@ -20,7 +20,7 @@ $data = et_get_unread_follow();
 			<?php get_template_part( 'mobile/template', 'profile-menu' ) ?>
 			<div class="fe-tab">
 				<ul class="fe-tab-items">
-					<li class="fe-tab-item fe-tab-item-3 <?php //if (!is_tax( 'thread_category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
+					<li class="fe-tab-item fe-tab-item-3 <?php //if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
 							<span class="fe-tab-name"><?php _e('ALL POSTS',ET_DOMAIN) ?>
 							<?php
@@ -52,7 +52,7 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
-					<?php } else if ( is_tax( 'thread_category' ) ){ ?>
+					<?php } else if ( is_tax( 'category' ) ){ ?>
 						<li class="fe-tab-item fe-tab-item-3 fe-tab-3 current fe-current">
 							<a href="#">
 								<span class="fe-tab-name"><?php single_term_title( ) ?>
@@ -67,7 +67,7 @@ $data = et_get_unread_follow();
 				<div class="fe-topic-form">
 					<div class="fe-topic-input">
 						<div class="fe-topic-dropbox">
-							<select name="thread_category" id="thread_category">
+							<select name="category" id="category">
 								<option value="">Please select</option>
 								<?php
 									$categories = FE_ThreadCategory::get_categories();

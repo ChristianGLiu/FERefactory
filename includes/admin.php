@@ -54,7 +54,7 @@ class ET_ForumAdmin extends ET_ForumEngine{
 
 	public function add_columns($columns, $post_type){
 		switch ($post_type) {
-			case 'thread':
+			case 'post':
 				$columns = $this->array_put($columns, array(
 					'replies' => __('Replies', ET_DOMAIN)
 				), 4);

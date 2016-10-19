@@ -1,23 +1,23 @@
 <?php 
 global $post, $wp_query, $et_sticky_pagename;
 
-if ( is_front_page() || is_tax('thread_category') ) {
+if ( is_front_page() || is_tax('category') ) {
 	if ( is_front_page() )
 		$et_sticky_pagename = 'home';
 	else 
-		$et_sticky_pagename = 'thread_category';
+		$et_sticky_pagename = 'category';
 
 	$sticky_threads = et_get_sticky_threads();
 
 	$args = array(
 		'post__in' 			=> is_front_page() ? $sticky_threads[0] : $sticky_threads[1],
-		'post_type' 		=> 'thread',
+		'post_type' 		=> 'post',
 		'posts_per_page' 	=> -1
 	);
 
-	if ( is_tax('thread_category') ){
+	if ( is_tax('category') ){
 		$term_id 					= $wp_query->queried_object->slug;
-		$args['thread_category'] 	= $term_id;
+		$args['category'] 	= $term_id;
 	}
 
 	// get sticky thread

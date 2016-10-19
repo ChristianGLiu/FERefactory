@@ -150,7 +150,7 @@
 				that = this;
 
 				if(loading.attr('data-term')) {
-					query_default.content.thread_category = loading.attr('data-term');
+					query_default.content.category = loading.attr('data-term');
 				}
 
 				if(loading.attr('data-tag')) {
@@ -372,8 +372,8 @@
 				return false;
 			}
 
-			if ( $("#fe_search_form #thread_category").length > 0 ){
-				content.thread_category = $("#fe_search_form #thread_category").val()
+			if ( $("#fe_search_form #category").length > 0 ){
+				content.category = $("#fe_search_form #category").val()
 			}
 
 			var params 	= {

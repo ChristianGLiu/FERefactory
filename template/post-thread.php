@@ -17,10 +17,10 @@
 				<?php
 					$categories = FE_ThreadCategory::get_categories();
 				?>
-				<select class="collapse" name="thread_category" id="thread_category">
+				<select class="collapse" name="category" id="category">
 					<option value=""><?php _e('Please select' , ET_DOMAIN) ?></option>
 					<?php
-						$term = get_term_by( 'slug' , get_query_var( "term" ), 'thread_category') ;
+						$term = get_term_by( 'slug' , get_query_var( "term" ), 'category') ;
 						if(isset($term->term_id)){
 							et_the_cat_select($categories, $term->term_id) ;
 						} else {

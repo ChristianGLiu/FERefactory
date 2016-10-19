@@ -329,10 +329,10 @@ class FE_Member extends ET_User{
  		if(!empty($google_captcha_cat)){
 	 		foreach($google_captcha_cat as $captcha_cat){
 	 			//push parent category to array
-				$term = get_term_by("id", $captcha_cat, "thread_category" );
+				$term = get_term_by("id", $captcha_cat, "category" );
 				array_push( $arrcaptcha_cat, $term->slug );
 				//push child category to array
-				/*$childs = get_terms( "thread_category", array('child_of' => $captcha_cat, 'hide_empty' => false) );
+				/*$childs = get_terms( "category", array('child_of' => $captcha_cat, 'hide_empty' => false) );
 				if( !empty($childs) ){
 					foreach ($childs as $child) {
 						array_push( $arrcaptcha_cat, $child->slug );
@@ -439,7 +439,7 @@ class FE_Member extends ET_User{
 		}
 		$status = apply_filters('fe_thread_status', array('publish'));
 		$status_string = "'".implode('\',\'', $status)."'";
-		$sql = "SELECT et_p.ID FROM $wpdb->posts AS et_p INNER JOIN $wpdb->postmeta AS et_mt ON (et_p.ID = et_mt.post_id) WHERE et_p.post_type = 'thread' AND et_mt.meta_key = 'et_updated_date' AND et_mt.meta_value > '{$last_access}' AND (et_p.post_status IN ({$status_string})) GROUP BY et_p.ID ORDER BY et_mt.meta_value DESC, et_p.post_date DESC";
+		$sql = "SELECT et_p.ID FROM $wpdb->posts AS et_p INNER JOIN $wpdb->postmeta AS et_mt ON (et_p.ID = et_mt.post_id) WHERE et_p.post_type = 'post' AND et_mt.meta_key = 'et_updated_date' AND et_mt.meta_value > '{$last_access}' AND (et_p.post_status IN ({$status_string})) GROUP BY et_p.ID ORDER BY et_mt.meta_value DESC, et_p.post_date DESC";
 		$results = $wpdb->get_results($sql);
 
 		if($results){
@@ -486,10 +486,10 @@ class FE_Member extends ET_User{
 	/**
 	 * Update thread count and reply count for user
 	 */
-	static public function update_counter($user_id, $type = 'thread'){
+	static public function update_counter($user_id, $type = 'post'){
 		global $wpdb;
-		$type 	= $type == 'thread' ? 'thread' : 'reply';
-		if($type === 'thread'){
+		$type 	= $type == 'post' ? 'post' : 'reply';
+		if($type === 'post'){
 			$status_array = apply_filters('fe_thread_status', array( 'publish' ));
 			$status = array();
 			foreach($status_array as $st){
@@ -503,7 +503,7 @@ class FE_Member extends ET_User{
 		$sql 	= " SELECT COUNT(ID) FROM {$wpdb->posts} WHERE post_author = {$user_id} AND ({$status}) AND post_type = '{$type}' ";
 		$number = $wpdb->get_var($sql);
 
-		if ( $type == 'thread' )
+		if ( $type == 'post' )
 			update_user_meta( $user_id, 'et_thread_count', $number );
 		else
 			update_user_meta( $user_id, 'et_reply_count', $number );
@@ -1329,7 +1329,7 @@ function et_get_ban_expired_period(){
 /**
  * Additional functions
  */
-function et_count_user_posts($user_id,$post_type = "thread"){
+function et_count_user_posts($user_id,$post_type = "post"){
 	global $wpdb;
 	$sql = "SELECT COUNT(post.ID)
 				FROM {$wpdb->posts} as post

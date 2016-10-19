@@ -3,7 +3,7 @@ function fe_navigations(){
 	global $wp_query, $wp_rewrite, $post, $current_user , $user_ID, $wpdb;
 
 	$data = et_get_unread_follow();
-	$taxonomy = is_tax( 'thread_category' ) ? 'thread_category' : 'fe_tag';
+	$taxonomy = is_tax( 'category' ) ? 'category' : 'fe_tag';
 	$term = get_term_by( 'slug' , get_query_var( "term" ), $taxonomy);
 	?>
 		<ul class="nav-link">
@@ -368,7 +368,7 @@ function et_thread_categories_list ( $parent =	0 , $level = 1 , $categories = fa
 		foreach ($cats as $cat) {
 			if ( $cat->parent != $parent ) continue;
 
-			$cat_link = get_term_link( $cat, 'thread_category' );
+			$cat_link = get_term_link( $cat, 'category' );
 
 			$has_child = false;
 			foreach ($cats as $child) {
@@ -444,7 +444,7 @@ function et_the_mobile_cat_list( $parent = 0, $level = 1, $categories = false ){
 		foreach ($cats as $cat) {
 			if ( $cat->parent != $parent ) continue;
 
-			$cat_link = get_term_link( $cat, 'thread_category' );
+			$cat_link = get_term_link( $cat, 'category' );
 
 			$has_child = false;
 			foreach ($cats as $child) {
@@ -537,7 +537,7 @@ function fe_search_link($query){
 		return home_url( '/' . $search_slug . '/' . urlencode( $query ) );
 	} else {
 		return add_query_arg( array(
-			'post_type' => 'thread',
+			'post_type' => 'post',
 			's' 		=> urlencode( $query )
 		), home_url( ) );
 	}
