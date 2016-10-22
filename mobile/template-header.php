@@ -17,9 +17,11 @@
 			</ul>
 		</div>
 	</div>
+
 	<div data-role="header" class="fe-header">
 		<div id="header_standard" class="header-part header-standard active">
 			<h1 data-role="heading" class="ui-title"><a target="_self" href="<?php echo home_url( ) ?>"><img src="<?php echo fe_get_logo() ?>" alt="<?php bloginfo( 'name' ) ?>"/></a></h1>
+
 			<a class="fe-search ui-btn-right ui-link" href="#header_search">
 				<span class="fe-btn-search fe-sprite"></span>
 			</a>
@@ -35,6 +37,8 @@
 			</a>
 		</div>
 	</div>
+
+
 	<?php if(apply_filters( 'fe_expand_category' , true )){ ?>
 	<style type="text/css">
 		.fe-cat-list ul li.fe-has-child > ul{

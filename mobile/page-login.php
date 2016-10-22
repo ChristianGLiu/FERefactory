@@ -32,19 +32,9 @@ get_template_part( 'mobile/template', 'header' );
 				</div>
 
 				<div class="fe-form-item fe-form-btns fe-form-submit">
-					<ul class="social-icon clearfix"> 
-						<!-- facebook plus login -->
-						<?php if(et_get_option('facebook_login', false)){?>
-							<li class="fb"><a href="#" id="facebook_auth_btn">facebook</a></li>
-						<?php } ?>
-						<!-- twitter plus login -->
-						<?php if(et_get_option('twitter_login', false)){?>
-							<li class="tw"><a href="<?php echo add_query_arg('action', 'twitterauth', home_url()) ?>" data-ajax="false">Twitter</a></li>
-						<?php } ?>
-						<!-- google plus login -->
-						<?php if(et_get_option('gplus_login', false)){?>
-							<li class="gp"><a id="signinButton" href="#">Google+</a></li>
-						<?php } ?>
+					<ul class="social-icon clearfix">
+						<?php echo open_social_login_html();?>
+
 					</ul>
 					<a href="<?php echo et_get_page_link('forgot-password') ?>" class="bnt_forget"><?php _e( 'Forgotten password?', ET_DOMAIN ) ?></a>
 					<input type="submit" value="<?php _e('Login', ET_DOMAIN) ?>" data-role="none" class="fe-btn-left fe-form-btn">

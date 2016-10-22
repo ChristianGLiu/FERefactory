@@ -113,7 +113,17 @@
 						));
 					echo $breadcrumbs;
 					?>
+					<div class="menu-bar-social-bar">
+
+                                            				<?php if(!$user_ID){?>
+
+                                            				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+                                            				<?php } ?>
+
+                                            			</div>
 				</div>
+
+
 			</div>
 
 			<?php } ?>

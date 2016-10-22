@@ -3,7 +3,6 @@ get_header();
 ?>
 <!--end header Bottom-->
 <div class="container main-center">
-<?php echo "this is index.php<br />"; ?>
 	<div class="row">
 	<div class="col-md-9 col-sm-12 marginTop30">
 	<div id="form_thread" class="thread-form auto-form new-thread">
@@ -28,6 +27,8 @@ get_header();
     							</select>
     						</div>
     				  	</div>
+
+
     					<div class="form-detail collapse">
     						<?php wp_editor( '' , 'post_content' , editor_settings() ); ?>
     						<?php

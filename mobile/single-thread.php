@@ -18,9 +18,16 @@ else
 	<div itemscope itemtype="http://schema.org/Article">
 		<div class="fe-page-heading">
 			<div class="fe-avatar fe-nav">
+
 				<?php if(!$user_ID){?>
+				 <?php echo "<div class='mobile-social-wrapper' style='float:left;margin-top:10px;'><span class='mobile-social-bar-label'>一键登录：</span><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
+
 				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
 				<?php } else {?>
+				 <?php
+				 $current_user = wp_get_current_user();
+
+				 echo "<span class='mobile-social-bar-label'>欢迎回来:".$current_user->display_name."</span>";?>
 				<a href="<?php echo get_author_posts_url($user_ID) ?>" class="fe-head-avatar toggle-menu"><?php echo  et_get_avatar($user_ID);?></a>
 				<?php } ?>
 			</div>

@@ -10,16 +10,25 @@ $data = et_get_unread_follow();
 		<div data-role="content" class="fe-content">
 			<div class="fe-nav">
 				<a href="#fe_category" class="fe-nav-btn fe-btn-cats"><span class="fe-sprite"></span></a>
+
 				<?php if(!$user_ID){?>
-				<a href="<?php echo et_get_page_link('login') ?>" rel="external" target="_self" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+				 <?php echo "<div class='mobile-social-wrapper' style='margin-top:10px;margin-left:-20px;'><span class='mobile-social-bar-label' style='margin-top:10px;margin-left:-20px;'>一键登录：</span><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
+
+				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
 				<?php } else {?>
+				 <?php
+				 $current_user = wp_get_current_user();
+
+				 echo "<span class='mobile-social-bar-label'>欢迎回来:".$current_user->display_name."</span>";?>
+
 				<a href="<?php echo get_author_posts_url($user_ID) ?>" class="fe-head-avatar toggle-menu"><?php echo  et_get_avatar($user_ID);?></a>
 				<?php } ?>
 			</div>
 			<?php get_template_part( 'mobile/template', 'profile-menu' ) ?>
+
 			<div class="fe-tab">
 				<ul class="fe-tab-items">
-					<li class="fe-tab-item fe-tab-item-3 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
+					<li class="fe-tab-item fe-tab-item-5 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
 							<span class="fe-tab-name"><?php _e('ALL POSTS',ET_DOMAIN) ?>
 							<?php
@@ -30,7 +39,7 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
-					<li class="fe-tab-item fe-tab-item-3">
+					<li class="fe-tab-item fe-tab-item-6">
 						<?php if($user_ID){?>
 						<a href="<?php echo et_get_page_link("following") ?>">
 						<?php } else { ?>
@@ -43,6 +52,21 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
+					<li class="fe-tab-item fe-tab-item-7">
+                    						<a href="/advert-category/房屋销售/">
+                    						加东房产
+                    						</a>
+                    					</li>
+                    					<li class="fe-tab-item fe-tab-item-8">
+                                                            						<a href="/二手交易/">
+                                                            						二手交易
+                                                            						</a>
+                                                            					</li>
+                                                            					<li class="fe-tab-item fe-tab-item-9">
+                                                                                                    						<a href="/商家黄页/">
+                                                                                                    						商家黄页
+                                                                                                    						</a>
+                                                                                                    					</li>
 					<?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) ) {?>
 					<li class="fe-tab-item fe-tab-item-3 fe-tab-3">
 						<a href="<?php echo et_get_page_link("pending");?>">
@@ -108,34 +132,152 @@ $data = et_get_unread_follow();
 				<?php
 				$sticky_threads = et_get_sticky_threads();
 				if ( !empty( $sticky_threads[0] ) ){
-					//load_template( apply_filters('et_mobile_template_sticky', dirname(__FILE__) . '/mobile-template-sticky.php' ), false );
 					get_template_part( 'mobile/template/thread', 'sticky' );
 				}
 				?>
 
 				<!-- Loop Threads -->
-				<?php
-					$page = get_query_var('page') ? get_query_var('page') : 1;
-					$thread_query = FE_Threads::get_threads(array(
-						'post_type' 	=> 'post',
-						'paged' 		=> $page,
-						'post__not_in' 	=> $sticky_threads[0]
-					));
-					if (  $thread_query->have_posts() ){
-						while ($thread_query->have_posts()){ $thread_query->the_post();
-							//load_template( apply_filters( 'et_mobile_template_thread', dirname(__FILE__) . '/mobile-template-thread.php'), false);
-							get_template_part( 'mobile/template/thread', 'loop' );
-						}
-					}
-				?>
 
-				<?php if ( !empty($sticky_threads[1]) ){ ?>
-					<script type="text/javascript">
-					var threads_exclude = <?php echo json_encode($sticky_threads[0]) ?>;
-					</script>
 				<?php
-					} //end if
-				?>
+                $page 			= get_query_var('page') ? get_query_var('page') : 1;
+                $sticky_threads = et_get_sticky_threads();
+
+
+                $thread_query_1 = FE_Threads::get_threads(array(
+                'post_type' 	=> 'post',
+                'cat' => 56,
+                'posts_per_page' => 2,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+                ));
+
+                if (  $thread_query_1->have_posts() ){ ?>
+                	<?php
+                	if ( !empty( $sticky_threads[0] ) ){
+                		// load sticky thread
+                		get_template_part( 'template/sticky', 'thread' );
+                	}
+
+                	while ($thread_query_1->have_posts()){ $thread_query_1->the_post();
+                    							get_template_part( 'mobile/template/thread', 'loop' );
+                    						}
+                	?>
+                	<?php
+                	wp_reset_query();
+                }
+                $thread_query_2 = FE_Threads::get_threads(array(
+                'post_type' 	=> 'post',
+                'cat' => '117',
+                'posts_per_page' => 2,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+                ));
+
+                if (  $thread_query_2->have_posts() ){ ?>
+                	<?php
+                	if ( !empty( $sticky_threads[0] ) ){
+                		// load sticky thread
+                		get_template_part( 'template/sticky', 'thread' );
+                	}
+
+                	while ($thread_query_2->have_posts()){ $thread_query_2->the_post();
+                    							get_template_part( 'mobile/template/thread', 'loop' );
+                    						}
+                	?>
+                	<?php
+                	wp_reset_query();
+                }
+
+                $thread_query_3 = FE_Threads::get_threads(array(
+                'post_type' 	=> 'post',
+                'cat' => '14',
+                'posts_per_page' => 2,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+                ));
+                if (  $thread_query_3->have_posts() ){ ?>
+                	<?php
+                	if ( !empty( $sticky_threads[0] ) ){
+                		// load sticky thread
+                		get_template_part( 'template/sticky', 'thread' );
+                	}
+
+                	while ($thread_query_3->have_posts()){ $thread_query_3->the_post();
+                                        							get_template_part( 'mobile/template/thread', 'loop' );
+                                        						}
+                	?>
+                	<?php
+                	wp_reset_query();
+                }
+
+                $thread_query_4 = FE_Threads::get_threads(array(
+                'post_type' 	=> 'post',
+                'cat' => '115',
+                'posts_per_page' => 2,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+                ));
+
+                if (  $thread_query_4->have_posts() ){ ?>
+                	<?php
+                	if ( !empty( $sticky_threads[0] ) ){
+                		// load sticky thread
+                		get_template_part( 'template/sticky', 'thread' );
+                	}
+
+                	while ($thread_query_4->have_posts()){ $thread_query_4->the_post();
+                                        							get_template_part( 'mobile/template/thread', 'loop' );
+                                        						}
+                	?>
+                	<?php
+                	wp_reset_query();
+                }
+                $thread_query_5 = FE_Threads::get_threads(array(
+                'post_type' 	=> 'post',
+                'cat' => '60',
+                'posts_per_page' => 2,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+                ));
+                if (  $thread_query_5->have_posts() ){ ?>
+                	<?php
+                	if ( !empty( $sticky_threads[0] ) ){
+                		// load sticky thread
+                		get_template_part( 'template/sticky', 'thread' );
+                	}
+
+                	while ($thread_query_5->have_posts()){ $thread_query_5->the_post();
+                                        							get_template_part( 'mobile/template/thread', 'loop' );
+                                        						}
+                	?>
+                	<?php
+                	}
+
+                	wp_reset_query();
+                	$thread_query = FE_Threads::get_threads(array(
+                	'post_type' 	=> 'post',
+                	'paged' 		=> $page,
+                	'post__not_in' 	=> $sticky_threads[0],
+                	'category__not_in' => array(60,115,14,117,56)
+                	));
+
+
+                if (  $thread_query->have_posts() ){ ?>
+                	<?php
+                	if ( !empty( $sticky_threads[0] ) ){
+                		// load sticky thread
+                		get_template_part( 'template/sticky', 'thread' );
+                	}
+                	while ($thread_query->have_posts()){ $thread_query->the_post();
+                                        							get_template_part( 'mobile/template/thread', 'loop' );
+                                        						}
+                                        						?>
+
+                	<?php
+                }
+                ?>
+
+
 				<!-- Loop Thread -->
 			</div>
 			<!-- button load more -->

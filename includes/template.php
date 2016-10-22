@@ -20,6 +20,20 @@ function fe_navigations(){
 				</a>
 			</li>
 
+	<li class="menu-bar-social-bar-front">
+
+				<?php if(!$user_ID){?>
+				 <?php echo "<div class='social-wrapper'><span class='social-bar-label'>一键登录：</span><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
+
+				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+				<?php } else {?>
+				 <?php
+				 $current_user = wp_get_current_user();
+
+				 echo "<span class='mobile-social-bar-label'>欢迎回来:".$current_user->display_name."</span>";?>
+				 <?php } ?>
+			</li>
+
 			<li <?php echo is_page_template( 'page-following.php' ) ? 'class="active"' : ''; ?>>
 				<a
 			<?php
@@ -45,6 +59,7 @@ function fe_navigations(){
 			</li>
 			<?php } ?>
 			<?php do_action( 'fe_navigations' ); ?>
+
 		</ul>
 		<div class="clear-fix"></div>
 	<?php

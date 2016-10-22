@@ -6,7 +6,6 @@ get_header();
 	<div class="row">
 		<div class="col-md-9 col-sm-12 marginTop30">
 			<?php
-			echo "this is single.php<br />";
 			if (  have_posts() ){ ?>
 				<?php
 				/**

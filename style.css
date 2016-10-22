@@ -91,6 +91,100 @@ a img.aligncenter {
 .mce-i-wp_code:before {
     /*content: '\e017' !important;*/
 }
+
+/*
+欢迎学习自定义 CSS！
+
+要了解其工作原理，请访问 http://wp.me/PEmnE-Bt
+*/
 .screen-reader-text {
     display: none;
+}
+
+.wu-copyright {
+    display: none;
+}
+
+a, a:visited, a:focus {
+    font-weight: bolder;
+}
+
+.header-bottom {
+    height: 42px;
+}
+
+.advert-img {
+    width: 50%;
+    height: 50%;
+}
+
+#wp-admin-bar-root-default {
+    display: none;
+}
+
+.current_page_item a {
+    color: black !important;
+}
+
+.adverts-list .advert-img {
+    width: 35%;
+    height: 100%;
+}
+
+@media all and (min-width: 968px) {
+    .menu-bar-social-bar {
+        padding: 0 !important;
+        float: right !important;
+    }
+    .menu-bar-social-bar .open_social_box {
+        padding: 0;
+    }
+    .menu-bar-social-bar .login_button {
+        margin: 0 5px 0 0;
+    }
+
+}
+
+
+@media all and (max-width: 968px) {
+    .menu-bar-social-bar {
+        display: none;
+
+    }
+}
+
+.dropdown-profile .list-profile li {
+    padding: 10px 0 10px 0;
+}
+
+.logo-header img {
+    max-width: 259px;
+    max-height: 70px;
+    margin-top: -20px;
+}
+
+.social-bar-label {
+    font-weight: bolder;
+    color: gold;
+    display: inline;
+    float: left;
+}
+
+.social-bar-content {
+    display: inline;
+    float: right;
+    margin-top: -8px;
+}
+
+.menu-bar-social-bar {
+    margin-top:-40px;
+}
+
+.menu-bar-social-bar-front {
+    float: right !important;
+    padding: 0 !important;
+}
+
+.social-bar-content .login_box {
+    padding: 0;
 }
