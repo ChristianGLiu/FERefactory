@@ -66,14 +66,14 @@
 					  <li class="copyright">
 					  	<?php echo et_get_option("et_copyright") ?><br>
 					  	<span>
-			<a href="#" onclick='window.open("http://eclink.ca/%E5%B9%BF%E5%91%8A%E5%AE%A3%E8%A8%80", "_blank", "width=600,height=800");'>广告</a> |
-<a href="#" onclick='window.open("http://eclink.ca/关于我们", "_blank", "width=600,height=800");'>关于我们</a> |
-<a href="#" onclick='window.open("http://eclink.ca/联系我们", "_blank", "width=600,height=800");'>联系我们</a> |
-<a href="#" onclick='window.open("http://eclink.ca/隐私权声明", "_blank", "width=600,height=800");'>隐私权声明</a> |
+			<a href="#" onclick='window.open("https://eclink.ca/%E5%B9%BF%E5%91%8A%E5%AE%A3%E8%A8%80", "_blank", "width=600,height=800");'>广告</a> |
+<a href="#" onclick='window.open("https://eclink.ca/关于我们", "_blank", "width=600,height=800");'>关于我们</a> |
+<a href="#" onclick='window.open("https://eclink.ca/联系我们", "_blank", "width=600,height=800");'>联系我们</a> |
+<a href="#" onclick='window.open("https://eclink.ca/隐私权声明", "_blank", "width=600,height=800");'>隐私权声明</a> |
 
-<a href="#" onclick='window.open("http://eclink.ca/服务条款", "_blank", "width=600,height=800");'>服务条款</a> |
+<a href="#" onclick='window.open("https://eclink.ca/服务条款", "_blank", "width=600,height=800");'>服务条款</a> |
 
-<a href="#" onclick='window.open("http://eclink.ca/友情链接", "_blank", "width=600,height=800");'>友情链接</a></span></div>
+<a href="#" onclick='window.open("https://eclink.ca/友情链接", "_blank", "width=600,height=800");'>友情链接</a></span></div>
 
 					  	</span>
 					  </li>

@@ -1,0 +1,42 @@
+{
+  "Building": {
+    "BathroomTotal": "1",
+    "Bedrooms": "2 + 0",
+    "StoriesTotal": "1"
+  },
+  "Business": {},
+  "Id": "17411397",
+  "Land": {
+    "SizeTotal": "1 - 3 acres"
+  },
+  "MlsNumber": "201620571",
+  "PhotoChangeDateUTC": "21/09/2016 5:21:39 PM",
+  "PostalCode": "B0M1E0",
+  "Property": {
+    "Address": {
+      "AddressText": "1667 Wyvern Street|Collingwood Corner?, Nova Scotia B0M1E0",
+      "Latitude": "45.61475",
+      "Longitude": "-63.93797"
+    },
+    "OwnershipType": "Freehold",
+    "Parking": [
+      {
+        "Name": "Other"
+      }
+    ],
+    "Photo": [
+      {
+        "HighResPath": "https://cdn.realtor.ca/listing/TS636100608995300000/reb107/highres/1/201620571_1.jpg",
+        "LowResPath": "https://cdn.realtor.ca/listing/TS636100608995300000/reb107/lowres/1/201620571_1.jpg",
+        "MedResPath": "https://cdn.realtor.ca/listing/TS636100608995300000/reb107/medres/1/201620571_1.jpg",
+        "SequenceId": "1"
+      }
+    ],
+    "Price": "$19,900",
+    "Type": "Single Family",
+    "TypeId": "300"
+  },
+  "PublicRemarks": "Available immediately this 2 bedroom house is located near many ATV and snowmobile trails.  with some TLC this could make a great hunting camp, cottage or starter home.  Property sold as is where is.",
+  "RelativeDetailsURL": "/Residential/Single-Family/17411397/1667-Wyvern-Street-Collingwood-Corner?-Nova-Scotia-B0M1E0-Collingwood-Corner?",
+  "StatusId": "1"
+}

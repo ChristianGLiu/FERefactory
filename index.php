@@ -5,6 +5,11 @@ get_header();
 <div class="container main-center">
 	<div class="row">
 	<div class="col-md-9 col-sm-12 marginTop30">
+	<div id="arrow-down-topic" class="arrow-down bounce">
+      <span>
+    猛击这里发表自己的贴子吧
+      </span>
+    </div>
 	<div id="form_thread" class="thread-form auto-form new-thread">
     				<form action="" method="post">
     					<input type="hidden" name="fe_nonce" class="fe_nonce" value="<?php echo wp_create_nonce( 'insert_thread' ) ?>">

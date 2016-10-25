@@ -23,7 +23,21 @@ fe_navigations();
 <!--end header Bottom-->
 <div class="container main-center">
 <div class="row">
+<div class="col-md-9 col-sm-12 marginTop20">
+<div class="col-md-2"><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/pandaBufffetAdv.gif"></img></a></div>
+<div class="col-md-2"><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
+<div class="col-md-4"><img src="/wp-content/uploads/2016/10/advneed.png"></img></div>
+<div class="col-md-4"><img src="/wp-content/uploads/2016/10/advneed.png"></img></div>
+</div>
+<div class="side-adv">
+<img src="/wp-content/uploads/2016/10/201610250725189.gif"></img>
+</div>
 <div class="col-md-9 col-sm-12 marginTop30">
+<div id="arrow-down-topic" class="arrow-down bounce">
+  <span>
+猛击这里发表自己的贴子吧
+  </span>
+</div>
 <?php get_template_part('template/post', 'thread'); ?>
 <?php
 $page 			= get_query_var('page') ? get_query_var('page') : 1;
@@ -106,6 +120,30 @@ if (  $thread_query_3->have_posts() ){ ?>
 	wp_reset_query();
 }
 
+$thread_query_8 = FE_Threads::get_threads(array(
+'post_type' 	=> 'properties',
+'posts_per_page' => 2,
+'orderby' => 'date',
+'order'   => 'DESC',
+));
+if (  $thread_query_8->have_posts() ){ ?>
+	<ul id="main_list_post" class="list-post">
+	<?php
+	if ( !empty( $sticky_threads[0] ) ){
+		// load sticky thread
+		get_template_part( 'template/sticky', 'thread' );
+	}
+
+	while ($thread_query_8->have_posts()){
+		$thread_query_8->the_post();
+		get_template_part( 'template/thread', 'loop' );
+	} // end while
+	?>
+	</ul>
+	<?php
+	wp_reset_query();
+}
+
 $thread_query_4 = FE_Threads::get_threads(array(
 'post_type' 	=> 'post',
 'cat' => '115',
@@ -156,11 +194,38 @@ if (  $thread_query_5->have_posts() ){ ?>
 	}
 
 	wp_reset_query();
+
+	$thread_query_7 = FE_Threads::get_threads(array(
+    'post_type' 	=> 'post',
+    'cat' => '119',
+    'posts_per_page' => 2,
+    'orderby' => 'date',
+    'order'   => 'DESC',
+    ));
+    if (  $thread_query_7->have_posts() ){ ?>
+    	<ul id="main_list_post" class="list-post">
+    	<?php
+    	if ( !empty( $sticky_threads[0] ) ){
+    		// load sticky thread
+    		get_template_part( 'template/sticky', 'thread' );
+    	}
+
+    		while ($thread_query_7->have_posts()){
+    		$thread_query_7->the_post();
+    		get_template_part( 'template/thread', 'loop' );
+    	} // end while
+    	?>
+    	</ul>
+    	<?php
+    	}
+
+    	wp_reset_query();
+
 	$thread_query = FE_Threads::get_threads(array(
 	'post_type' 	=> 'post',
 	'paged' 		=> $page,
 	'post__not_in' 	=> $sticky_threads[0],
-	'category__not_in' => array(60,115,14,117,56)
+	'category__not_in' => array(60,115,14,117,56,119,129)
 	));
 
 

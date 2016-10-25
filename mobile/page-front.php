@@ -53,7 +53,7 @@ $data = et_get_unread_follow();
 						</a>
 					</li>
 					<li class="fe-tab-item fe-tab-item-7">
-                    						<a href="/advert-category/房屋销售/">
+                    						<a href="/房屋租售/">
                     						加东房产
                     						</a>
                     					</li>
@@ -86,6 +86,11 @@ $data = et_get_unread_follow();
 					<?php } ?>
 				</ul>
 			</div>
+			<!--div class="arrow bounce">
+              <span>
+            猛击这里发表自己的贴子吧
+              </span>
+            </div-->
 			<div class="fe-new-topic fe-container">
 				<div class="fe-topic-form">
 					<div class="fe-topic-input">
@@ -210,6 +215,27 @@ $data = et_get_unread_follow();
                 	wp_reset_query();
                 }
 
+                 $thread_query_8 = FE_Threads::get_threads(array(
+                                'post_type' 	=> 'properties',
+                                'posts_per_page' => 2,
+                                'orderby' => 'date',
+                                'order'   => 'DESC',
+                                ));
+                                if (  $thread_query_8->have_posts() ){ ?>
+                                	<?php
+                                	if ( !empty( $sticky_threads[0] ) ){
+                                		// load sticky thread
+                                		get_template_part( 'template/sticky', 'thread' );
+                                	}
+
+                                	while ($thread_query_8->have_posts()){ $thread_query_8->the_post();
+                                                        							get_template_part( 'mobile/template/thread', 'loop' );
+                                                        						}
+                                	?>
+                                	<?php
+                                	wp_reset_query();
+                                }
+
                 $thread_query_4 = FE_Threads::get_threads(array(
                 'post_type' 	=> 'post',
                 'cat' => '115',
@@ -253,12 +279,34 @@ $data = et_get_unread_follow();
                 	<?php
                 	}
 
-                	wp_reset_query();
+                	 $thread_query_7 = FE_Threads::get_threads(array(
+                                    'post_type' 	=> 'post',
+                                    'cat' => '119',
+                                    'posts_per_page' => 2,
+                                    'orderby' => 'date',
+                                    'order'   => 'DESC',
+                                    ));
+
+                                    if (  $thread_query_7->have_posts() ){ ?>
+                                    	<?php
+                                    	if ( !empty( $sticky_threads[0] ) ){
+                                    		// load sticky thread
+                                    		get_template_part( 'template/sticky', 'thread' );
+                                    	}
+
+                                    	while ($thread_query_7->have_posts()){ $thread_query_7->the_post();
+                                                            							get_template_part( 'mobile/template/thread', 'loop' );
+                                                            						}
+                                    	?>
+                                    	<?php
+                                    	wp_reset_query();
+                                    }
+
                 	$thread_query = FE_Threads::get_threads(array(
                 	'post_type' 	=> 'post',
                 	'paged' 		=> $page,
                 	'post__not_in' 	=> $sticky_threads[0],
-                	'category__not_in' => array(60,115,14,117,56)
+                	'category__not_in' => array(60,115,14,117,56,119,129)
                 	));
 
 

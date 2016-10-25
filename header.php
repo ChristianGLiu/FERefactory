@@ -27,6 +27,8 @@
 	    <![endif]-->
 	</head>
 	<body <?php echo body_class() ?>>
+	<div class="mp-qr-bar"><span class="arrow-down">扫扫我们的网站吧</span><br /><img src="/wp-content/uploads/2016/10/smallwebsitebarcode.png"></img></div>
+	<div class="web-qr-bar"><span class="arrow-down">扫扫我们的公众号</span><br /><img src="/wp-content/uploads/2016/10/qrcode_for_gh_med.jpg"></img></div>
 	<div class="site-container">
 		<div class="cnt-container">
 			<div class="header-top bg-header">
@@ -53,19 +55,8 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="search-header col-md-8  col-sm-6">
-									<form id="fe_search_form" action="" method="post">
-										<?php if(is_tax( 'category' ) || isset($_REQUEST['tax_cat'])){ ?>
-										<input type="hidden" id="category" name="category" value='<?php echo isset($_REQUEST['tax_cat']) ? $_REQUEST['tax_cat'] : get_query_var( 'term' ) ?>'>
-										<?php } ?>
-										<button class="btn" type="submit"><span class="icon-s"></span></button>
-										<div class="search-text">
-											<input type="text" autocomplete="off" id="search_field" name="s" value="<?php if(!empty($et_query)) echo implode(' ', $et_query['s']); ?>" placeholder="<?php _e('Search...',ET_DOMAIN); ?>">
-										</div>
-										<!-- <span class="icon clear-field collapse" data-icon="D"></span> -->
-										<div class="btn-mobile"></div>
-									</form>
-									<div id="search_preview" class="search-preview empty">
-									</div>
+
+									<img src="/wp-content/uploads/2016/10/banner-adv.gif"></img>
 								</div>
 							</div>
 							<div class="dropdown-profile">

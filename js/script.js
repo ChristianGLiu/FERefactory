@@ -63,6 +63,7 @@ $(document).ready(function(){
 
 		if (!container.hasClass('opened')){
 			container.addClass('opened');
+			$('#arrow-down-topic').hide();
 			select.fadeIn().removeClass('hide');
 			bottom.slideDown();
 			tinymce.EditorManager.execCommand('mceAddEditor', false , 'post_content');
@@ -78,6 +79,7 @@ $(document).ready(function(){
 				$("ul#main_list_post").fadeIn();
 				$("#main_pagination").fadeIn();
 				$('.show-preview a').text('Show Preview');
+				$('#arrow-down-topic').show();
 			});
 		}
 	});
