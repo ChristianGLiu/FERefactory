@@ -11,12 +11,12 @@ $data = et_get_unread_follow();
 			<div class="fe-nav">
 				<a href="#fe_category" class="fe-nav-btn fe-btn-cats"><span class="fe-sprite"></span></a>
 				<?php if(!$user_ID){?>
-				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile">注册或登录点这里</a>
 				<?php } else {?>
 				<a href="<?php echo get_author_posts_url($user_ID) ?>" class="fe-head-avatar"><?php echo  et_get_avatar($user_ID);?></a>
 				<?php } ?>
 			</div>
-			<div class="fe-tab">
+			<div class="fe-tab bottom-fe-tab">
 				<ul class="fe-tab-items">
 					<li class="fe-tab-item fe-tab-item-3">
 						<a href="<?php echo home_url() ?>">
@@ -29,15 +29,13 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
-					<li class="fe-tab-item fe-tab-item-3">
-						<a href="<?php echo et_get_page_link("following") ?>">
-							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
-							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count"><?php echo count($data['follow']) ;?></span>
-							<?php } ?>
-							</span>
-						</a>
-					</li>
+					<li class="fe-tab-item fe-tab-item-6">
+
+
+                    						<a href="/关于我们/">
+                                                                						关于我们
+                                                                						</a>
+                    					</li>
 					<?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) ) {?>
 					<li class="fe-tab-item fe-tab-item-3">
 						<a href="<?php echo et_get_page_link("pending");?>">

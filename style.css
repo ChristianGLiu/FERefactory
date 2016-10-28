@@ -362,7 +362,7 @@ h2.et-entry-title {
 .web-qr-bar {
     position: fixed;
     z-index: 555;
-    top: 170px;
+    top: 30px;
     left: 0;
 }
 
@@ -380,7 +380,7 @@ h2.et-entry-title {
 .mp-qr-bar {
     position: fixed;
     z-index: 555;
-    top: 170px;
+    top: 30px;
     right: 0;
 }
 
@@ -408,7 +408,7 @@ h2.et-entry-title {
 }
 
 #es_content.es_list_column .es_my_listing ul li {
-    height: 120px !important;
+    height: 120px;
 }
 
 .geodir_category_list_view li.gridview_onehalf {
@@ -424,4 +424,27 @@ h2.et-entry-title {
 .single-gd_place #geodir-wrapper-content {
     float: left;
     width: 100%;
+}
+
+.items-thread .img-circle, .avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 0% !important;
+}
+
+.fe-post-section.fe-comment-section {
+     display:none;
+ }
+
+.ad-area {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    flex-direction: row;
+    text-align: left;
+}
+
+.header-bottom {
+    height: 45px;
 }

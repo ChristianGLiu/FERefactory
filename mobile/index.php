@@ -9,7 +9,7 @@ $data = et_get_unread_follow();
 ?>
 
 
-			<div class="fe-tab">
+			<div class="fe-tab bottom-fe-tab">
 				<ul class="fe-tab-items">
 					<li class="fe-tab-item fe-tab-item-5 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
@@ -22,19 +22,13 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
-					<li class="fe-tab-item fe-tab-item-6">
-						<?php if($user_ID){?>
-						<a href="<?php echo et_get_page_link("following") ?>">
-						<?php } else { ?>
-						<a href="<?php echo et_get_page_link("login") ?>">
-						<?php } ?>
-							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
-							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
-							<?php } ?>
-							</span>
-						</a>
-					</li>
+						<li class="fe-tab-item fe-tab-item-6">
+
+
+                        						<a href="/关于我们/">
+                                                                    						关于我们
+                                                                    						</a>
+                        					</li>
 					<li class="fe-tab-item fe-tab-item-7">
                     						<a href="/房屋租售/">
                     						加东房产
@@ -74,7 +68,7 @@ $data = et_get_unread_follow();
 				<a href="#fe_category" class="fe-nav-btn fe-btn-cats"><span class="fe-sprite"></span></a>
 
 				<?php if(!$user_ID){?>
-				 <?php echo "<div class='mobile-social-wrapper' style='margin-top:10px;margin-left:-20px;'><span class='mobile-social-bar-label' style='margin-top:10px;margin-left:-20px;'>一键登录：</span><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
+				 <?php echo "<div class='mobile-social-wrapper' style='margin-top:10px;margin-left:-20px;'><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
 
 				<?php } else {?>
 				 <?php

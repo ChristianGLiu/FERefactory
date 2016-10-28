@@ -1,42 +1,118 @@
 {
   "Building": {
     "BathroomTotal": "1",
-    "Bedrooms": "2 + 0",
-    "StoriesTotal": "1"
+    "Bedrooms": "2",
+    "SizeInterior": "1250 sqft",
+    "StoriesTotal": "1.5",
+    "Type": "House"
   },
   "Business": {},
-  "Id": "17411397",
+  "Id": "17299774",
+  "Individual": [
+    {
+      "CorporationDisplayTypeId": "0",
+      "Emails": [
+        {
+          "ContactId": "393285642"
+        }
+      ],
+      "FirstName": "BRANDON",
+      "IndividualID": 1634583,
+      "LastName": "MCGEE",
+      "Name": "BRANDON MCGEE",
+      "Organization": {
+        "Address": {
+          "AddressText": "78 Milltown Blvd|St. Stephen, NB E3L1C6"
+        },
+        "Designation": "Brokerage",
+        "Emails": [
+          {
+            "ContactId": "394842531"
+          }
+        ],
+        "HasEmail": true,
+        "Logo": "https://cdn.realtor.ca/organization/en-CA/lowres/1006922.jpg",
+        "Name": "EXIT REALTY  CHARLOTTE COUNTY (S179)",
+        "OrganizationID": 89946,
+        "PermitFreetextEmail": true,
+        "PermitShowListingLink": true,
+        "Phones": [
+          {
+            "AreaCode": "506",
+            "PhoneNumber": "466-3330",
+            "PhoneType": "Telephone",
+            "PhoneTypeId": "1"
+          },
+          {
+            "AreaCode": "506",
+            "PhoneNumber": "466-5429",
+            "PhoneType": "Fax",
+            "PhoneTypeId": "4"
+          }
+        ]
+      },
+      "PermitFreetextEmail": true,
+      "PermitShowListingLink": true,
+      "Phones": [
+        {
+          "AreaCode": "506",
+          "PhoneNumber": "755-0916",
+          "PhoneType": "Telephone",
+          "PhoneTypeId": "1"
+        }
+      ],
+      "Photo": "https://cdn.realtor.ca/individual/lowres/1163514.jpg",
+      "Position": "Sales Person",
+      "Websites": [
+        {
+          "Website": "http://www.getonthemove.ca",
+          "WebsiteTypeId": "1"
+        }
+      ]
+    }
+  ],
   "Land": {
-    "SizeTotal": "1 - 3 acres"
+    "AccessType": "Year-round access",
+    "LandscapeFeatures": "Partially landscaped",
+    "SizeTotal": ".08 ACRES|under 1 acre"
   },
-  "MlsNumber": "201620571",
-  "PhotoChangeDateUTC": "21/09/2016 5:21:39 PM",
-  "PostalCode": "B0M1E0",
+  "MlsNumber": "SJ164138",
+  "PhotoChangeDateUTC": "31/08/2016 3:14:21 AM",
+  "PostalCode": "E5C0B6",
+  "PriceChangeDateUTC": "14/10/2016 12:12:05 AM",
   "Property": {
     "Address": {
-      "AddressText": "1667 Wyvern Street|Collingwood Corner?, Nova Scotia B0M1E0",
-      "Latitude": "45.61475",
-      "Longitude": "-63.93797"
+      "AddressText": "6 HOLMES Lane |L'ETETE, New Brunswick E5C0B6",
+      "Latitude": "45.0510544",
+      "Longitude": "-66.889099"
     },
-    "OwnershipType": "Freehold",
-    "Parking": [
-      {
-        "Name": "Other"
-      }
-    ],
     "Photo": [
       {
-        "HighResPath": "https://cdn.realtor.ca/listing/TS636100608995300000/reb107/highres/1/201620571_1.jpg",
-        "LowResPath": "https://cdn.realtor.ca/listing/TS636100608995300000/reb107/lowres/1/201620571_1.jpg",
-        "MedResPath": "https://cdn.realtor.ca/listing/TS636100608995300000/reb107/medres/1/201620571_1.jpg",
+        "HighResPath": "https://cdn.realtor.ca/listing/TS636081956610070000/reb84/highres/8/sj164138_1.jpg",
+        "LastUpdated": "30/08/2016 11:14:21 PM",
+        "LowResPath": "https://cdn.realtor.ca/listing/TS636081956610070000/reb84/lowres/8/sj164138_1.jpg",
+        "MedResPath": "https://cdn.realtor.ca/listing/TS636081956610070000/reb84/medres/8/sj164138_1.jpg",
         "SequenceId": "1"
       }
     ],
-    "Price": "$19,900",
+    "Price": "$11,900",
     "Type": "Single Family",
     "TypeId": "300"
   },
-  "PublicRemarks": "Available immediately this 2 bedroom house is located near many ATV and snowmobile trails.  with some TLC this could make a great hunting camp, cottage or starter home.  Property sold as is where is.",
-  "RelativeDetailsURL": "/Residential/Single-Family/17411397/1667-Wyvern-Street-Collingwood-Corner?-Nova-Scotia-B0M1E0-Collingwood-Corner?",
-  "StatusId": "1"
+  "PublicRemarks": "This small home is located on a private, tucked away piece of land, close to the Deer Island Ferry Terminal. Welcome to 6 Holmes Lane in L'Etete! This lovely one and a half storey home offers privacy and ample room for a family. It has two bedrooms and a bathroom, a generous sized kitchen and dining room, as well as a cozy living room. Property upgrades, over time, have included newer vinyl windows, steel roofing, laminate flooring, modern lighting and painting throughout areas of the home. Property is being sold without a septic system.  Directions: Go past Deer Island Ferry Terminal toward Green Point Lighthouse, Holmes Lane is on your right.",
+  "RelativeDetailsURL": "/Residential/Single-Family/17299774/6-HOLMES-Lane-LETETE-New-Brunswick-E5C0B6",
+  "StatusId": "1",
+  "attributes": {
+    "Age Of Building": "50 Years",
+    "Building Type": "House",
+    "Land Size": ".08 ACRES|under 1 acre",
+    "Property Type": "Single Family",
+    "Storeys": "1.5"
+  },
+  "details": {
+    "Access": "Year-round access"
+  },
+  "rooms": {
+    "area": 0
+  }
 }

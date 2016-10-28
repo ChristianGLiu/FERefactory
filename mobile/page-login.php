@@ -8,12 +8,12 @@ get_template_part( 'mobile/template', 'header' );
 		<ul class="fe-tab-items nav nav-tabs">
 			<li class="fe-tab-item active ">
 				<a href="#content_login" data-toggle="tab" class="ui-link">
-					<span class="fe-tab-name"><?php _e('LOGIN', ET_DOMAIN) ?></span>
+					<span class="fe-tab-name">老用户这里登录</span>
 				</a>
 			</li>
 			<li class="fe-tab-item">
 				<a href="#content_register" data-toggle="tab" class="ui-link">
-					<span class="fe-tab-name"><?php _e('REGISTER', ET_DOMAIN) ?></span>
+					<span class="fe-tab-name">新用户这里注册</span>
 				</a>
 			</li>
 		</ul>

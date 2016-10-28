@@ -12,9 +12,9 @@ $data = et_get_unread_follow();
 				<a href="#fe_category" class="fe-nav-btn fe-btn-cats"><span class="fe-sprite"></span></a>
 
 				<?php if(!$user_ID){?>
-				 <?php echo "<div class='mobile-social-wrapper' style='margin-top:10px;margin-left:-20px;'><span class='mobile-social-bar-label' style='margin-top:10px;margin-left:-20px;'>一键登录：</span><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
+				 <?php echo "<div class='mobile-social-wrapper' style='margin-top:10px;margin-left:-20px;'><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
 
-				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile">注册或登录点这里</a>
 				<?php } else {?>
 				 <?php
 				 $current_user = wp_get_current_user();
@@ -26,7 +26,7 @@ $data = et_get_unread_follow();
 			</div>
 			<?php get_template_part( 'mobile/template', 'profile-menu' ) ?>
 
-			<div class="fe-tab">
+			<div class="fe-tab-main">
 				<ul class="fe-tab-items">
 					<li class="fe-tab-item fe-tab-item-5 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
@@ -40,17 +40,11 @@ $data = et_get_unread_follow();
 						</a>
 					</li>
 					<li class="fe-tab-item fe-tab-item-6">
-						<?php if($user_ID){?>
-						<a href="<?php echo et_get_page_link("following") ?>">
-						<?php } else { ?>
-						<a href="<?php echo et_get_page_link("login") ?>">
-						<?php } ?>
-							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
-							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
-							<?php } ?>
-							</span>
-						</a>
+
+
+						<a href="/关于我们/">
+                                            						关于我们
+                                            						</a>
 					</li>
 					<li class="fe-tab-item fe-tab-item-7">
                     						<a href="/房屋租售/">
@@ -91,6 +85,12 @@ $data = et_get_unread_follow();
             猛击这里发表自己的贴子吧
               </span>
             </div-->
+            <div class="ad-area">
+            <div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/pandaBufffetAdv.gif"></img></a></div>
+            <div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
+            <div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
+            <div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div>
+            </div>
 			<div class="fe-new-topic fe-container">
 				<div class="fe-topic-form">
 					<div class="fe-topic-input">
@@ -215,26 +215,7 @@ $data = et_get_unread_follow();
                 	wp_reset_query();
                 }
 
-                 $thread_query_8 = FE_Threads::get_threads(array(
-                                'post_type' 	=> 'properties',
-                                'posts_per_page' => 2,
-                                'orderby' => 'date',
-                                'order'   => 'DESC',
-                                ));
-                                if (  $thread_query_8->have_posts() ){ ?>
-                                	<?php
-                                	if ( !empty( $sticky_threads[0] ) ){
-                                		// load sticky thread
-                                		get_template_part( 'template/sticky', 'thread' );
-                                	}
 
-                                	while ($thread_query_8->have_posts()){ $thread_query_8->the_post();
-                                                        							get_template_part( 'mobile/template/thread', 'loop' );
-                                                        						}
-                                	?>
-                                	<?php
-                                	wp_reset_query();
-                                }
 
                 $thread_query_4 = FE_Threads::get_threads(array(
                 'post_type' 	=> 'post',

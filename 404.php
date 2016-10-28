@@ -21,22 +21,13 @@ $data = et_get_unread_follow();
 					<?php } ?>
 				</a>
 			</li>
-			<li>
-				<a
-			<?php
-				if($user_ID){
-					echo 'href="'.et_get_page_link("following").'"';
-				} else {
-					echo 'id="open_login" data-toggle="modal" href="#modal_login"';
-				}
-			?>>
-				<span class="icon" data-icon="&"></span>
-				<span class="text"><?php _e('Following',ET_DOMAIN) ?></span>
-				<?php if($user_ID && count($data['follow']) > 0){ ?>
-				<span class="number"><?php echo count($data['follow']) ;?></span>
-				<?php } ?>
-				</a>
-			</li>
+				<li class="fe-tab-item fe-tab-item-6">
+
+
+                						<a href="/关于我们/">
+                                                            						关于我们
+                                                            						</a>
+                					</li>
 			<?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) ) {?>
 			<li>
 				<a href="<?php echo et_get_page_link("pending");?>">

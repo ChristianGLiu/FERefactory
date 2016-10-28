@@ -78,23 +78,35 @@ class AddNewHouse {
 		$params = $request->get_json_params();
 
 		$debugInfo .= "get json request body:".var_dump($params)."\r\n";
-		if(!empty($params['MlsNumber'])){
-			$guid = "https://eclink.ca/properties/".$params['MlsNumber']."/";
+		$MlsNumber = $params['MlsNumber'];
+		$property = $params['Property'];
+		if(!empty($property)){
+		    $price = $params['Property']['Price'];
 
-			if(!empty($guid)){
-				$check_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM ".$wpdb->prefix."posts WHERE guid=%s", $guid ) );
-				if(!empty($check_id)){
-					$duplicated = true;
-				}
-			}
+		   if(!empty($price)){
+
+		   } else {
+		   $MlsNumber = 0;
+		   }
+
+		} else {
+		$MlsNumber = 0;
+		}
+		if(!empty($MlsNumber)){
+			$guid = "https://eclink.ca/properties/".$MlsNumber."/";
+
+            $check_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM ".$wpdb->prefix."posts WHERE guid=%s", $guid ) );
+            if(!empty($check_id)){
+                $duplicated = true;
+            }
 
 			$post_id=0;
 
 			$the_user = get_users(array( 'number' => 1, 'offset'=>rand(1,200) ) );
 			$debugInfo .= "user id is ".$the_user->ID."\r\n";
-			$post_post_title ="[最新房源]".mb_strimwidth($params['Property']['Address']['AddressText'], 0, 10, "...");
+			$post_post_title ="[最新房源]".mb_strimwidth($params['Property']['Address']['AddressText'], 0, 30, "...");
 			$debugInfo .= "post_post_title ".$post_post_title."\r\n";
-			$post_post_name=preg_replace("/[\s_]/", "-", mb_strimwidth($params['Property']['Address']['AddressText'], 0, 10, ""));
+			$post_post_name=uniqid('house_');
 			$debugInfo .= "post_post_name ".$post_post_name."\r\n";
 
 			if(!$duplicated){
@@ -121,7 +133,7 @@ class AddNewHouse {
 				'post_type'     => 'properties'
 				);
 				// Update the post into the database
-				$post_id = wp_update_post( $my_post );
+				$post_id = $check_id;
 			}
 
 
@@ -185,12 +197,16 @@ class AddNewHouse {
 					$prop_lotsize = $prop_lotsize * 43560 ;
 				}
 
-				$prop_area 			= $prop_lotsize;
+				$prop_area 			= intval($params['Building']['SizeInterior']);
 				$debugInfo .= "get house other attribute: ".$prop_bathrooms. ' '.$prop_floors.' '.$prop_lotsize."\r\n";
-				$prop_builtin 		= '';
+				$buildin= intval($params['attributes']['Age Of Building']);
+				if(!empty($buildin)){
+				$prop_builtin 		= 2017 - intval($params['attributes']['Age Of Building']);
+				}
 				$prop_description 	= wp_kses_post($params['PublicRemarks']);
 				$prop_description 	= stripcslashes($prop_description);
 
+/**
 				$apiKey = 'AIzaSyAsP0s0WE8zAqB9-C0FVWTPag_ATP-boXA';
 				$translate_url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($prop_description) . '&source=en&target=zh-CN';
 
@@ -209,6 +225,7 @@ class AddNewHouse {
 					$prop_description = $translate_responseDecoded['data']['translations'][0]['translatedText'];
 					$debugInfo .= 'prop_description translate: ' . $prop_description. '\r\n';
 				}
+				**/
 
 
 				$country_id 		= 1;
@@ -316,15 +333,17 @@ $debugInfo .= "ready to insert property table:".$wpdb->prefix.'estatik_propertie
 			if(!empty($prop_images)) {
 				foreach($prop_images as $oneImage){
 
-					if(!empty($oneImage['HighResPath'])){
-						array_push($prop_images_arr, $oneImage['HighResPath']);
-					}
-					if(!empty($oneImage['LowResPath'])){
-						array_push($prop_images_arr, $oneImage['LowResPath']);
-					}
-					if(!empty($oneImage['MedResPath'])){
+
+if(!empty($oneImage['MedResPath'])){
 						array_push($prop_images_arr, $oneImage['MedResPath']);
 					}
+					else if(!empty($oneImage['HighResPath'])){
+						array_push($prop_images_arr, $oneImage['HighResPath']);
+					}
+					else if(!empty($oneImage['LowResPath'])){
+						array_push($prop_images_arr, $oneImage['LowResPath']);
+					}
+
 				}
 
 			}
@@ -346,7 +365,7 @@ $debugInfo .= "ready to insert property table:".$wpdb->prefix.'estatik_propertie
 
 		} else {
 
-			$debugInfo .= "failed, MLSNUMBER can not be null";
+			$debugInfo .= "failed, MLSNUMBER can not be null or it does not include property info";
 		}
 
 		return new WP_REST_Response( "debug info ".$debugInfo, 200 );

@@ -23,7 +23,7 @@ get_header();
 			} // end if
 			?>
 
-			<?php comments_template(); ?>
+
 		</div>
 		<div class="col-md-3 hidden-sm hidden-xs sidebar">
 			<?php get_sidebar( 'post' ) ?>

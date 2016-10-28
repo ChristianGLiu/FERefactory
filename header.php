@@ -43,10 +43,11 @@
 						<div class="col-md-10">
 							<div class="row">
 								<div class="login col-md-2 col-sm-2 <?php if($current_user->ID){ echo 'collapse';} ?>">
-									<a id="open_login" data-toggle="modal" href="#modal_login">
-										<span class="icon" data-icon="U"></span>
-										<?php _e('Login or Join', ET_DOMAIN) ?>
-									</a>
+
+
+				<a href="/register/" class="new-user-reg" style="margin-top:-8px;">新用户这里注册</a>
+								<a href="/login-2/" class="old-user-join">老用户这里登录</a>
+
 								</div>
 								<div class="profile-account col-md-2 col-sm-2 <?php if(!$current_user->ID){ echo 'collapse';} ?>">
 									<span class="name"><a href="javascript:void(0);"><?php echo $current_user->display_name; ?></a></span><span class="arrow"></span>
@@ -107,6 +108,8 @@
 					<div class="menu-bar-social-bar">
 
                                             				<?php if(!$user_ID){?>
+
+
 
                                             				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
                                             				<?php } ?>

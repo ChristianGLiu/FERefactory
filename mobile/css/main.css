@@ -474,23 +474,23 @@ ul{
 }
 
 .fe-tab-item.fe-tab-item-5{
-	width: 30%;
+	width: 20%;
 }
 
 .fe-tab-item.fe-tab-item-6{
-	width: 25%;
+	width: 20%;
 }
 
 .fe-tab-item.fe-tab-item-7{
-	width: 18%;
+	width: 20%;
 }
 
 .fe-tab-item.fe-tab-item-8{
-	width: 15%;
+	width: 20%;
 }
 
 .fe-tab-item.fe-tab-item-9{
-	width: 12%;
+	width: 20%;
 }
 
 .fe-tab-items .fe-tab-item a{
@@ -557,9 +557,6 @@ ul{
 
 .fe-container{
 	padding: 10px;
-}
-.tab-pane{
-	display: none;
 }
 .tab-content > .active{
 	display: block;
@@ -2512,7 +2509,7 @@ iframe {
 }
 /* login before create a new topic */
 .fe-topic-input  a.login_before_create_thread {
-	color: #7b7b7b;
+	color: #d43f3a;
 	width: 100%;
 	height: 32px;
 	border: none;
@@ -2521,7 +2518,7 @@ iframe {
 	font-size: 15px;
 	box-sizing: border-box;
 	padding: 0 0 0 0 !important;
-	text-decoration: none;
+	text-decoration: underline;
 }
 /*social login on mobile*/
 .social-icon {
@@ -2739,9 +2736,6 @@ iframe {
 
 }
 
-#es_content.es_list_column .es_my_listing ul li {
-	height: 120px !important;
-}
 .geodir_category_list_view li.gridview_onehalf {
 	width: 20% !important;
 }
@@ -2756,4 +2750,143 @@ iframe {
 .single-gd_place #geodir-wrapper-content {
 	float: left;
 	width: 100%;
+}
+
+.fe-tab.bottom-fe-tab {
+
+	width: 100%;
+	position:fixed;
+	bottom:0;
+
+}
+.es_my_listing ul li {
+	width: 100% !important;
+	height: auto !important;
+}
+.es_my_list_in h2 {
+	font-size:14px !important;
+}
+.es_my_list_in h3 {
+	font-size:12px !important;
+}
+
+#es_content.es_list_column .es_my_list_specs {
+	width: 90% !important;
+}
+
+#es_content.es_list_column .es_my_list_title h3 {
+	float: right;
+}
+
+.adverts-flexbox-columns-4,.adverts-flexbox-columns-3 {
+	width: 30%;
+}
+
+.adverts-options {
+	display:none;
+}
+
+.ui-btn-text {
+	font-size: 14px;
+	font-weight: bolder;
+	color: firebrick;
+}
+
+.ui-btn-inner {
+	padding-left: 30px;
+}
+
+.ui-select .ui-btn {
+	margin-bottom: 0;
+}
+.ui-select .ui-icon {
+	-ms-transform: scale(1.5, 1.5); /* IE 9 */
+	-webkit-transform: scale(1.5, 1.5); /* Safari */
+	transform: scale(1.5, 1.5);
+}
+div.ui-select {
+	border: 1px solid black !important;
+	width: 99% !important;
+}
+
+.adverts-form.adverts-form-aligned .wp-editor-wrap .wp-editor-container {
+	border: 1px solid black !important;
+}
+
+.adverts-gallery {
+	border: 4px solid #805757 !important;
+}
+
+.mobile-container {
+width:110%;
+	clear:both;
+}
+
+.mobile-adv {
+	display: flex;
+	flex-direction: row;
+	float: left;
+}
+
+.fe-new-topic {
+	clear: both;
+}
+
+.adverts-list .advert-img {
+	width: 35%;
+	height: auto;
+	display: inline-block;
+}
+
+.advert-post-title {
+	padding: 0.2em 0.5em 0.2em 0.5em;
+	/* clear: both; */
+	width: 60%;
+	float: right;
+	display: inline-block;
+	/* height: 50px; */
+}
+
+.advert-item span.advert-link {
+	font-size: 12px !important;
+	height: 50px !important;
+	font-weight: bold !important;
+}
+
+
+
+.items-thread .img-circle, .avatar {
+	width: 40px !important;
+	height: 40px !important;
+	border-radius: 0% !important;
+}
+
+.fe-content .fe-nav a.fe-nav-btn.fe-btn-profile {
+	float: right;
+	width: 80px;
+	height: 40px;
+	text-decoration: underline;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.fe-post-section.fe-comment-section {
+	display:none;
+}
+
+.ad-area {
+	width: 100%;
+	display: flex;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	flex-direction: row;
+	text-align: left;
+}
+
+#wpadminbar .mobile {
+	display: none;
+}
+
+#content_register .fe-form {
+	margin-top: -220px;
 }

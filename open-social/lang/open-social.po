@@ -1,0 +1,430 @@
+# Copyright (C) 2016 Open Social
+# This file is distributed under the same license as the Open Social package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Open Social 1.8.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
+"POT-Creation-Date: 2016-05-29 08:59:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: open-social.php:22
+msgid "QQ"
+msgstr ""
+
+#: open-social.php:23
+msgid "Sina"
+msgstr ""
+
+#: open-social.php:24
+msgid "Google"
+msgstr ""
+
+#: open-social.php:25
+msgid "Microsoft"
+msgstr ""
+
+#: open-social.php:26
+msgid "Douban"
+msgstr ""
+
+#: open-social.php:27
+msgid "XiaoMi"
+msgstr ""
+
+#: open-social.php:28
+msgid "OSChina"
+msgstr ""
+
+#: open-social.php:29
+msgid "Facebook"
+msgstr ""
+
+#: open-social.php:30
+msgid "Twitter"
+msgstr ""
+
+#: open-social.php:31
+msgid "Github"
+msgstr ""
+
+#: open-social.php:32
+msgid "WeChat"
+msgstr ""
+
+#: open-social.php:33
+msgid "WeChat.MP"
+msgstr ""
+
+#: open-social.php:36
+msgid "Share with Weibo"
+msgstr ""
+
+#: open-social.php:37
+msgid "Share with QQZone"
+msgstr ""
+
+#: open-social.php:38
+msgid "Share with WeChat"
+msgstr ""
+
+#: open-social.php:39
+msgid "Share with Twitter"
+msgstr ""
+
+#: open-social.php:40
+msgid "Share with Facebook"
+msgstr ""
+
+#: open-social.php:602
+msgid "OOPS!"
+msgstr ""
+
+#: open-social.php:603 open-social.php:647 open-social.php:727
+msgid "Back"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Open Social 1.8.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: open-social.php:604 open-social.php:837 open-social.php:863
+#: open-social.php:1155
+msgid "Open Social"
+msgstr ""
+
+#: open-social.php:646
+msgid ""
+"Warning: Unbind the only social login will cause deletion of a user along "
+"with fake email. If this account have published some posts or you just want "
+"to keep it, please renew a valid email that can reset password to login "
+"with, then try again."
+msgstr ""
+
+#: open-social.php:648
+msgid "Delete Users"
+msgstr ""
+
+#: open-social.php:650 open-social.php:1161 open-social.php:1299
+msgid "Unbind with %s"
+msgstr ""
+
+#: open-social.php:652
+msgid "This account has published some posts so that it cannot be deleted."
+msgstr ""
+
+#: open-social.php:681
+msgid "This account has bound with a login of this type already."
+msgstr ""
+
+#: open-social.php:688
+msgid "This account has bound with this login already."
+msgstr ""
+
+#: open-social.php:691
+msgid ""
+"This account has been bound by other user already, please unbind first "
+"then try again."
+msgstr ""
+
+#: open-social.php:723
+msgid "Username"
+msgstr ""
+
+#: open-social.php:724
+msgid "Email"
+msgstr ""
+
+#: open-social.php:725 open-social.php:1356
+msgid "Nickname"
+msgstr ""
+
+#: open-social.php:726
+msgid "Website"
+msgstr ""
+
+#: open-social.php:728
+msgid "Create New User"
+msgstr ""
+
+#: open-social.php:729
+msgid "Bind with Existing User"
+msgstr ""
+
+#: open-social.php:731 open-social.php:1072 open-social.php:1163
+msgid "Login with %s"
+msgstr ""
+
+#: open-social.php:738
+msgid "This account may contain some incompatible characters."
+msgstr ""
+
+#: open-social.php:830
+msgid "Settings"
+msgstr ""
+
+#: open-social.php:844
+msgid "Post with Sina Weibo"
+msgstr ""
+
+#: open-social.php:858
+msgid "Users Data Transfer Complete"
+msgstr ""
+
+#: open-social.php:872
+msgid "Plugin Homepage"
+msgstr ""
+
+#: open-social.php:880
+msgid "Login"
+msgstr ""
+
+#: open-social.php:882
+msgid "Show in Login page"
+msgstr ""
+
+#: open-social.php:883
+msgid "Show before comment form"
+msgstr ""
+
+#: open-social.php:884
+msgid "Show button for Inner Login"
+msgstr ""
+
+#: open-social.php:885
+msgid "Hide account setting that not enabled"
+msgstr ""
+
+#: open-social.php:886
+msgid "Enable to customize login code"
+msgstr ""
+
+#: open-social.php:897
+msgid "Share"
+msgstr ""
+
+#: open-social.php:899
+msgid "Show in Post pages"
+msgstr ""
+
+#: open-social.php:902 open-social.php:973
+msgid "Enabled"
+msgstr ""
+
+#: open-social.php:905
+msgid "Enable WeChat JSSDK (require WeChat.MP account setting)"
+msgstr ""
+
+#: open-social.php:907
+msgid ""
+"Post to Weibo when publish a new blog (require Administrator binding with "
+"Sina Weibo)"
+msgstr ""
+
+#: open-social.php:908
+msgid "Enable to customize share code"
+msgstr ""
+
+#: open-social.php:918
+msgid "Extensions"
+msgstr ""
+
+#: open-social.php:920
+msgid "Set new Callback URL when cant login"
+msgstr ""
+
+#: open-social.php:921
+msgid "Proxy for server request within plugin"
+msgstr ""
+
+#: open-social.php:922
+msgid "Regexp anti-spam for guest comment"
+msgstr ""
+
+#: open-social.php:923
+msgid "Receive reply email notification"
+msgstr ""
+
+#: open-social.php:924
+msgid "Show nickname in users list and orderby registered time desc"
+msgstr ""
+
+#: open-social.php:925
+msgid "Users"
+msgstr ""
+
+#: open-social.php:926
+msgid "Hide user bar for new user"
+msgstr ""
+
+#: open-social.php:927
+msgid "Profile"
+msgstr ""
+
+#: open-social.php:928
+msgid "Use Subscriber role for new user or default role if uncheck"
+msgstr ""
+
+#: open-social.php:929
+msgid "General Settings"
+msgstr ""
+
+#: open-social.php:930
+msgid "Disable Gravatar with a default blank avatar"
+msgstr ""
+
+#: open-social.php:931
+msgid "Discussion Settings"
+msgstr ""
+
+#: open-social.php:932
+msgid "Add jQuery.tooltip to the buttons"
+msgstr ""
+
+#: open-social.php:935
+msgid ""
+"Experimental: Transfer &ltwp-connect&gt users data to be compatible with"
+msgstr ""
+
+#: open-social.php:938
+msgid ""
+"Send an email to user that can reset password and notify admin after "
+"registration"
+msgstr ""
+
+#: open-social.php:939
+msgid ""
+"Allow binding user change their [username] one time and only (CAREFULLY)"
+msgstr ""
+
+#: open-social.php:940
+msgid ""
+"Clear all configurations in this page after plugin deleted (NOT RECOMMENDED)"
+msgstr ""
+
+#: open-social.php:950
+msgid "Account Setting"
+msgstr ""
+
+#: open-social.php:1037
+msgid ""
+"<strong>ERROR</strong>: The comment could not be saved. Please try again "
+"later."
+msgstr ""
+
+#: open-social.php:1051
+msgid "Login and bind with %s"
+msgstr ""
+
+#: open-social.php:1068
+msgid "Inner Login"
+msgstr ""
+
+#: open-social.php:1095
+msgid "Log Out"
+msgstr ""
+
+#: open-social.php:1117
+msgid "%s is your new username"
+msgstr ""
+
+#: open-social.php:1122
+msgid "Sorry, that username already exists!"
+msgstr ""
+
+#: open-social.php:1125
+msgid ""
+"Length of Username between 4 and 20, letters and numbers only; Or you "
+"already change it."
+msgstr ""
+
+#: open-social.php:1135
+msgid "&laquo; Back"
+msgstr ""
+
+#: open-social.php:1149
+msgid ""
+"Must be at least 4 characters, letters and numbers only. It cannot be "
+"changed, so choose carefully!"
+msgstr ""
+
+#: open-social.php:1299
+msgid "Confirm"
+msgstr ""
+
+#: open-social.php:1315
+msgid "Login to check this hidden content out"
+msgstr ""
+
+#: open-social.php:1336
+msgid "Hello"
+msgstr ""
+
+#: open-social.php:1341
+msgid "Go check it out"
+msgstr ""
+
+#: open-social.php:1343
+msgid "New reply to your comment"
+msgstr ""
+
+#: open-social.php:1357
+msgid "Registered"
+msgstr ""
+
+#: open-social.php:1384
+msgid "Open Social Login"
+msgstr ""
+
+#: open-social.php:1384
+msgid "Display your Open Social login button"
+msgstr ""
+
+#: open-social.php:1388 open-social.php:1420
+msgid "Title:"
+msgstr ""
+
+#: open-social.php:1399
+msgid "Howdy"
+msgstr ""
+
+#: open-social.php:1416
+msgid "Open Social Share"
+msgstr ""
+
+#: open-social.php:1416
+msgid "Display your Open Social share button"
+msgstr ""
+
+#: open-social.php:1431
+msgid "Connect"
+msgstr ""
+
+#: open-social.php:1444
+msgid "Floating Button"
+msgstr ""
+
+#: open-social.php:1444
+msgid "Some floating useful buttons"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.xiaomac.com/201311150.html"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Login or Share with social networks: QQ, WeiBo, Google, Microsoft, DouBan, "
+"XiaoMi, WeChat Open, WeChat MP, GitHub, Twitter, Facebook. No API! Single "
+"PHP!"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Afly"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.xiaomac.com/"
+msgstr ""

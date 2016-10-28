@@ -9,7 +9,7 @@ global $post,$user_ID,$wp_rewrite,$wp_query,$current_user,$max_file_size;
 $data = et_get_unread_follow();
 ?>
 
-			<div class="fe-tab">
+			<div class="fe-tab bottom-fe-tab">
 				<ul class="fe-tab-items">
 					<li class="fe-tab-item fe-tab-item-5 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
@@ -22,19 +22,13 @@ $data = et_get_unread_follow();
 							</span>
 						</a>
 					</li>
-					<li class="fe-tab-item fe-tab-item-6">
-						<?php if($user_ID){?>
-						<a href="<?php echo et_get_page_link("following") ?>">
-						<?php } else { ?>
-						<a href="<?php echo et_get_page_link("login") ?>">
-						<?php } ?>
-							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
-							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
-							<?php } ?>
-							</span>
-						</a>
-					</li>
+						<li class="fe-tab-item fe-tab-item-6">
+
+
+                        						<a href="/关于我们/">
+                                                                    						关于我们
+                                                                    						</a>
+                        					</li>
 					<li class="fe-tab-item fe-tab-item-7">
                     						<a href="/房屋租售/">
                     						加东房产

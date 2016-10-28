@@ -11,7 +11,7 @@ $data = et_get_unread_follow();
 			<div class="fe-nav">
 				<a href="#fe_category" class="fe-nav-btn fe-btn-cats"><span class="fe-sprite"></span></a>
 				<?php if(!$user_ID){?>
-				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile">注册或登录点这里</a>
 				<?php } else {?>
 				<a href="<?php echo get_author_posts_url($user_ID) ?>" class="fe-head-avatar toggle-menu"><?php echo  et_get_avatar($user_ID);?></a>
 				<?php } ?>

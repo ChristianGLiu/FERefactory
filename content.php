@@ -42,8 +42,8 @@ if ( ! isset( $content_width ) ) $content_width = 900;
 			<a class="more-link" href="<?php the_permalink(); ?>"><?php _e('Read more', ET_DOMAIN) ?>&nbsp;&nbsp;<span class="icon" data-icon="]"></span></a>
 
 			<?php } else {?>
-
 			<?php the_content();?>
+			<?php comments_template(); ?>
 			<div class="post-tags"><?php the_tags(); ?></div>
 			<?php } ?>
 		</div>

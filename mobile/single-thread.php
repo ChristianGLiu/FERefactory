@@ -15,7 +15,7 @@ else
 
 ?>
 
-			<div class="fe-tab">
+			<div class="fe-tab bottom-fe-tab">
 				<ul class="fe-tab-items">
 					<li class="fe-tab-item fe-tab-item-5 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
 						<a href="<?php echo home_url() ?>">
@@ -29,18 +29,12 @@ else
 						</a>
 					</li>
 					<li class="fe-tab-item fe-tab-item-6">
-						<?php if($user_ID){?>
-						<a href="<?php echo et_get_page_link("following") ?>">
-						<?php } else { ?>
-						<a href="<?php echo et_get_page_link("login") ?>">
-						<?php } ?>
-							<span class="fe-tab-name"><?php _e('FOLLOWING',ET_DOMAIN) ?>
-							<?php if($user_ID && count($data['follow']) > 0){ ?>
-								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['follow']) ;?></span>
-							<?php } ?>
-							</span>
-						</a>
-					</li>
+
+
+                    						<a href="/关于我们/">
+                                                                						关于我们
+                                                                						</a>
+                    					</li>
 					<li class="fe-tab-item fe-tab-item-7">
                     						<a href="/房屋租售/">
                     						加东房产
@@ -81,9 +75,9 @@ else
 			<div class="fe-avatar fe-nav">
 
 				<?php if(!$user_ID){?>
-				 <?php echo "<div class='mobile-social-wrapper' style='float:left;margin-top:10px;'><span class='mobile-social-bar-label'>一键登录：</span><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
+				 <?php echo "<div class='mobile-social-wrapper' style='float:left;margin-top:10px;'><span class='mobile-social-bar-content'>".open_social_login_html()."</span></div>";?>
 
-				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile">注册或登录点这里</a>
 				<?php } else {?>
 				 <?php
 				 $current_user = wp_get_current_user();

@@ -23,9 +23,9 @@ function fe_navigations(){
 	<li class="menu-bar-social-bar-front">
 
 				<?php if(!$user_ID){?>
-				 <?php echo "<div class='social-wrapper'><span class='social-bar-label'>一键登录：</span><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
+				 <?php echo "<div class='social-wrapper'><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
 
-				<a href="<?php echo et_get_page_link('login') ?>" class="fe-nav-btn fe-btn-profile"><span class="fe-sprite"></span></a>
+
 				<?php } else {?>
 				 <?php
 				 $current_user = wp_get_current_user();
@@ -34,20 +34,10 @@ function fe_navigations(){
 				 <?php } ?>
 			</li>
 
-			<li <?php echo is_page_template( 'page-following.php' ) ? 'class="active"' : ''; ?>>
-				<a
-			<?php
-				if($user_ID){
-					echo 'href="'.et_get_page_link("following").'"';
-				} else {
-					echo 'id="open_login" data-toggle="modal" href="#modal_login"';
-				}
-			?>>
-				<span class="icon" data-icon="&"></span>
-				<span class="text"><?php _e('Following',ET_DOMAIN) ?></span>
-				<?php if($user_ID && count($data['follow']) > 0){ ?>
-				<span class="number"><?php echo count($data['follow']) ;?></span>
-				<?php } ?>
+			<li>
+				<a href="/关于我们/">
+				关于我们
+
 				</a>
 			</li>
 			<?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) ) {?>
