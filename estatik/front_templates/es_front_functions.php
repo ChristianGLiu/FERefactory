@@ -496,9 +496,18 @@ if ( !function_exists('es_mapview_script') ) {
         // }
         //echo "<script type='text/javascript' src='".DIR_URL . "front_templates/js/infobox.js'></script>";
         echo "<script type='text/javascript'>
+        if (typeof EstatikApp != 'undefined') {
 		EstatikApp.widgetMapview.mapinfos = [$mapinfos];
 	    EstatikApp.widgetMapview.latitude = $latitude;
 	    EstatikApp.widgetMapview.longitude = $longitude;
+	    } else {
+	        var EstatikApp = {
+	        widgetMapview: {
+	        mapinfos: [$mapinfos],
+	        latitude:$latitude,
+	        longitude:$longitude
+	        }
+	    }
 	    </script>";
     }
 }

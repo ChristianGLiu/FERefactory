@@ -86,10 +86,13 @@ $data = et_get_unread_follow();
               </span>
             </div-->
             <div class="ad-area">
-            <div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/pandaBufffetAdv.gif"></img></a></div>
+            <div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/buffet.jpg"></img></a></div>
             <div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
             <div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
             <div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div>
+            <div class=""><img src="/wp-content/uploads/2016/10/dsfasdfnew.jpg"></img></div>
+            <div class=""><img src="/wp-content/uploads/2016/10/yanfan.png"></img></div>
+            <div class=""><img src="/wp-content/uploads/2016/10/guojun.jpg"></img></div>
             </div>
 			<div class="fe-new-topic fe-container">
 				<div class="fe-topic-form">

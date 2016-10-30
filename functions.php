@@ -136,3 +136,8 @@ function add_status_to_search_query( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'add_status_to_search_query' );
+
+add_filter('et_is_mobile', 'disable_mobile');
+function disable_mobile($mobile){
+ return false;
+}

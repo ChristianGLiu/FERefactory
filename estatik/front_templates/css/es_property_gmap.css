@@ -1,0 +1,375 @@
+
+#es-map-canvas {
+    width: 100%;
+}
+.es-map-wrapper{
+    border: 1px solid #e2e2e2;
+    padding: 5px
+}
+#infobox {
+    border: 4px solid white;
+	//margin : 8px 18px -20px 8px;
+	margin-top : 10px;
+    background: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 0.6em 1em;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    text-shadow: 0 -1px #000000;
+    -webkit-box-shadow: 0 0 8px #000;
+    box-shadow: 0 0 8px #000;
+    width: 400px;
+	height: auto;
+	/*
+	Overflow: hidden;
+	float:left;
+	position: relative;
+	left:12px;
+	top:-40px;
+	z-index:-1;
+	*/
+}
+.es-gmap-wrapper .infoBox > img {
+	margin-top: 15px !important;
+	border: none !important;
+}
+.text {
+    margin-left: 180px; /* Отступ от левого края */
+	min-height: auto;
+}
+   
+#infobox-img{
+    width: 210px;
+	float: left; /* Обтекание картинки текстом */   	
+	clear:left;
+	max-height:100%;
+	margin-bottom: 5px;
+	
+}
+#imagewrap {
+	max-width:178px;
+	margin-left:-5px;
+}
+#infobox-container .table-infobox {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    vertical-align: top;
+    margin: auto;
+}
+td .table-infobox{
+    width: 50%;
+}
+.ib_address {
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    font-variant: normal;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: none;
+    letter-spacing: 0px;
+    text-shadow: 0px 0px 0px #800000;
+    box-shadow: 0px 0px 0px #800000;
+}
+.ib_title {
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    font-variant: normal;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: none;
+    letter-spacing: 0px;
+    text-shadow: 0px 0px 0px #800000;
+    box-shadow: 0px 0px 0px #800000;
+	padding-left: 5px;
+	padding-top: 7px;
+}
+#ib_title-wrapper_blue {
+	background-image: url("../images/ib-caption-bg_blue.png");
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	-moz-border-radius:  7px 7px 0px 0px;
+	border-radius:  7px 7px 0px 0px;
+	margin: -13px;
+	margin-top: -9px;		
+	padding-bottom: 10px;
+}
+#ib_title-wrapper_pink {
+	background-image: url("../images/ib-caption-bg_pink.png");
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	-moz-border-radius:  7px 7px 0px 0px;
+	border-radius:  7px 7px 0px 0px;
+	margin: -13px;
+	margin-top: -9px;		
+	padding-bottom: 10px;
+}
+#ib_title-wrapper_green {
+	background-image: url("../images/ib-caption-bg_green.png");
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	-moz-border-radius:  7px 7px 0px 0px;
+	border-radius:  7px 7px 0px 0px;
+	margin: -13px;
+	margin-top: -9px;		
+	padding-bottom: 10px;
+}
+.ib_price {
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    font-variant: normal;
+    line-height: 35px;
+    text-align: left;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 0px #800000;
+    box-shadow: 0px 0px 0px #800000;
+}
+.ib_desc {
+    color: #909090;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    font-variant: normal;
+    line-height: 14px;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #800000;
+    box-shadow: 0px 0px 0px #800000;
+}
+.ib_link {
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    font-variant: normal;
+    line-height: 20px;
+    text-align: left;
+    text-decoration: none;
+    letter-spacing: 0px;
+    text-shadow: 0px 0px 0px #800000;
+    box-shadow: 0px 0px 0px #800000;
+}
+.ib_link a{
+    color: #000000;
+}
+.ib_link a:visited{
+    color: #000000!important;
+}
+.ib-bedrooms{
+    margin-left: 10px;
+}
+.ib-bathrooms{
+    margin-left: 10px;
+}
+.es-gmap-wrapper {
+    padding: 5px;
+    border:1px solid #cacaca;
+    border-radius: 3px;
+}
+@media only screen 
+and (max-device-width : 960px)
+{
+	#es-map-canvas {
+		width: 100%;
+		height: 300px;
+	}
+.es-gmap-wrapper .infoBox img[align="right"] 
+{
+  right: -208px !important;
+}
+	#infobox {
+		border: 4px solid white;
+		margin-top:8px;
+		background: white;
+		color: black;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		padding: 0.6em 1em;
+		-webkit-border-radius: 7px;
+		-moz-border-radius: 7px;
+		border-radius: 7px;
+		text-shadow: 0 -1px #000000;
+		-webkit-box-shadow: 0 0 8px #000;
+		box-shadow: 0 0 8px #000;
+		width: 240px;
+		Overflow: hidden;
+		float:left;
+		min-height: auto;
+		z-index:-1;
+        position: absolute;
+	}
+	.text {
+		clear: both;
+		height: 100px;
+		width: 240px;
+		margin-left:0%;
+		margin-bottom:15%;
+	}
+	#infobox-img{
+		float: top;
+		height: 50%;
+		width: 100%;
+		margin-bottom: 7px;
+	}
+	#imagewrap {
+		max-width:90px;
+	}
+	#infobox-container .table-infobox {
+		border-bottom: 0;
+		border-left: 0;
+		border-right: 0;
+		border-top: 0;
+		vertical-align: top;
+		margin: auto;
+	}
+	td .table-infobox{
+		width: 50%;
+	}
+	.ib_address {
+		color: #000000;
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		font-variant: normal;
+		line-height: 15px;
+		text-align: left;
+		text-decoration: none;
+		letter-spacing: 0px;
+		text-shadow: 0px 0px 0px #800000;
+		box-shadow: 0px 0px 0px #800000;
+	}
+	.ib_title {
+		color: #ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		font-variant: normal;
+		line-height: 18px;
+		text-align: left;
+		text-decoration: none;
+		letter-spacing: 0px;
+		text-shadow: 0px 0px 0px #800000;
+		box-shadow: 0px 0px 0px #800000;	
+		padding-left: 5px;
+		padding-top: 7px;
+		padding-right: 20px;
+	}
+	#ib_title-wrapper_blue {
+	    background-image: url("../images/ib-caption-bg_blue.png");
+		background-repeat: repeat-x;
+		background-size: auto 100%;
+		-webkit-border-radius: 7px 7px 0px 0px;
+		-moz-border-radius:  7px 7px 0px 0px;
+		border-radius:  7px 7px 0px 0px;
+		margin: -12px;
+		margin-top: -9px;		
+		padding-bottom: 10px;
+		position: relative;
+	}
+	
+	#ib_title-wrapper_pink {
+	    background-image: url("../images/ib-caption-bg_pink.png");
+		background-repeat: repeat-x;
+		background-size: auto 100%;
+		-webkit-border-radius: 7px 7px 0px 0px;
+		-moz-border-radius:  7px 7px 0px 0px;
+		border-radius:  7px 7px 0px 0px;
+		margin: -12px;
+		margin-top: -9px;		
+		padding-bottom: 10px;
+		position: relative;
+	}
+	#ib_title-wrapper_green {
+	    background-image: url("../images/ib-caption-bg_green.png");
+		background-repeat: repeat-x;
+		background-size: auto 100%;
+		-webkit-border-radius: 7px 7px 0px 0px;
+		-moz-border-radius:  7px 7px 0px 0px;
+		border-radius:  7px 7px 0px 0px;
+		margin: -12px;
+		margin-top: -9px;		
+		padding-bottom: 10px;
+		position: relative;
+	}
+	
+	.ib_price {
+		color: #000000;
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 17px;
+		font-variant: normal;
+		line-height: 30px;
+		text-align: left;
+		text-decoration: none;
+		letter-spacing: 1px;
+		text-shadow: 0px 0px 0px #800000;
+		box-shadow: 0px 0px 0px #800000;
+	}
+	.ib_desc {
+		color: #909090;
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 13px;
+		font-variant: normal;
+		line-height: 14px;
+		text-align: left;
+		text-decoration: none;
+		text-shadow: 0px 0px 0px #800000;
+		box-shadow: 0px 0px 0px #800000;
+	}
+	.ib_link {
+		color: #000000;
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		font-variant: normal;
+		line-height: 14px;
+		text-align: left;
+		text-decoration: none;
+		letter-spacing: 0px;
+		text-shadow: 0px 0px 0px #800000;
+		box-shadow: 0px 0px 0px #800000;
+	}
+	.ib_link a{
+		color: #000000;
+	}
+	.ib_link a:visited{
+		color: #000000!important;
+	}
+	.ib-bedrooms{
+		margin-left: 10px;
+	}
+	.ib-bathrooms{
+		margin-left: 10px;
+	}
+    .gmnoprint img {
+        max-width: none!important;
+    }
+}
+.gmnoprint img {
+    max-width: none!important;
+}

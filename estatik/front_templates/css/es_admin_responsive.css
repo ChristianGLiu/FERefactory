@@ -1,0 +1,185 @@
+
+.hide-desktop{ display:none; }
+@media only screen 
+and (max-device-width : 960px) 
+{
+	#es_content .es_wrapper{ padding-right:10px; }
+	
+	#es_content .es_manager_lists ul li input[type="checkbox"]{ left:6px; top:7px; }  	
+	
+	#es_content select, #es_content input[type="text"],#es_content  input[type="number"]{ font-size:14px !important; } 
+	
+	#es_content .esHead p{ padding-bottom:10px; float:none; width:auto; }
+	
+	#es_content .es_mainHeading.fl{ float:none; }
+	
+	#es_content .es_agent_info{ padding:10px; }
+	
+	#es_content .new_prop_fields_wrap .es_add_newfield.full{ display:block; }
+}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 960px) 
+{
+	
+	
+	#es_content .show-ipad{ display:block; }
+		
+	#es_content .hide-ipad{ display:none !important; }
+	
+	#es_content .es_search_filter select{ width:190px; }
+	
+	#es_content .es_all_listing_search input[type="submit"]{ width:85px; }
+	
+	#es_content .es_all_listing_search input[type="button"]{ width:85px !important; }
+	
+	#es_content .es_search_prop input:nth-of-type(2){ width:74px; }
+	
+	#es_content .es_manage_listing ul li a:before{ left:8px; }
+	
+	#es_content .es_manage_listing ul li a{ padding:0 10px 0 30px; }
+	
+	#es_content .es_all_listing_head div, .es_all_listing div{ width:15.8%; }
+	
+	#es_content .es_all_listing_head div, #es_content .es_all_listing div{ width:15.8%; }
+ 
+	#es_content .es_manager_lists ul li input[type="checkbox"]{ left:6px; top:7px; }
+	
+	#es_content .es_manager_lists{ width:49%; }
+	
+	#es_content .es_manager_lists:nth-child(2){ border-right:0px; margin-right:0px !important; }
+	
+	
+	#es_content #es_agent_listing .es_all_listing_head div, #es_agent_listing .es_all_listing div{ width:14%; }
+	
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(2),
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(3),
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(8){ width:14%; }
+	
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(5){ width:25%; }
+	
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(6){ width:18%; } 
+	
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(9){ width:8%; }
+	
+	
+	#es_content #es_agent_listing .es_all_listing div, #es_agent_listing .es_all_listing div{ width:14%; }
+	
+	#es_content #es_agent_listing .es_all_listing div:nth-child(2),
+	#es_content #es_agent_listing .es_all_listing div:nth-child(3),
+	#es_content #es_agent_listing .es_all_listing div:nth-child(8){ width:14%; }
+	
+	#es_content #es_agent_listing .es_all_listing div:nth-child(5){ width:25%; }
+	
+	#es_content #es_agent_listing .es_all_listing div:nth-child(6){ width:18%; } 
+	
+	#es_content #es_agent_listing .es_all_listing div:nth-child(9){ width:8%; }
+	
+	#es_content .es_layout label small{ width:180px; height:134px; }
+	
+	#es_content .es_search_filter .es_select{ width:194px; margin-right:15px; }
+	
+	
+		 
+}
+@media only screen 
+and (max-device-width : 767px) 
+{	
+ 
+	#es_content .hide-phone{ display:none !important; }
+ 
+	#es_content .es_all_listing_search_upper label{ float:none; display:block; }
+	
+	#es_content .es_search_filter select{ float:none; margin-right:0px; margin-bottom:10px; width:100%; }
+	
+	#es_content .es_select{ float:none; margin-right:0px !important; margin-bottom:10px; width:100% !important; }
+	
+	#es_content .es_search_prop input{ float:none; margin-right:0px; width:100% !important; }
+	
+	#es_content .es_search_prop .ui-datepicker-trigger{ margin:0px; position:absolute; right:10px; bottom:81px; }
+	
+	#es_content .es_all_listing_search input[type="submit"]{ margin-right:0px; margin-top:15px; margin-bottom:10px; }
+	
+	#es_content .es_all_listing_search input[type="button"]{ width:100% !important; }
+	
+	#es_content .es_manage_listing label{ float:none; padding-bottom:5px; } 
+	
+	#es_content .es_manage_listing ul{ margin:0px; }
+	
+	#es_content .es_manage_listing ul li{ float:none; margin:0; margin-bottom:10px; }
+	
+	#es_content es_manage_listing ul li a{ text-align:left; }
+	
+	
+	#es_content .es_all_listing_head div:nth-child(1),
+	#es_content .es_all_listing div:nth-child(1){ width:10% !important; }
+	
+	#es_content .es_all_listing_head div,
+	#es_content .es_all_listing div{ width:45%; }
+	
+	
+	#es_content .es_tabs ul li{ float:none; width:auto !important; }
+	
+	#es_content .new_prop_field span{ display:block; float:none; width:auto; }
+	
+	#es_content .new_prop_fields_wrap input[type="text"], .new_prop_fields_wrap select{ width:100%; float:none; }
+	
+	#es_content .new_prop_fields_wrap input[type="number"]{ width:100%; float:none; }
+	
+	#es_content .es_select{ width:100%; float:none; }
+	
+	#es_content .es_new_prop_error{ left:0px; top:49px; }
+	
+	#es_content .new_prop_fields_wrap textarea{ float:none; width:100%; }
+	
+	#es_content es_add_newfield.full{ display:block !important; }
+	
+	#es_content .es_add_newfield.full input{ width:100% !important; margin-bottom:10px; float:none !important; }
+	
+	#es_content .es_add_newfield.full .es_add_newfield_btn{ width:auto !important; float:none !important; display:block !important; margin:0px!important; }
+	
+	#es_content .new_prop_loader{ left:101%; top:30px; }
+	
+	
+	#es_content .es_manager_lists{ float:none; width:100% !important; margin-right:0px !important; padding-right:0px !important; border-right:0px !important;  }
+	
+	#es_content #es_neighboarhood .es_manager_lists ul li input[type="text"]{ width:30%; }
+	
+	#es_content .es_media_images_field{ display:block; }
+	
+	#es_content .es_media_images_field input{ float:none; width:auto; margin-bottom:10px; }
+	
+	#es_content .es_media_images_field a{ float:none; margin:auto; }
+	
+	
+	#es_content .es_media_video_embed{ display:block; padding:4px 10px 10px; }
+	
+	#es_content .es_media_video_embed label{ display:block; float:none; }
+	
+	#es_content .es_media_video_embed input{ float:none; width:100%; }
+	
+	
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(2),
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(3),
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(8){ width:40%; }
+	
+	#es_content #es_agent_listing .es_all_listing div:nth-child(2),
+	#es_content #es_agent_listing .es_all_listing div:nth-child(3),
+	#es_content #es_agent_listing .es_all_listing div:nth-child(8){ width:40%; }
+	
+	#es_content #es_agent_listing .es_all_listing_head div:nth-child(5){ width:50%; }
+	
+	#es_content #es_agent_listing .es_all_listing div:nth-child(5){ width:50%; }
+	
+	#es_content .es_agent_field label{ float:none; display:block; width:auto; }
+	
+	#es_content .es_agent_info input[type="text"], .es_agent_info select, .es_agent_info input[type="number"], .es_agent_info textarea{ width:100%; float:none; }
+	
+	#es_content .es_agent_info textarea{ width:100%; }
+	
+	#es_content .es_agent_error{ left:0px; top:49px; position:static; }
+	
+	.addNewPropEditor{  float:none; width:100%; }
+	
+ 
+}

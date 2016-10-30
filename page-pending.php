@@ -16,6 +16,11 @@ $data = et_get_unread_follow();
 		?>
 	</div>
 	<div class="mo-menu-toggle visible-sm visible-xs">
+	<span style="
+        font-size: 18px;
+        font-weight: 900;
+        color: brown;
+    ">贴子类别</span>
 		<a class="icon-menu-tablet" href="#"><?php _e('open',ET_DOMAIN) ?></a>
 	</div>
 </div>

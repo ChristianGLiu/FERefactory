@@ -76,6 +76,9 @@ class AddNewHouse {
 		$duplicated = false;
 		$check_id = 0;
 		$params = $request->get_json_params();
+		$prop_meta_keywords = '';
+		$prop_meta_description= '';
+
 
 		$debugInfo .= "get json request body:".var_dump($params)."\r\n";
 		$MlsNumber = $params['MlsNumber'];
@@ -104,7 +107,7 @@ class AddNewHouse {
 
 			$the_user = get_users(array( 'number' => 1, 'offset'=>rand(1,200) ) );
 			$debugInfo .= "user id is ".$the_user->ID."\r\n";
-			$post_post_title ="[最新房源]".mb_strimwidth($params['Property']['Address']['AddressText'], 0, 30, "...");
+			$post_post_title ="[最新房源]".mb_strimwidth($params['Property']['Address']['AddressText'], 0, 50, "...");
 			$debugInfo .= "post_post_title ".$post_post_title."\r\n";
 			$post_post_name=uniqid('house_');
 			$debugInfo .= "post_post_name ".$post_post_name."\r\n";
@@ -124,6 +127,7 @@ class AddNewHouse {
 				'guid' => $guid,
 				'post_content'=>"[es_single_property]"
 				) );
+				$debugInfo .= "this is not duplicated record:".$post_id."\r\n";
 
 			}else{
 
@@ -134,6 +138,7 @@ class AddNewHouse {
 				);
 				// Update the post into the database
 				$post_id = $check_id;
+				$debugInfo .= "this is  duplicated record:".$post_id."\r\n";
 			}
 
 
@@ -201,12 +206,14 @@ class AddNewHouse {
 				$debugInfo .= "get house other attribute: ".$prop_bathrooms. ' '.$prop_floors.' '.$prop_lotsize."\r\n";
 				$buildin= intval($params['attributes']['Age Of Building']);
 				if(!empty($buildin)){
-				$prop_builtin 		= 2017 - intval($params['attributes']['Age Of Building']);
+				$prop_builtin 		= strval(2017 - intval($params['attributes']['Age Of Building']));
+				} else {
+				  $prop_builtin  = "未知";
 				}
 				$prop_description 	= wp_kses_post($params['PublicRemarks']);
 				$prop_description 	= stripcslashes($prop_description);
 
-/**
+
 				$apiKey = 'AIzaSyAsP0s0WE8zAqB9-C0FVWTPag_ATP-boXA';
 				$translate_url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($prop_description) . '&source=en&target=zh-CN';
 
@@ -225,7 +232,7 @@ class AddNewHouse {
 					$prop_description = $translate_responseDecoded['data']['translations'][0]['translatedText'];
 					$debugInfo .= 'prop_description translate: ' . $prop_description. '\r\n';
 				}
-				**/
+
 
 
 				$country_id 		= 1;
@@ -245,6 +252,42 @@ class AddNewHouse {
 
 
 				if(!$duplicated){
+
+				/**
+
+				'prop_id' 			=> $post_id,
+                            'agent_id' 			=> $agent_id,
+                            'prop_date_added' 	=> time(),
+                            'prop_pub_unpub' 	=> 1,
+                            'prop_title' 		=> $prop_title,
+                            'prop_type' 		=> $prop_type,
+                            'prop_category' 	=> $prop_category,
+                            'prop_status' 		=> $prop_status,
+                            'prop_featured' 	=> $prop_featured,
+                            'prop_hot' 			=> $prop_hot,
+                            'prop_open_house' 	=> $prop_open_house,
+                            'prop_foreclosure' 	=> $prop_foreclosure,
+                            'prop_price' 		=> $prop_price,
+                            'prop_period' 		=> $prop_period,
+                            'prop_bedrooms' 	=> $prop_bedrooms,
+                            'prop_bathrooms' 	=> $prop_bathrooms,
+                            'prop_floors' 		=> $prop_floors,
+                            'prop_area' 		=> $prop_area,
+                            'prop_lotsize' 		=> $prop_lotsize,
+                            'prop_builtin' 		=> $prop_builtin,
+                            'prop_description' 	=> $prop_description,
+                            'country_id' 		=> $country_id,
+                            'state_id' 			=> $state_id,
+                            'city_id' 			=> $city_id,
+                            'prop_zip_postcode' => $prop_zip_postcode,
+                            'prop_street' 		=> $prop_street,
+                            'prop_address' 		=> $prop_address,
+                            'prop_longitude' 	=> $prop_longitude,
+                            'prop_latitude' 	=> $prop_latitude,
+                            'prop_meta_keywords' 		=> $prop_meta_keywords,
+                            'prop_meta_description' 	=> $prop_meta_description
+
+				**/
 
 $debugInfo .= "ready to insert property table:".$wpdb->prefix.'estatik_properties'."\r\n";
 					$wpdb->insert(
@@ -280,6 +323,8 @@ $debugInfo .= "ready to insert property table:".$wpdb->prefix.'estatik_propertie
 					'prop_address' 		=> $prop_address,
 					'prop_longitude' 	=> $prop_longitude,
 					'prop_latitude' 	=> $prop_latitude,
+					'prop_meta_keywords' 		=> $prop_meta_keywords,
+                     'prop_meta_description' 	=> $prop_meta_description
 					)
 					);
 				}else{
@@ -314,6 +359,8 @@ $debugInfo .= "ready to insert property table:".$wpdb->prefix.'estatik_propertie
 					'prop_address' 		=> $prop_address,
 					'prop_longitude' 	=> $prop_longitude,
 					'prop_latitude' 	=> $prop_latitude,
+					'prop_meta_keywords' 		=> $prop_meta_keywords,
+                                'prop_meta_description' 	=> $prop_meta_description
 					),
 					array( 'prop_id' => $prop_id )
 					);

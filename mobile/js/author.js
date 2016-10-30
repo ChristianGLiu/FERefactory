@@ -153,6 +153,8 @@ $(document).ready(function(){
 
 		onFilesBeforeSend : function(){
 			if('beforeSend' in this.options && typeof this.options.beforeSend === 'function'){
+				$('body').addClass('ui-loading');
+				$.mobile.showPageLoadingMsg( "b", "正上载文件", false );
 				this.options.beforeSend(this.$el);
 			}
 		},

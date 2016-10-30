@@ -1,4 +1,15 @@
-
+<?php
+/**
+ * Plugin Name: Open Social
+ * Plugin URI: https://www.xiaomac.com/201311150.html
+ * Description: Login or Share with social networks: QQ, WeiBo, Google, Microsoft, DouBan, XiaoMi, WeChat Open, WeChat MP, GitHub, Twitter, Facebook. No API! Single PHP!
+ * Author: Afly
+ * Author URI: https://www.xiaomac.com/
+ * Version: 1.8.0
+ * License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * Text Domain: open-social
+ * Domain Path: /lang
+ */
 
 if(!session_id()) session_start();
 $GLOBALS['osop'] = get_option('osop');
@@ -6,6 +17,8 @@ $GLOBALS['osop'] = get_option('osop');
 //init
 add_action('init', 'open_init', 1);
 function open_init() {
+    $uri = $_SERVER['REQUEST_URL'];
+    if(stristr($uri,'/xh')!=false){return;}
 	load_plugin_textdomain( 'open-social', '', dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 	$GLOBALS['open_arr'] = array(
 		'qq'=>__('QQ','open-social'),
@@ -1071,11 +1084,11 @@ function open_social_login_html($atts=array()) {
 
 function open_social_share_html() {
 	if(osop('show_share',1) && osop('show_share_html')) return osop('show_share_html');
-	$html = '<div class="open_social_box share_box">';
-	if(osop('share_wechat')) $html .= '<div class="open_social_qrcode" onclick="jQuery(this).hide();"></div>';
+	$html = '<div class="open_social_box share_box"><span>分享到微信微博:</span>';
 	foreach ($GLOBALS['open_share_arr'] as $k=>$v) {
 		if(osop('share_'.$k)) $html .= open_share_button_show($k,$v[0],$v[1]);
 	}
+	if(osop('share_wechat')) $html .= '<div class="open_social_qrcode" onclick="jQuery(this).hide();"></div>';
 	$html .= '</div>';
 	return $html;
 }

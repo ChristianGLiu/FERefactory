@@ -234,7 +234,7 @@
 .et-main-main .list-language li.new-language input{
 	display: none;
 	padding: 6px 8px 4px;
-	min-height: 200px
+	min-height: 200px;
 	color: #427BAB;
 	font-weight: bold;
 	text-decoration: none;
@@ -536,7 +536,7 @@
 .show-new-currency .button-enable a.deactive.selected span,
 .et-main-main .desc .inner .payment .button-enable a.deactive.selected span{
 	color: #979797;
-	background-color: none;
+	background-color: transparent;
 	border-color: #d0d0d0;
 }
 
@@ -626,7 +626,7 @@
 	height: 250px;
 	padding: 10px 10px;
 	resize: none; 
-	overflow-x: none;
+	overflow-x: hidden;
 }
 
 .et-main-main .desc .form .form-item textarea.autosize{
@@ -2119,7 +2119,7 @@ span.loading{
 	color: #353535;
 }
 
-.form-item input[type!=checkbox][type!=radio] {
+.form-item input:not([type=checkbox][type=radio]) {
 	width: 460px;
 	height: 36px;
 	margin-top: 5px;
@@ -2127,7 +2127,7 @@ span.loading{
 }
 
 .form-item .error {
-	background-color: none;
+	background-color: transparent;
 	border: none;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -2376,7 +2376,7 @@ button.disabled:hover, input[type="submit"].disabled:hover, input[type="button"]
 	margin-left: 0;
 }
 
-.et-main-main textarea,
+.et-main-main textarea
 {
 	width: 80%;
 	height: 120px;

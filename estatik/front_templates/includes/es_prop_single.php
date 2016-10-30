@@ -162,6 +162,7 @@ if ( $es_settings->single_property_layout=='3' ) {
                                                      src="<?php echo $upload_dir['baseurl'].$list_image_url?>" alt="" />
                                             </a>
                                         </li>
+                                        <?php } ?>
                                     <?php } ?>
                                 </ul>
                             </div>

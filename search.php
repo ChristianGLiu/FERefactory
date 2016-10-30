@@ -8,34 +8,21 @@ $data = et_get_unread_follow();
 <div class="header-bottom header-filter">
 	<div class="main-center">
 		<ul class="nav-link">
-			<li <?php if(is_home() || is_front_page()){ ?> class="active" <?php }?>>
-				<a href="<?php echo home_url() ?>">
-					<span class="icon" data-icon="W"></span>
-					<span class="text"><?php _e('ALL POSTS',ET_DOMAIN) ?></span>
-					<?php
-						if(!empty($data) && count($data['unread']['data']) > 0){
-					?>
-					<span class="number"><?php echo count($data['unread']['data']) ?></span>
-					<?php } ?>
-				</a>
-			</li>
 				<li>
                                 				<a href="/关于我们/">
                                 				关于我们
 
                                 				</a>
                                 			</li>
-			<?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) ) {?>
-			<li>
-				<a href="<?php echo et_get_page_link("pending");?>">
-					<span class="icon" data-icon="N"></span>
-					<span class="text"><?php _e('PENDING POSTS',ET_DOMAIN) ?></span>
-				</a>
-			</li>
-			<?php } ?>
+
 		</ul>
 	</div>
 	<div class="mo-menu-toggle visible-sm visible-xs">
+	<span style="
+        font-size: 18px;
+        font-weight: 900;
+        color: brown;
+    ">贴子类别</span>
 		<a class="icon-menu-tablet" href="#"><?php _e('open',ET_DOMAIN) ?></a>
 	</div>
 </div>

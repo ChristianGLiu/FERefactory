@@ -1,53 +1,58 @@
 {
   "Building": {
     "BathroomTotal": "1",
-    "Bedrooms": "2",
-    "SizeInterior": "1250 sqft",
-    "StoriesTotal": "1.5",
-    "Type": "House"
+    "Bedrooms": "2 + 0",
+    "StoriesTotal": "1",
+    "Type": "Mobile Home"
   },
   "Business": {},
-  "Id": "17299774",
+  "Id": "16384449",
   "Individual": [
     {
       "CorporationDisplayTypeId": "0",
+      "DesignationText": "Sales Person",
       "Emails": [
         {
-          "ContactId": "393285642"
+          "ContactId": "394913946"
         }
       ],
-      "FirstName": "BRANDON",
-      "IndividualID": 1634583,
-      "LastName": "MCGEE",
-      "Name": "BRANDON MCGEE",
+      "FirstName": "Dave",
+      "IndividualID": 1889530,
+      "LastName": "Matheson",
+      "Name": "Dave Matheson",
       "Organization": {
         "Address": {
-          "AddressText": "78 Milltown Blvd|St. Stephen, NB E3L1C6"
+          "AddressText": "7071 Bayers Rd., Suite 102|Halifax, NS B3L2C2"
         },
-        "Designation": "Brokerage",
         "Emails": [
           {
-            "ContactId": "394842531"
+            "ContactId": "394831762"
           }
         ],
         "HasEmail": true,
-        "Logo": "https://cdn.realtor.ca/organization/en-CA/lowres/1006922.jpg",
-        "Name": "EXIT REALTY  CHARLOTTE COUNTY (S179)",
-        "OrganizationID": 89946,
+        "Logo": "https://cdn.realtor.ca/organization/en-CA/lowres/default/royallepage.gif",
+        "Name": "Royal LePage Atlantic",
+        "OrganizationID": 276603,
         "PermitFreetextEmail": true,
         "PermitShowListingLink": true,
         "Phones": [
           {
-            "AreaCode": "506",
-            "PhoneNumber": "466-3330",
+            "AreaCode": "902",
+            "PhoneNumber": "453-1700",
             "PhoneType": "Telephone",
             "PhoneTypeId": "1"
           },
           {
-            "AreaCode": "506",
-            "PhoneNumber": "466-5429",
+            "AreaCode": "902",
+            "PhoneNumber": "455-6738",
             "PhoneType": "Fax",
             "PhoneTypeId": "4"
+          }
+        ],
+        "Websites": [
+          {
+            "Website": "http://www.royallepageatlantic.com",
+            "WebsiteTypeId": "1"
           }
         ]
       },
@@ -55,64 +60,90 @@
       "PermitShowListingLink": true,
       "Phones": [
         {
-          "AreaCode": "506",
-          "PhoneNumber": "755-0916",
+          "AreaCode": "902",
+          "PhoneNumber": "877-3085",
           "PhoneType": "Telephone",
           "PhoneTypeId": "1"
+        },
+        {
+          "AreaCode": "902",
+          "PhoneNumber": "404-6964",
+          "PhoneType": "Fax",
+          "PhoneTypeId": "4"
         }
       ],
-      "Photo": "https://cdn.realtor.ca/individual/lowres/1163514.jpg",
-      "Position": "Sales Person",
-      "Websites": [
-        {
-          "Website": "http://www.getonthemove.ca",
-          "WebsiteTypeId": "1"
-        }
-      ]
+      "Photo": "https://cdn.realtor.ca/individual/lowres/1210837.jpg"
     }
   ],
   "Land": {
-    "AccessType": "Year-round access",
-    "LandscapeFeatures": "Partially landscaped",
-    "SizeTotal": ".08 ACRES|under 1 acre"
+    "LandscapeFeatures": "Landscaped",
+    "SizeTotal": "under 1/2 acre"
   },
-  "MlsNumber": "SJ164138",
-  "PhotoChangeDateUTC": "31/08/2016 3:14:21 AM",
-  "PostalCode": "E5C0B6",
-  "PriceChangeDateUTC": "14/10/2016 12:12:05 AM",
+  "MlsNumber": "201511588",
+  "PhotoChangeDateUTC": "14/12/2015 2:25:12 PM",
+  "PostalCode": "B2Y2A4",
   "Property": {
     "Address": {
-      "AddressText": "6 HOLMES Lane |L'ETETE, New Brunswick E5C0B6",
-      "Latitude": "45.0510544",
-      "Longitude": "-66.889099"
+      "AddressText": "23 Florence Avenue|Maple Ridge Estates|Halifax, Nova Scotia B2Y2A4",
+      "Latitude": "44.66279",
+      "Longitude": "-63.53323"
     },
+    "OwnershipType": "Freehold",
     "Photo": [
       {
-        "HighResPath": "https://cdn.realtor.ca/listing/TS636081956610070000/reb84/highres/8/sj164138_1.jpg",
-        "LastUpdated": "30/08/2016 11:14:21 PM",
-        "LowResPath": "https://cdn.realtor.ca/listing/TS636081956610070000/reb84/lowres/8/sj164138_1.jpg",
-        "MedResPath": "https://cdn.realtor.ca/listing/TS636081956610070000/reb84/medres/8/sj164138_1.jpg",
+        "HighResPath": "https://cdn.realtor.ca/listing/TS635856819125430000/reb107/highres/8/201511588_1.jpg",
+        "LastUpdated": "14/12/2015 9:25:12 AM",
+        "LowResPath": "https://cdn.realtor.ca/listing/TS635856819125430000/reb107/lowres/8/201511588_1.jpg",
+        "MedResPath": "https://cdn.realtor.ca/listing/TS635856819125430000/reb107/medres/8/201511588_1.jpg",
         "SequenceId": "1"
       }
     ],
-    "Price": "$11,900",
+    "Price": "$39,900",
     "Type": "Single Family",
     "TypeId": "300"
   },
-  "PublicRemarks": "This small home is located on a private, tucked away piece of land, close to the Deer Island Ferry Terminal. Welcome to 6 Holmes Lane in L'Etete! This lovely one and a half storey home offers privacy and ample room for a family. It has two bedrooms and a bathroom, a generous sized kitchen and dining room, as well as a cozy living room. Property upgrades, over time, have included newer vinyl windows, steel roofing, laminate flooring, modern lighting and painting throughout areas of the home. Property is being sold without a septic system.  Directions: Go past Deer Island Ferry Terminal toward Green Point Lighthouse, Holmes Lane is on your right.",
-  "RelativeDetailsURL": "/Residential/Single-Family/17299774/6-HOLMES-Lane-LETETE-New-Brunswick-E5C0B6",
+  "PublicRemarks": "Seller is motivated. Why pay rent when you can own your own home. Great value in the heart of Dartmouth. This property is situated in the popular Maple Ridge Estates. Some TLC needed, but there is great potential. New roof and propane furnace in 2014. Good sized private back yard with 2 sheds (12x8 & 8x8). Lots of storage. Close to bus terminal & shopping. THis property won't last long. Come view your new home today.",
+  "RelativeDetailsURL": "/Residential/Single-Family/16384449/23-Florence-Avenue-Maple-Ridge-Estates-Halifax-Nova-Scotia-B2Y2A4-Halifax",
   "StatusId": "1",
   "attributes": {
-    "Age Of Building": "50 Years",
-    "Building Type": "House",
-    "Land Size": ".08 ACRES|under 1 acre",
+    "Building Type": "Mobile Home",
+    "Built in": "1971",
+    "Community Name": "Halifax",
+    "Land Size": "under 1/2 acre",
     "Property Type": "Single Family",
-    "Storeys": "1.5"
+    "Storeys": "1",
+    "Title": "Freehold"
   },
   "details": {
-    "Access": "Year-round access"
+    "Appliances Included": "Oven, Stove, Dryer, Washer",
+    "Features": "Level",
+    "Rental Equipment": "Propane Tank",
+    "Structures": "Deck"
   },
   "rooms": {
+    "Main level": [
+      {
+        "Kitchen": "13x12"
+      },
+      {
+        "Bedroom": "10x10"
+      },
+      {
+        "Master bedroom": "13x13"
+      },
+      {
+        "Bath (# pieces 1-6)": "7x8 4pc"
+      },
+      {
+        "Laundry room": "5x2.5"
+      },
+      {
+        "Foyer": "10.5x5.5"
+      },
+      {
+        "Mud room": "6x12.5"
+      }
+    ],
     "area": 0
   }
 }

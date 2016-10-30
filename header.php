@@ -27,17 +27,22 @@
 	    <![endif]-->
 	</head>
 	<body <?php echo body_class() ?>>
-	<div class="mp-qr-bar"><span class="arrow-down">扫扫我们的网站吧</span><br /><img src="/wp-content/uploads/2016/10/smallwebsitebarcode.png"></img></div>
-	<div class="web-qr-bar"><span class="arrow-down">扫扫我们的公众号</span><br /><img src="/wp-content/uploads/2016/10/qrcode_for_gh_med.jpg"></img></div>
+	<!--div class="mp-qr-bar"><span class="arrow-down">扫扫我们的网站吧</span><br /><img src="/wp-content/uploads/2016/10/smallwebsitebarcode.png"></img></div>
+	<div class="web-qr-bar"><span class="arrow-down">扫扫我们的公众号</span><br /><img src="/wp-content/uploads/2016/10/qrcode_for_gh_med.jpg"></img></div-->
 	<div class="site-container">
 		<div class="cnt-container">
 			<div class="header-top bg-header">
 				<div class="main-center container">
 					<div class="row header-info">
 						<div class="col-md-2 logo-header">
+						<span><img src="/wp-content/uploads/2016/10/smallwebsitebarcode.png"></img></span>
+                                                    <span><img src="/wp-content/uploads/2016/10/qrcode_for_gh_med.jpg"></img></span>
 							<a href="<?php echo home_url( ) ?>" class="logo">
 								<img src="<?php echo fe_get_logo() ?>"/>
+								<span><img src="/wp-content/uploads/2016/10/chinesebananer.png"></img></span>
 							</a>
+
+
 						</div>
 						<?php global $current_user,$et_query; ?>
 						<div class="col-md-10">
@@ -57,7 +62,7 @@
 								</div>
 								<div class="search-header col-md-8  col-sm-6">
 
-									<img src="/wp-content/uploads/2016/10/banner-adv.gif"></img>
+									<!--img src="/wp-content/uploads/2016/10/banner-adv.gif"></img-->
 								</div>
 							</div>
 							<div class="dropdown-profile">
@@ -121,3 +126,42 @@
 			</div>
 
 			<?php } ?>
+
+			<div class="fe-tab bottom-fe-tab">
+            				<ul class="fe-tab-items">
+            					<li class="fe-tab-item fe-tab-item-5 <?php if (!is_tax( 'category' ) || current_user_can( 'manage_threads' )) echo 'fe-current current'; ?>">
+            						<a href="<?php echo home_url() ?>">
+            							<span class="fe-tab-name"><?php _e('ALL POSTS',ET_DOMAIN) ?>
+            							<?php
+            								if(!empty($data) && count($data['unread']['data']) > 0){
+            							?>
+            								<span class="count <?php if ( et_get_option("pending_thread") && (et_get_counter('pending') > 0) &&(current_user_can("manage_threads") || current_user_can( 'trash_threads' )) || is_tax( 'category' )) { echo 'mana'; }?>"><?php echo count($data['unread']['data']) ?></span>
+            							<?php } ?>
+            							</span>
+            						</a>
+            					</li>
+            						<li class="fe-tab-item fe-tab-item-6">
+
+
+                                    						<a href="/关于我们/">
+                                                                                						关于我们
+                                                                                						</a>
+                                    					</li>
+            					<li class="fe-tab-item fe-tab-item-7">
+                                						<a href="/房屋租售/">
+                                						加东房产
+                                						</a>
+                                					</li>
+                                					<li class="fe-tab-item fe-tab-item-8">
+                                                                        						<a href="/二手交易/">
+                                                                        						二手交易
+                                                                        						</a>
+                                                                        					</li>
+                                                                        					<li class="fe-tab-item fe-tab-item-9">
+                                                                                                                						<a href="/商家黄页/">
+                                                                                                                						商家黄页
+                                                                                                                						</a>
+                                                                                                                					</li>
+
+            				</ul>
+            			</div>

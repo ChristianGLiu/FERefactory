@@ -2874,19 +2874,34 @@ width:110%;
 	display:none;
 }
 
+#wpadminbar .mobile {
+	display: none;
+}
+
+.share_button {
+
+	transform: scale(2, 2);
+	-ms-transform: scale(2, 2);
+	-webkit-transform: scale(2, 2);
+	margin-left: 22px;
+}
+
+#wc-comment-header,#wc_show_hide_loggedin_username,.wc-comment-bar {
+	display:none !important;
+}
+
+
 .ad-area {
-	width: 100%;
+	width: 462px;
 	display: flex;
 	padding-top: 20px;
 	padding-bottom: 10px;
 	flex-direction: row;
 	text-align: left;
+	flex-wrap: wrap;
 }
 
-#wpadminbar .mobile {
-	display: none;
-}
-
-#content_register .fe-form {
-	margin-top: -220px;
+.ad-area img {
+	height: 60px;
+	max-width: none;
 }

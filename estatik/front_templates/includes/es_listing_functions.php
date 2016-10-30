@@ -27,14 +27,25 @@ function get_images($listing_id) {
     if ( !empty($uploaded_images) && !empty($upload_image_data) ) {
         $upload_dir = wp_upload_dir();
         $es_settings = es_front_settings();
+        $isDefault = true;
+        if(strpos($image_url, "http://")>-1 || strpos($image_url, "https://")>-1) {
+             $isDefault = false;
+        }
         $list_image_name = explode("/", $upload_image_data[0]);
         $list_image_name = end($list_image_name);
         $list_image_path = str_replace($list_image_name, "",
             $upload_image_data[0]);
+            if(!$isDefault) {
+            return array(
+                        "{$list_image_path}$list_image_name",
+                        $uploaded_images_count
+                    );
+                } else {
         return array(
             "{$upload_dir['baseurl']}{$list_image_path}$list_image_name",
             $uploaded_images_count
         );
+        }
     }
     return array( plugin_dir_url(__FILE__) . '../images/placeholder.png', 0 );
 }
@@ -102,7 +113,11 @@ function print_image($prop_id, $listLayout) {
         $uploaded_images_count = count($upload_image_data);
     }
     if ( isset($uploaded_imagess) && !empty($uploaded_imagess) && !empty($upload_image_data) ) {
-        $upload_dir = wp_upload_dir();
+        $upload_dir = '';
+            if(strpos($upload_image_data[0], "http://")>-1 || strpos($upload_image_data[0], "https://")>-1) {
+            } else {
+                $upload_dir = wp_upload_dir();
+                }
         $list_image_name = explode("/", $upload_image_data[0]);
         $list_image_name = end($list_image_name);
         $list_image_path = str_replace($list_image_name, "", $upload_image_data[0]);
@@ -113,17 +128,32 @@ function print_image($prop_id, $listLayout) {
 	    if ($prefix == '3columns') {
 		    $prefix = '3column';
 	    }
-        $image_url = $list_image_path . $prefix . '_' . $list_image_name;
+
+	     if(strpos($upload_image_data[0], "http://")>-1 || strpos($upload_image_data[0], "https://")>-1) {
+                             $image_url = $list_image_path .  $list_image_name;
+                            } else {
+                $image_url = $list_image_path . $prefix . '_' . $list_image_name;
+                }
+
         $imgWidth = "prop_listview_{$prefix}_height";
         $imgHeight = "prop_listview_{$prefix}_width";
         $height = $es_settings->$imgWidth;
         $width = $es_settings->$imgHeight;
+        if(strpos($upload_image_data[0], "http://")>-1 || strpos($upload_image_data[0], "https://")>-1) {
         ?>
-        <img src="<?php echo $upload_dir['baseurl'], $image_url ?>"
+        <img src="<?php echo $image_url ?>"
              width="<?php echo $es_settings->prop_listview_list_width?>"
              height="<?php echo $es_settings->prop_listview_list_height?>"
              alt=""/>
         <?php
+        } else {
+        ?>
+          <img src="<?php echo $upload_dir['baseurl'], $image_url ?>"
+                     width="<?php echo $es_settings->prop_listview_list_width?>"
+                     height="<?php echo $es_settings->prop_listview_list_height?>"
+                     alt=""/>
+
+       <?php }
     } else {
         echo '<p>' . __("No Image", 'es-plugin') . '</p>';
     } ?>
@@ -352,12 +382,6 @@ function get_list($where, $order, $esLayout) {
         <div id="es_more_pagi">
             <?php es_pagination(array(), $where); ?>
         </div>
-        <?php if($es_settings->powered_by_link==1) { ?>
-            <div class="es_powered_by
-">
-                <p><?php _e("Powered by", 'es-plugin'); ?> <a href="http://www.estatik.net" target="_blank">Estatik</a></p>
-            </div>
-        <?php } ?>
     </div>
     <?php
 }

@@ -57,7 +57,7 @@ function select_option_action() {
         var selText = jQuery(this).text();
         jQuery(this).parents('.es_search_select').find('span').text(selText);
         jQuery(this).parents('.es_search_select').find('input').val(selVal);
-        jQuery(this).parents('.es_search_select').removeClass('focus')
+        jQuery(this).parents('.es_search_select').removeClass('focus');
         return false;
     });
     jQuery(".es_search_select li.selected").each(function(index, element) {
@@ -125,7 +125,7 @@ function single_page_slider() {
         nextText: '<i class="fa fa-angle-right"></i>',
         prevText: '<i class="fa fa-angle-left"></i>',
         minSlides: parseInt(pagerWidth),
-        maxSlides: parseInt(pagerWidth),
+        maxSlides: parseInt(pagerWidth)
     });
     jQuery('.es_prop_single_pager li a').each(function(index, element) {
         jQuery(this).attr('data-slide-index',index);
@@ -147,23 +147,23 @@ jQuery(document).ready(function() {
     jQuery('ul.es_table_column li, .es_2columns_column li, .es_3columns_column li').css('height', height - 20);
     jQuery('.es-table-inner [type=radio]').click(function() {
         if (jQuery(this).is(':checked')) {
-            jQuery(this).closest('label').addClass('active')
+            jQuery(this).closest('label').addClass('active');
         } else {
-            jQuery(this).closest('label').removeClass('active')
+            jQuery(this).closest('label').removeClass('active');
         }
         jQuery('.es-table-inner [type=radio]').each(function() {
             if (jQuery(this).is(':checked')) {
-                jQuery(this).closest('label').addClass('active')
+                jQuery(this).closest('label').addClass('active');
             } else {
-                jQuery(this).closest('label').removeClass('active')
+                jQuery(this).closest('label').removeClass('active');
             }
         });
     });
     jQuery('.es-table-inner [type=radio]').each(function() {
         if (jQuery(this).is(':checked')) {
-            jQuery(this).closest('label').addClass('active')
+            jQuery(this).closest('label').addClass('active');
         } else {
-            jQuery(this).closest('label').removeClass('active')
+            jQuery(this).closest('label').removeClass('active');
         }
     });
     var country = jQuery('.search_country input[type=hidden]').val(),
@@ -278,14 +278,17 @@ jQuery(document).ready(function() {
         var selText = jQuery(this).find('option:selected').text();
         jQuery(this).parent('.es_select').find('.es_select_arow').text(selText);
     });
-    jQuery( '.es_address_auto' ).autocomplete({
-        source: EstatikApp.availableTags
-    });
-    jQuery('#es_date_added').datepicker({
-        showOn: 'button',
-        buttonImage: EstatikApp.dir_url + 'front_templates/images/es_calender_icon.jpg',
-        buttonImageOnly: true,
-    });
+
+    if (typeof EstatikApp != 'undefined') {
+        jQuery('.es_address_auto').autocomplete({
+            source: EstatikApp.availableTags
+        });
+        jQuery('#es_date_added').datepicker({
+            showOn: 'button',
+            buttonImage: EstatikApp.dir_url + 'front_templates/images/es_calender_icon.jpg',
+            buttonImageOnly: true
+        });
+    }
 });
 function es_map_view_click(obj) {
     var mapLatLong = jQuery(obj).attr('href');

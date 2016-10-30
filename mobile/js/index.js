@@ -3,6 +3,12 @@
 $(document).ready(function(){
 	$.mobile.ajaxEnabled = false;
 	new ForumMobile.Views.Index();
+	$("form").submit (function() {
+		$(this).submit(function() {
+			return false;
+		});
+		return true;
+	});
 });
 
 /**
@@ -74,21 +80,27 @@ ForumMobile.Views.Index = Backbone.View.extend({
 				content 	: data
 			},
 			beforeSend : function(){
+				$('body').addClass('ui-loading');
 				$.mobile.showPageLoadingMsg();
 			},
 			error : function(request){
+				$('body').removeClass('ui-loading');
 				$.mobile.hidePageLoadingMsg();
+				location.reload();
 			},
 			success : function(response){
+				$('body').removeClass('ui-loading');
 				$.mobile.hidePageLoadingMsg();
 
 				if( response.success ){
-					if ( response.link )
-						window.location.href = response.link;
-						// $.mobile.navigate(response.link);
 					ForumMobile.app.notice('success', response.msg);
 				} else {
 					ForumMobile.app.notice('error', response.msg);
+				}
+				if(!empty(response.link)) {
+					window.location.href = response.link;
+				} else {
+					location.reload();
 				}
 			}
 		});
@@ -112,12 +124,15 @@ ForumMobile.Views.Index = Backbone.View.extend({
 			type : 'post',
 			data : query_default,
 			beforeSend : function(){
-				$.mobile.showPageLoadingMsg();
+				$('body').addClass('ui-loading');
+				$.mobile.showPageLoadingMsg( "b", "载入更多的贴子", false );
 			},
 			error : function(request){
+				$('body').removeClass('ui-loading');
 				$.mobile.hidePageLoadingMsg();
 			},
 			success : function(response){
+				$('body').removeClass('ui-loading');
 				$.mobile.hidePageLoadingMsg();
 				current_page = response.data.paged;
 				max_page_query = response.data.total_pages;

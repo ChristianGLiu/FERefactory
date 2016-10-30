@@ -16,6 +16,11 @@ fe_navigations();
 
 </div>
 <div class="mo-menu-toggle visible-sm visible-xs">
+<span style="
+    font-size: 18px;
+    font-weight: 900;
+    color: brown;
+">贴子类别</span>
 <a class="icon-menu-tablet" href="#"><?php _e('open', ET_DOMAIN ) ?></a>
 </div>
 
@@ -23,24 +28,28 @@ fe_navigations();
 <!--end header Bottom-->
 <div class="container main-center">
 <div class="row">
-<div class="ad-area">
-<div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/pandaBufffetAdv.gif"></img></a></div>
-<div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
-<div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
-<div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div>
-<div class=""><img src="/wp-content/uploads/2016/10/advneed.png"></img></div>
-<div class=""><img src="/wp-content/uploads/2016/10/advneed.png"></img></div>
-<div class=""><img src="/wp-content/uploads/2016/10/advneed.png"></img></div>
-</div>
-<div class="side-adv">
-<img src="/wp-content/uploads/2016/10/201610250725189.gif"></img>
-</div>
-<div class="col-md-9 col-sm-12 marginTop30">
-<div id="arrow-down-topic" class="arrow-down bounce">
+<!--div id="arrow-down-topic" class="arrow-down bounce">
   <span>
 猛击这里发表自己的贴子吧
   </span>
+</div-->
+
+<div class="ad-area">
+<div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/buffet.jpg"></img></a></div>
+<div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
+<div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
+<div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div><br />
+<div class=""><img src="/wp-content/uploads/2016/10/dsfasdfnew.jpg"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/10/yanfan.png"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/10/guojun.jpg"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/10/dandan.jpg"></img></div>
 </div>
+
+<div class="side-adv">
+<img src="/wp-content/uploads/2016/10/201610250725189.gif"></img>
+</div>
+
+<div class="col-md-9 col-sm-12 marginTop30">
 <?php get_template_part('template/post', 'thread'); ?>
 <?php
 $page 			= get_query_var('page') ? get_query_var('page') : 1;

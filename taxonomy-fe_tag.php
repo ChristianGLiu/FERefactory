@@ -11,6 +11,11 @@ $term = get_term_by( 'slug' , get_query_var( "term" ), 'fe_tag') ;
 		<?php fe_navigations(); ?>
 	</div>
 	<div class="mo-menu-toggle visible-sm visible-xs">
+	<span style="
+        font-size: 18px;
+        font-weight: 900;
+        color: brown;
+    ">贴子类别</span>
 		<a class="icon-menu-tablet" href="#"><?php _e('open',ET_DOMAIN) ?></a>
 	</div>
 </div>

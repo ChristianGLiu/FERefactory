@@ -6,6 +6,11 @@ function fe_navigations(){
 	$taxonomy = is_tax( 'category' ) ? 'category' : 'fe_tag';
 	$term = get_term_by( 'slug' , get_query_var( "term" ), $taxonomy);
 	?>
+
+
+				<?php if(!$user_ID){?>
+				 <?php echo "<div class='social-wrapper'><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
+				 <?php } ?>
 		<ul class="nav-link">
 
 			<li <?php if(is_front_page()){ ?> class="active" <?php }?>>
@@ -20,19 +25,6 @@ function fe_navigations(){
 				</a>
 			</li>
 
-	<li class="menu-bar-social-bar-front">
-
-				<?php if(!$user_ID){?>
-				 <?php echo "<div class='social-wrapper'><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
-
-
-				<?php } else {?>
-				 <?php
-				 $current_user = wp_get_current_user();
-
-				 echo "<span class='mobile-social-bar-label'>欢迎回来:".$current_user->display_name."</span>";?>
-				 <?php } ?>
-			</li>
 
 			<li>
 				<a href="/关于我们/">
