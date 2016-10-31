@@ -34,22 +34,17 @@ fe_navigations();
   </span>
 </div-->
 
-<div class="ad-area">
-<div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/buffet.jpg"></img></a></div>
-<div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
-<div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
-<div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div><br />
-<div class=""><img src="/wp-content/uploads/2016/10/dsfasdfnew.jpg"></img></div>
-<div class=""><img src="/wp-content/uploads/2016/10/yanfan.png"></img></div>
-<div class=""><img src="/wp-content/uploads/2016/10/guojun.jpg"></img></div>
-<div class=""><img src="/wp-content/uploads/2016/10/dandan.jpg"></img></div>
-</div>
-
 <div class="side-adv">
 <img src="/wp-content/uploads/2016/10/201610250725189.gif"></img>
 </div>
 
 <div class="col-md-9 col-sm-12 marginTop30">
+<h7 class="home-house-feature"><a href="/%e6%88%bf%e5%b1%8b%e7%a7%9f%e5%94%ae/">每日房屋精选</a></h7>
+<?php
+echo do_shortcode('[es_my_listing_special]');
+
+?>
+
 <?php get_template_part('template/post', 'thread'); ?>
 <?php
 $page 			= get_query_var('page') ? get_query_var('page') : 1;
@@ -123,7 +118,30 @@ if (  $thread_query_2->have_posts() ){ ?>
 	wp_reset_query();
 }
 
-do_shortcode('[quads id="1"]');
+$thread_query_3 = FE_Threads::get_threads(array(
+'post_type' 	=> 'post',
+'cat' => '116',
+'posts_per_page' => 2,
+'orderby' => 'date',
+'order'   => 'DESC',
+));
+if (  $thread_query_3->have_posts() ){ ?>
+	<ul id="main_list_post" class="list-post">
+	<?php
+	if ( !empty( $sticky_threads[0] ) ){
+		// load sticky thread
+		get_template_part( 'template/sticky', 'thread' );
+	}
+
+	while ($thread_query_3->have_posts()){
+		$thread_query_3->the_post();
+		get_template_part( 'template/thread', 'loop' );
+	} // end while
+	?>
+	</ul>
+	<?php
+	wp_reset_query();
+}
 
 $thread_query_3 = FE_Threads::get_threads(array(
 'post_type' 	=> 'post',
@@ -176,6 +194,18 @@ if (  $thread_query_4->have_posts() ){ ?>
 	<?php
 	wp_reset_query();
 }
+?>
+<div class="ad-area">
+<div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/buffet.jpg"></img></a></div>
+<div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
+<div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
+<div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div><br />
+<div class=""><img src="/wp-content/uploads/2016/10/dsfasdfnew.jpg"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/10/yanfan.png"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/10/guojun.jpg"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/10/dandan.jpg"></img></div>
+</div>
+<?php
 $thread_query_5 = FE_Threads::get_threads(array(
 'post_type' 	=> 'post',
 'cat' => '60',
@@ -232,7 +262,7 @@ if (  $thread_query_5->have_posts() ){ ?>
 	'post_type' 	=> 'post',
 	'paged' 		=> $page,
 	'post__not_in' 	=> $sticky_threads[0],
-	'category__not_in' => array(60,115,14,117,56,119,129)
+	'category__not_in' => array(60,115,14,117,56,116,119)
 	));
 
 

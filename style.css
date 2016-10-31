@@ -709,3 +709,90 @@ h2.et-entry-title {
 :-moz-placeholder { color: rgba(240, 74, 28, 0.99);font-size:18px;text-decoration: underline; cursor:hand;}
 ::-moz-placeholder {color: rgba(240, 74, 28, 0.99);font-size:18px;text-decoration: underline;cursor:hand; }
 :-ms-input-placeholder {color: rgba(240, 74, 28, 0.99);font-size:18px;text-decoration: underline; cursor:hand;}
+
+.home-page #es_more_pagi {
+    display:none;
+}
+
+.home-page #es_content .es_my_listing ul li {
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+.home-page #es_content .es_my_list_title h2,.home-page #es_content .es_my_list_title h3 {
+    font-size: 10px !important;
+}
+
+.home-page #es_content .es_my_listing ul li {
+    font-size: 9px !important;
+}
+
+.home-page #es_content .es_my_list_pic {
+    margin-bottom: 0 !important;
+}
+
+.home-page #es_content .es_my_list_pic span {
+    display: none !important;
+}
+
+.home-page #es_content .es_my_list_title {
+    margin-top: -20px;
+}
+
+.home-page #es_content .es_my_list_specs {
+    padding: 0 !important;
+}
+
+.home-page .es_my_listing {
+    padding-bottom: 0 !important;
+}
+
+.home-page #es_content .es_my_list_more {
+    padding-bottom: 0 !important;
+    margin-bottom:0 !important;
+}
+
+
+@media all and (min-width: 845px) {
+
+    .home-page #es_content .es_my_listing ul li {
+
+        width: 19% !important;
+    }
+}
+
+@media all and (max-width: 845px) and (min-width: 631px){
+
+    .home-page #es_content .es_my_listing ul li:last-child {
+        display:none;
+    }
+
+    .home-page #es_content .es_my_listing ul li {
+
+        width: 24% !important;
+    }
+}
+
+@media all and (max-width: 631px) and (min-width: 545px) {
+
+    .home-page #es_content .es_my_listing ul li:nth-last-child(-n+2) {
+        display:none;
+    }
+
+    .home-page #es_content .es_my_listing ul li {
+
+        width: 30% !important;
+    }
+}
+
+@media all and (max-width: 545px) {
+
+    .home-page #es_content .es_my_listing ul li:nth-last-child(-n+3) {
+        display:none;
+    }
+
+    .home-page #es_content .es_my_listing ul li {
+
+        width: 48% !important;
+    }
+}

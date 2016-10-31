@@ -14,6 +14,23 @@ function es_my_listing( $atts ) {
     return ob_get_clean();
 }
 add_shortcode( 'es_my_listing', 'es_my_listing' );
+
+/**
+ *
+ * @param type $atts
+ * @return type
+ */
+function es_my_listing_special( $atts ) {
+    $attsArray = shortcode_atts( array(
+        'layout' => ''
+    ), $atts );
+    $esLayout = $attsArray['layout'];
+    ob_start();
+    get_list_special('WHERE prop_pub_unpub=1 AND prop_price >=220000', 'ORDER BY prop_price,prop_id DESC', 5,  $esLayout);
+    return ob_get_clean();
+}
+add_shortcode( 'es_my_listing_special', 'es_my_listing_special' );
+
 /**
  *
  * @param type $atts

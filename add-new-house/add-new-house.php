@@ -198,9 +198,6 @@ class AddNewHouse {
 				$prop_bathrooms 	= intval($params['Building']['BathroomTotal']);
 				$prop_floors 		= intval($params['Building']['StoriesTotal']);
 				$prop_lotsize 		= intval($params['Land']['SizeTotal']);
-				if($prop_lotsize<10) {
-					$prop_lotsize = $prop_lotsize * 43560 ;
-				}
 
 				$prop_area 			= intval($params['Building']['SizeInterior']);
 				$debugInfo .= "get house other attribute: ".$prop_bathrooms. ' '.$prop_floors.' '.$prop_lotsize."\r\n";

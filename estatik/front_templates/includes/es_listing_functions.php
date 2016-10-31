@@ -385,6 +385,46 @@ function get_list($where, $order, $esLayout) {
     </div>
     <?php
 }
+
+function get_list_special($where, $order, $page_no, $esLayout) {
+    global $wpdb, $es_settings;
+    $theme = wp_get_theme();
+    if ( $theme['Name'] == "Estatik Trendy Theme" ) {
+        get_list_trendy($where, $order, $esLayout);
+        return;
+    }
+    $sql = "SELECT * FROM {$wpdb->prefix}estatik_properties $where $order LIMIT $page_no";
+    $es_my_listing = $wpdb->get_results($sql);
+    $es_layout_style = es_get_layout($esLayout);
+    ?>
+    <div id="es_content" class="clearfix <?php echo $es_layout_style; ?>">
+        <?php if ( $es_settings->view_first_on_off == 1 ) include('es_view_first.php'); ?>
+        <div class="es_my_listing clearfix" id="es_specific_listing">
+            <ul class="clearfix <?php echo $es_layout_style; ?>">
+                <?php
+                if ( !empty($es_my_listing) ) {
+                    foreach ( $es_my_listing as $list ) {
+                        list_property($list, $esLayout);
+                    }
+                } else {
+                    echo '<li class="es_no_record">'.__("No record found.", 'es-plugin').'</li>';
+                }
+                ?>
+            </ul>
+        </div>
+        <div id="es_map_pop_outer">
+            <div id="es_map_pop">
+                <h2><?php _e("Map", 'es-plugin'); ?><a id="es_closePop" href="javascript:void(0)">×</a></h2>
+                <div id="es_map"></div>
+            </div>
+        </div>
+        <div id="es_more_pagi">
+            <?php es_pagination(array(), $where); ?>
+        </div>
+    </div>
+    <?php
+}
+
 function get_list_trendy($where, $order, $esLayout) {
     global $es_settings, $wpdb, $wp_query;
     $paged = isset($_GET['page_no']) ? $_GET['page_no'] : 0;
