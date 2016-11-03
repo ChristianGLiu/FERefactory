@@ -154,14 +154,29 @@ function get_category_list($prop_category) {
     global $wpdb;
     $categories = maybe_unserialize($prop_category);
     if ( is_array($categories) ) {
-        array_walk($categories, function(&$item) { $item = "'$item'"; });
+    //$cate_temp = array();
+    foreach($categories as &$item) {
+        $item = "'$item'";
+       //  array_push ($cate_temp, $item);
+    }
+   // $categories = $cate_temp;
+     //   array_walk($categories, function($item) {
+      //  $item = "'$item'";
+     //   }
+     //   );
         $categories = implode(', ', $categories);
         $where = "WHERE cat_id IN ($categories)";
     } else {
         $where = "WHERE cat_id = '$categories'";
     }
     $categories = $wpdb->get_results("SELECT cat_title FROM {$wpdb->prefix}estatik_manager_categories $where");
-    array_walk($categories, function(&$item) { $item = $item->cat_title; });
+    //array_walk($categories, function($item) { $item = $item->cat_title; });
+   // $cate_temp = array();
+        foreach($categories as &$item) {
+            $item = $item->cat_title;
+     //       array_push ($cate_temp, $item);
+        }
+      //  $categories = $cate_temp;
     $categories = implode(', ', $categories);
     return $categories;
 }

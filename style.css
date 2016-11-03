@@ -469,6 +469,21 @@ h2.et-entry-title {
     margin-left: 22px;
 }
 
+.open_social_box.login_box {
+
+    transform: scale(1.5, 1.5);
+    -ms-transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    display: flex;
+    flex-direction: row;
+}
+
+.social-icon-title {
+    font-size: 8px;
+    color: brown;
+    margin-top: -5px;
+}
+
 #wc-comment-header,#wc_show_hide_loggedin_username,.wc-comment-bar {
     display:none !important;
 }
@@ -602,11 +617,22 @@ h2.et-entry-title {
     .header-bottom {
         background:#ecf0f1;
     }
+
+    .one_login_box {
+        text-align:center;
+        margin-left: 5px;
+        margin-top: 0;
+    }
+
     .header-bottom .main-center.container>.nav-link {
         display: block;
     }
     .bottom-fe-tab {
         display:none;
+    }
+
+    .hidden-xs.hidden-sm {
+        display:inline-block !important;
     }
 
     .header-bottom .social-wrapper {
@@ -619,14 +645,29 @@ h2.et-entry-title {
     .social-bar-content {
         display: inline;
         float: right;
-        margin-top: -8px;
     }
 
     .row.header-info .logo-header>span {
         display:inline;
     }
+
+    .header-info .social-wrapper {
+        float: left;
+        margin-top: 10px;
+    }
 }
 @media all and (max-width: 814px) {
+
+    .header-info .social-wrapper {
+        float: left;
+        margin-top: 0;
+    }
+
+    .one_login_box {
+        text-align:center;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
 
     .header-bottom {
         background:transparent !important;
@@ -634,6 +675,11 @@ h2.et-entry-title {
     .header-bottom  .main-center.container>.nav-link  {
         display: none;
     }
+
+    .hidden-xs.hidden-sm {
+        display:inline-block !important;
+    }
+
 
     .header-bottom .social-wrapper {
         right: auto;
@@ -659,16 +705,24 @@ h2.et-entry-title {
     }
 }
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 710px) {
 
     .row.header-info .logo-header>a>span {
         display:inline;
     }
+    .row.header-info .col-md-10 {
+        width: 40% !important;
+        float:right;
+    }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 710px) {
 
     .row.header-info .logo-header>a>span {
         display:none;
+    }
+    .row.header-info .col-md-10 {
+        width: 80% !important;
+        float:right;
     }
 }
 
@@ -689,10 +743,6 @@ h2.et-entry-title {
     overflow:hidden;
 }
 
-.row.header-info .col-md-10 {
-    width: 40% !important;
-    float: right !important;
-}
 
 .row.header-info .logo-header {
     width: auto !important;
@@ -709,6 +759,35 @@ h2.et-entry-title {
 :-moz-placeholder { color: rgba(240, 74, 28, 0.99);font-size:18px;text-decoration: underline; cursor:hand;}
 ::-moz-placeholder {color: rgba(240, 74, 28, 0.99);font-size:18px;text-decoration: underline;cursor:hand; }
 :-ms-input-placeholder {color: rgba(240, 74, 28, 0.99);font-size:18px;text-decoration: underline; cursor:hand;}
+
+
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+input:hover::-webkit-input-placeholder {
+    color: transparent;
+}
+input:hover:-moz-placeholder {
+    color: transparent;
+}
+input:hover::-moz-placeholder {
+    color: transparent;
+}
+input:hover:-ms-input-placeholder {
+    color: transparent;
+}
+
 
 .home-page #es_more_pagi {
     display:none;
@@ -795,4 +874,56 @@ h2.et-entry-title {
 
         width: 48% !important;
     }
+}
+@media all and (max-width: 438px) {
+.row.header-info .logo-header {
+    display:none;
+  }
+}
+
+@media all and (min-width: 438px) {
+    .row.header-info .logo-header {
+    }
+}
+
+.login_button.login_icon_wechat {
+    display: inline-block !important;
+}
+
+#wc-login-qr {
+    position: absolute;
+    z-index: 900;
+    display:none;
+    box-shadow: 10px 10px 10px 10px #e0cece;
+    background: wheat;
+}
+
+.upload-url .input-url input[type=text]{
+    display:none;
+}
+
+.upload-url > span {
+    display: none;
+}
+.upload-url {
+    float:left;
+}
+.upload-url .button-event {
+    float: left;
+}
+
+.header-info .login a {
+    text-decoration: underline !important;
+}
+
+.one_login_box:first-child {
+    display:none;
+}
+
+.text-search .input-container {
+    margin-right: 20% !important;
+}
+
+.marginTop30 {
+    overflow: hidden;
 }

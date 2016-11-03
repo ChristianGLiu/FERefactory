@@ -412,7 +412,11 @@ class FE_Member extends ET_User{
 		$avatar_data = get_user_meta( $id, 'et_avatar', true );
 
 		if ( !empty($avatar_data) && !empty($avatar_data['thumbnail']) && isset($avatar_data['thumbnail'][0])){
-			$avatar = '<img src="'.$avatar_data['thumbnail'][0].'" class="'.$class.'" alt="'.$alt.'" />';
+		    $img_avatar_link = $avatar_data['thumbnail'][0];
+		    if(substr($img_avatar_link,0,2) == '//') {
+		        $img_avatar_link = 'http:'.$img_avatar_link;
+		    }
+			$avatar = '<img src="'.$img_avatar_link.'" class="'.$class.'" alt="'.$alt.'" />';
 		} else {
 			$link 	= get_avatar( $id, $size );
 			preg_match( '/src=(\'|")(.+?)(\'|")/i', $link, $array );
@@ -421,7 +425,11 @@ class FE_Member extends ET_User{
 			foreach ($sizes as $size) {
 				$avatar_data[$size][0] = $array[2];
 			}
-			$avatar = '<img src="'.$avatar_data['thumbnail'][0].'" class="'.$class.'" alt="'.$alt.'" />';
+			$img_avatar_link = $avatar_data['thumbnail'][0];
+            		    if(substr($img_avatar_link,0,2) == '//') {
+            		        $img_avatar_link = 'http:'.$img_avatar_link;
+            		    }
+			$avatar = '<img src="'.$img_avatar_link.'" class="'.$class.'" alt="'.$alt.'" />';
 		}
 		return  apply_filters( 'fe_member_get_avatar', $avatar, $avatar_data, $class, $alt ) ;
 	}

@@ -47,6 +47,9 @@
 						<?php global $current_user,$et_query; ?>
 						<div class="col-md-10">
 							<div class="row">
+							<?php if(!$user_ID){?>
+                            				 <?php echo "<div class='social-wrapper'><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
+                            				 <?php } ?>
 								<div class="login col-md-2 col-sm-2 <?php if($current_user->ID){ echo 'collapse';} ?>">
 
 

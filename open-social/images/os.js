@@ -1,8 +1,11 @@
 function login_button_click(id,link){
 	var back = location.href;
-	if('wordpress'==id){
+	if(id=='wechat') {
+		jQuery('#wc-login-qr').toggle();
+	}
+	else if('wordpress'==id){
 		location.href = link;
-	}else{
+	}  else{
 		try{
 			if(open_social_param('redirect_to')){
 				back = open_social_param('redirect_to');
@@ -34,9 +37,9 @@ function share_button_click(link,ev){
 		qrDiv.toggle(250);
 	}else{
 		var url = encodeURIComponent(location.href);
-		var title = encodeURIComponent(document.title + (window.jQuery ? (': ' + jQuery('.entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,80)+'.. ') : ''));
+		var title = encodeURIComponent(document.title + (window.jQuery ? (': ' + jQuery('.et-entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,280)+'.. ') : ''));
 		var pic = '';
-		window.jQuery && jQuery('#content .entry-content img,#content > article img,#content p > img').each(function(){pic+=(pic?'||':'')+encodeURIComponent(jQuery(this).attr('src'));});
+		window.jQuery && jQuery('.et-entry-content img,article img,p>img').each(function(){pic+=(pic?'||':'')+encodeURIComponent(jQuery(this).attr('src'));});
 		window.open(link.replace("%URL%",url).replace("%TITLE%",title).replace("%PIC%",pic),'xmOpenWindow','width=600,height=480,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1');
 	}
 }
@@ -62,6 +65,7 @@ function open_social_param(name){
 }
 
 window.jQuery && jQuery(document).ready(function($){
+
     var user = open_social_cookie('wp_open_social_login');
 	if(user){
         $('#os_user_name').html(user.split('|')[0]);
@@ -75,9 +79,9 @@ window.jQuery && jQuery(document).ready(function($){
 		wx.ready(function(){
 			var shareData = {
 				title: document.title,
-				desc: jQuery('article .entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,50),
+				desc: jQuery('article .et-entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,280),
 				link: location.href,
-				imgUrl: jQuery('#content > article img').eq(0).attr('src') || ''
+				imgUrl: jQuery('article img').eq(0).attr('src') || ''
 			};
 			wx.onMenuShareAppMessage(shareData);
 			wx.onMenuShareTimeline(shareData);

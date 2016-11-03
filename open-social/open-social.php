@@ -45,16 +45,30 @@ function open_init() {
 		open_check_callback($_GET,'login','code');
 	}
 	define('OPEN_CBURL', osop('extend_callback_url') ? osop('extend_callback_url') : home_url('/'));
-	if (isset($_GET['connect']) || (isset($_GET['code']) && isset($_GET['state']) && isset($_SESSION['state']))) {
+
+	if(count($_GET)==2  && !isset($_GET['action']) && !isset($_GET['client_id']) && isset($_GET['code']) && isset($_GET['state']) && isset($_SESSION['state'])) {
+	//echo "test".var_dump($_GET);
+                    if(!isset($_GET['code']) || isset($_GET['error']) || isset($_GET['error_code']) || isset($_GET['error_description'])){
+                        open_next(OPEN_CBURL);
+                    }
+                    define('OPEN_TYPE','WECHAT');
+                    $os = new WECHAT_CLASS();
+                    $os -> open_callback($_GET['code']);
+                    open_action( $os -> open_new_user() );
+        } else if (isset($_GET['connect']) || (isset($_GET['code']) && isset($_GET['state']) && isset($_SESSION['state']))) {
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 		if(!isset($_GET['connect'])){
+		  // if(!defined('OPEN_TYPE')) {
 			foreach ($GLOBALS['open_arr'] as $k => $v){
-				if(osop(strtoupper($k)) && $_GET['state'] == md5($k.$_SESSION['state'])){
+				if(osop(strtoupper($k)) && $_GET['state'] == md5($k.$_SESSION['state']) && $k != 'WECHAT'){
 					$action = 'callback';
 					define('OPEN_TYPE',$k);
 					break;
 				}
 			}
+		//	} else {
+		//	  $action = 'callback';
+		//	}
 		}else{
 			if(in_array($_GET['connect'],array_keys($GLOBALS['open_arr'])) && osop(strtoupper($_GET['connect']))){
 				define('OPEN_TYPE',$_GET['connect']);
@@ -62,8 +76,11 @@ function open_init() {
 		}
 		if(!defined('OPEN_TYPE')) exit();
 		$open_class = strtoupper(OPEN_TYPE).'_CLASS';
+		//echo $open_class;
 		$os = new $open_class();
 		if(isset($_GET['back'])) $_SESSION['back'] = $_GET['back'];
+
+
 		if ($action == 'login') {
 			$_SESSION['state'] = uniqid(rand(), true);
 			$os -> open_login(md5(OPEN_TYPE.$_SESSION['state']));
@@ -152,6 +169,7 @@ class QQ_CLASS {
 
 class SINA_CLASS {
 	function open_login($state) {
+	    //echo $state;
 		$params=array(
 			'response_type'=>'code',
 			'client_id'=>osop('SINA_AKEY'),
@@ -170,6 +188,7 @@ class SINA_CLASS {
 			'redirect_uri'=>OPEN_CBURL
 		);
 		$str = open_connect_http('https://api.weibo.com/oauth2/access_token', http_build_query($params), 'POST');
+
 		open_check_callback($str,$code,'access_token');
 		$_SESSION['access_token'] = $str['access_token'];
 		$_SESSION['open_id'] = $str['uid'];
@@ -521,6 +540,8 @@ class GITHUB_CLASS {
 
 class WECHAT_CLASS {
 	function open_login($state) {
+//	echo '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"'.osop("WECHAT_AKEY").'",scope: "snsapi_login",redirect_uri: "'.OPEN_CBURL.'",state:"'..'", style: "black"});</script>';
+/**
 		$params=array(
 			'appid'=>osop('WECHAT_AKEY'),
 			'redirect_uri'=>OPEN_CBURL,
@@ -529,7 +550,9 @@ class WECHAT_CLASS {
 			'state'=>$state
 		);
 		open_next('https://open.weixin.qq.com/connect/qrconnect?'.http_build_query($params).'#wechat_redirect');
-	} 
+	**/
+
+}
 	function open_callback($code) {
 		$params=array(
 			'appid'=>osop('WECHAT_AKEY'),
@@ -541,10 +564,12 @@ class WECHAT_CLASS {
 		open_check_callback($str,$code,'access_token');
 		$_SESSION['access_token'] = $str['access_token'];
 		$_SESSION['open_id'] = $str['openid'];
+		//echo $_SESSION['access_token']. ' '.$_SESSION['open_id']."<br />";
 	}
 	function open_new_user(){
 		$user = open_connect_http('https://api.weixin.qq.com/sns/userinfo?access_token='.$_SESSION['access_token'].'&openid='.$_SESSION['open_id']."&lang=zh_CN");
 		open_check_callback($user,$_SESSION['open_id'],'headimgurl');
+		//echo $user['headimgurl']."<br />";
 		$_SESSION['open_img'] = $user['headimgurl'];
 		if(isset($user['unionid'])) $_SESSION['unionid'] = $user['unionid'];
 		return array(
@@ -596,6 +621,7 @@ function open_get_var_dump($mixed = null) {
 }
 
 function open_next($msg){
+//echo "header: ".$msg;
 	header('Location:'.$msg);
 	exit();
 }
@@ -674,6 +700,8 @@ function open_username_emoji($n){
 }
 
 function open_action($newuser){
+//echo var_dump($newuser)."<br />";
+//echo var_dump($_SESSION)."<br />";
 	if(empty($_SESSION['open_id']) || empty($_SESSION['access_token']) || !defined('OPEN_TYPE')) return;
 	$_SESSION['nickname'] = $newuser['nickname'];
 	if(is_user_logged_in()){ //bind
@@ -707,16 +735,17 @@ function open_action($newuser){
 				$newuser['nickname'] = open_username_emoji(sanitize_text_field($_SESSION['nickname']));
 				if(empty($newuser['user_login'])){
 					$user_rnd = rand(10000,99998);
-					$newname = 'OSU'.$user_rnd;
+					$newname = 'ECLINK_'.$user_rnd;
 					while(username_exists($newname)){
 						$user_rnd++;
-						$newname = 'OSU'.$user_rnd;
+						$newname = 'ECLINK_'.$user_rnd;
 					}
 					$newuser['user_login'] = $newname;
 				}
 				$user_ok = 0;
 				if(!username_exists($newuser['user_login'])) $user_ok = $user_ok + 1;
 				if(is_email($newuser['user_email']) && !email_exists($newuser['user_email'])) $user_ok = $user_ok + 5;
+				/**
 				if($user_ok < 6 || !isset($_POST['user_login'])){ //first time confirm
 					$user_ok_arr = array('border:2px solid red','border:2px solid green');
 					$url = OPEN_CBURL.'?'.http_build_query(array('connect'=>OPEN_TYPE,'action'=>'bind'));
@@ -732,6 +761,7 @@ function open_action($newuser){
 					$html .= '</form>';
 					open_text($html, sprintf(__('Login with %s','open-social'), strtoupper(OPEN_TYPE)));
 				}
+				**/
 				$newuser['display_name'] = $newuser['nickname'];
 				$newuser['user_pass'] = wp_generate_password();
 				if(osop('extend_hide_user_bar',1) && !preg_match('/ Mobile/', $_SERVER['HTTP_USER_AGENT'])) $newuser['show_admin_bar_front'] = 'false';
@@ -795,7 +825,7 @@ function open_connect_http($url, $postfields=NULL, $method='GET', $headers=array
 	if(!$headers && isset($_SESSION['access_token'])){
 		$headers[]='Authorization: Bearer '.$_SESSION['access_token'];
 	}
-	$headers[] = 'User-Agent: Open Social (xiaomac.com)';
+	$headers[] = 'User-Agent: Social Share login(eclink.ca)';
 	$headers[] = 'Expect:';
 	curl_setopt($ci, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ci, CURLOPT_URL, $url);
@@ -1078,7 +1108,10 @@ function open_social_login_html($atts=array()) {
 		if($show && !osin($show.',', $k.',')) continue;
 		if(osop(strtoupper($k))) $html .= open_login_button_show($k, sprintf(__('Login with %s','open-social'), $v), OPEN_CBURL);
 	}
-	$html .= '</div>';
+	$html .= '</div><script>!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);</script><div id="wc-login-qr"></div>';
+    $_SESSION['state'] = uniqid(rand(), true);
+	$html .= '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"'.osop("WECHAT_AKEY").'",scope: "snsapi_login",redirect_uri: "'.OPEN_CBURL.'",state:"'.md5('WECHAT'.$_SESSION['state']).'",style: "black"});</script>';
+
 	return $html;
 }
 
@@ -1296,7 +1329,7 @@ function open_social_style() {
 	if(osop('share_wechat')) wp_enqueue_script('jquery.qrcode', '//cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js', array('jquery'));
 }
 function open_login_button_show($icon_type,$icon_title,$icon_link){
-	return "<div class=\"login_button login_icon_$icon_type\" onclick=\"login_button_click('$icon_type','$icon_link')\" title=\"$icon_title\"></div>";
+	return "<div class=\"one_login_box\"><div class=\"login_button login_icon_$icon_type\" onclick=\"login_button_click('$icon_type','$icon_link')\" title=\"$icon_title\"></div><div class=\"social-icon-title\">".$icon_title."</div></div>";
 }
 function open_login_button_unbind($icon_type,$icon_title,$icon_link){
 	return "<div class=\"login_button login_button_unbind login_icon_$icon_type\" onclick=\"confirm('".__('Confirm')." ".sprintf(__('Unbind with %s','open-social'),strtoupper($icon_type))."?')&&login_button_unbind_click('$icon_type','$icon_link')\" title=\"$icon_title\"></div>";

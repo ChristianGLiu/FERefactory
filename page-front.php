@@ -94,8 +94,8 @@ if (  $thread_query_1->have_posts() ){ ?>
 <?php
 $thread_query_2 = FE_Threads::get_threads(array(
 'post_type' 	=> 'post',
-'cat' => '117',
-'posts_per_page' => 2,
+'cat' => '116',
+'posts_per_page' => 4,
 'orderby' => 'date',
 'order'   => 'DESC',
 ));
@@ -118,82 +118,6 @@ if (  $thread_query_2->have_posts() ){ ?>
 	wp_reset_query();
 }
 
-$thread_query_3 = FE_Threads::get_threads(array(
-'post_type' 	=> 'post',
-'cat' => '116',
-'posts_per_page' => 2,
-'orderby' => 'date',
-'order'   => 'DESC',
-));
-if (  $thread_query_3->have_posts() ){ ?>
-	<ul id="main_list_post" class="list-post">
-	<?php
-	if ( !empty( $sticky_threads[0] ) ){
-		// load sticky thread
-		get_template_part( 'template/sticky', 'thread' );
-	}
-
-	while ($thread_query_3->have_posts()){
-		$thread_query_3->the_post();
-		get_template_part( 'template/thread', 'loop' );
-	} // end while
-	?>
-	</ul>
-	<?php
-	wp_reset_query();
-}
-
-$thread_query_3 = FE_Threads::get_threads(array(
-'post_type' 	=> 'post',
-'cat' => '14',
-'posts_per_page' => 2,
-'orderby' => 'date',
-'order'   => 'DESC',
-));
-if (  $thread_query_3->have_posts() ){ ?>
-	<ul id="main_list_post" class="list-post">
-	<?php
-	if ( !empty( $sticky_threads[0] ) ){
-		// load sticky thread
-		get_template_part( 'template/sticky', 'thread' );
-	}
-
-	while ($thread_query_3->have_posts()){
-		$thread_query_3->the_post();
-		get_template_part( 'template/thread', 'loop' );
-	} // end while
-	?>
-	</ul>
-	<?php
-	wp_reset_query();
-}
-
-
-$thread_query_4 = FE_Threads::get_threads(array(
-'post_type' 	=> 'post',
-'cat' => '115',
-'posts_per_page' => 2,
-'orderby' => 'date',
-'order'   => 'DESC',
-));
-
-if (  $thread_query_4->have_posts() ){ ?>
-	<ul id="main_list_post" class="list-post">
-	<?php
-	if ( !empty( $sticky_threads[0] ) ){
-		// load sticky thread
-		get_template_part( 'template/sticky', 'thread' );
-	}
-
-	while ($thread_query_4->have_posts()){
-		$thread_query_4->the_post();
-		get_template_part( 'template/thread', 'loop' );
-	} // end while
-	?>
-	</ul>
-	<?php
-	wp_reset_query();
-}
 ?>
 <div class="ad-area">
 <div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/buffet.jpg"></img></a></div>
@@ -206,63 +130,14 @@ if (  $thread_query_4->have_posts() ){ ?>
 <div class=""><img src="/wp-content/uploads/2016/10/dandan.jpg"></img></div>
 </div>
 <?php
-$thread_query_5 = FE_Threads::get_threads(array(
-'post_type' 	=> 'post',
-'cat' => '60',
-'posts_per_page' => 2,
-'orderby' => 'date',
-'order'   => 'DESC',
-));
-if (  $thread_query_5->have_posts() ){ ?>
-	<ul id="main_list_post" class="list-post">
-	<?php
-	if ( !empty( $sticky_threads[0] ) ){
-		// load sticky thread
-		get_template_part( 'template/sticky', 'thread' );
-	}
-
-		while ($thread_query_5->have_posts()){
-		$thread_query_5->the_post();
-		get_template_part( 'template/thread', 'loop' );
-	} // end while
-	?>
-	</ul>
-	<?php
-	}
-
-	wp_reset_query();
-
-	$thread_query_7 = FE_Threads::get_threads(array(
-    'post_type' 	=> 'post',
-    'cat' => '119',
-    'posts_per_page' => 2,
-    'orderby' => 'date',
-    'order'   => 'DESC',
-    ));
-    if (  $thread_query_7->have_posts() ){ ?>
-    	<ul id="main_list_post" class="list-post">
-    	<?php
-    	if ( !empty( $sticky_threads[0] ) ){
-    		// load sticky thread
-    		get_template_part( 'template/sticky', 'thread' );
-    	}
-
-    		while ($thread_query_7->have_posts()){
-    		$thread_query_7->the_post();
-    		get_template_part( 'template/thread', 'loop' );
-    	} // end while
-    	?>
-    	</ul>
-    	<?php
-    	}
-
-    	wp_reset_query();
 
 	$thread_query = FE_Threads::get_threads(array(
 	'post_type' 	=> 'post',
 	'paged' 		=> $page,
 	'post__not_in' 	=> $sticky_threads[0],
-	'category__not_in' => array(60,115,14,117,56,116,119)
+	'cat' => '-56,-116',
+	'orderby' => 'date',
+    'order'   => 'DESC'
 	));
 
 

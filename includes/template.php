@@ -8,9 +8,7 @@ function fe_navigations(){
 	?>
 
 
-				<?php if(!$user_ID){?>
-				 <?php echo "<div class='social-wrapper'><span class='social-bar-content'>".open_social_login_html()."</span></div>";?>
-				 <?php } ?>
+
 		<ul class="nav-link">
 
 			<li <?php if(is_front_page()){ ?> class="active" <?php }?>>
