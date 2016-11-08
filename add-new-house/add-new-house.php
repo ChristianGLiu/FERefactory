@@ -167,7 +167,7 @@ class AddNewHouse {
 					} else if (strpos($post_house_type,'house')>-1 ||strpos($post_house_type,'family')>-1){
 						$prop_type = 127;
 					} else {
-						$prop_type = 128;
+						$prop_type = 127;
 
 					}
 				} else {
@@ -207,29 +207,6 @@ class AddNewHouse {
 				} else {
 				  $prop_builtin  = "未知";
 				}
-				$prop_description 	= wp_kses_post($params['PublicRemarks']);
-				$prop_description 	= stripcslashes($prop_description);
-
-
-				$apiKey = 'AIzaSyAsP0s0WE8zAqB9-C0FVWTPag_ATP-boXA';
-				$translate_url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($prop_description) . '&source=en&target=zh-CN';
-
-				$translate_handle = curl_init($translate_url);
-				curl_setopt($translate_handle, CURLOPT_RETURNTRANSFER, true);
-				$translate_response = curl_exec($translate_handle);
-				$translate_responseDecoded = json_decode($translate_response, true);
-				$responseCode = curl_getinfo($translate_handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code
-				curl_close($translate_handle);
-
-				if($responseCode != 200) {
-					$debugInfo .= 'Fetching translation failed! Server response code:' . $responseCode . '\r\n';
-					$debugInfo .= 'Error description: ' . $translate_responseDecoded['error']['errors'][0]['message'];
-				}
-				else {
-					$prop_description = $translate_responseDecoded['data']['translations'][0]['translatedText'];
-					$debugInfo .= 'prop_description translate: ' . $prop_description. '\r\n';
-				}
-
 
 
 				$country_id 		= 1;
@@ -247,8 +224,33 @@ class AddNewHouse {
 				$prop_id			= intval($post_id);
 
 
+$prop_description 	= wp_kses_post($params['PublicRemarks']);
+                				$prop_description 	= stripcslashes($prop_description);
+
+
+                				$apiKey = 'AIzaSyAsP0s0WE8zAqB9-C0FVWTPag_ATP-boXA';
+                				$translate_url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($prop_description) . '&source=en&target=zh-CN';
+
+                				$translate_handle = curl_init($translate_url);
+                				curl_setopt($translate_handle, CURLOPT_RETURNTRANSFER, true);
+                				$translate_response = curl_exec($translate_handle);
+                				$translate_responseDecoded = json_decode($translate_response, true);
+                				$responseCode = curl_getinfo($translate_handle, CURLINFO_HTTP_CODE);      //Here we fetch the HTTP response code
+                				curl_close($translate_handle);
+
+                				if($responseCode != 200) {
+                					$debugInfo .= 'Fetching translation failed! Server response code:' . $responseCode . '\r\n';
+                					$debugInfo .= 'Error description: ' . $translate_responseDecoded['error']['errors'][0]['message'];
+                				}
+                				else {
+                					$prop_description = $translate_responseDecoded['data']['translations'][0]['translatedText'];
+                					$prop_description = $prop_description. '<br /><div class="house-desc-footer">如果您需要更多的房屋信息，请联系：help@eclink.ca</div><br /><div class="house-desc-footer1">欢迎地产经纪植入名字这里</div>';
+                					$debugInfo .= 'prop_description translate: ' . $prop_description. '\r\n';
+                				}
 
 				if(!$duplicated){
+
+
 
 				/**
 
@@ -347,7 +349,7 @@ $debugInfo .= "ready to insert property table:".$wpdb->prefix.'estatik_propertie
 					'prop_area' 		=> $prop_area,
 					'prop_lotsize' 		=> $prop_lotsize,
 					'prop_builtin' 		=> $prop_builtin,
-					'prop_description' 	=> $prop_description,
+					//'prop_description' 	=> $prop_description,
 					'country_id' 		=> $country_id,
 					'state_id' 			=> $state_id,
 					'city_id' 			=> $city_id,
@@ -391,6 +393,26 @@ if(!empty($oneImage['MedResPath'])){
 				}
 
 			}
+
+
+			$prop_images = $params['photos'];
+
+			if(!empty($prop_images)) {
+            				foreach($prop_images as $oneImage){
+
+
+            if(!empty($oneImage['big'])){
+            						array_push($prop_images_arr, $oneImage['big']);
+            					}
+            					else if(!empty($oneImage['small'])){
+            						array_push($prop_images_arr, $oneImage['small']);
+            					}
+
+            				}
+
+            			}
+
+
 			if ( !empty($prop_images_arr) ) {
 				$uploaded_images = array_map('es_sanitize_array', $prop_images_arr);
 				$wpdb->delete( $wpdb->prefix.'estatik_properties_meta', array( 'prop_id' => $prop_id,'prop_meta_key'=>'images') );

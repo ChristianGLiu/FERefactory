@@ -128,6 +128,7 @@ if (  $thread_query_2->have_posts() ){ ?>
 <div class=""><img src="/wp-content/uploads/2016/10/yanfan.png"></img></div>
 <div class=""><img src="/wp-content/uploads/2016/10/guojun.jpg"></img></div>
 <div class=""><img src="/wp-content/uploads/2016/10/dandan.jpg"></img></div>
+<div class=""><img src="/wp-content/uploads/2016/11/mmexport1477766613715.jpg"></img></div>
 </div>
 <?php
 

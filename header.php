@@ -156,8 +156,8 @@
                                 						</a>
                                 					</li>
                                 					<li class="fe-tab-item fe-tab-item-8">
-                                                                        						<a href="/二手交易/">
-                                                                        						二手交易
+                                                                        						<a href="/shop/">
+                                                                        						团购商铺
                                                                         						</a>
                                                                         					</li>
                                                                         					<li class="fe-tab-item fe-tab-item-9">

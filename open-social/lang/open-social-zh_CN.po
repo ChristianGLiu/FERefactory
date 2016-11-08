@@ -1,18 +1,17 @@
-# Copyright (C) 2015 Open Social
-# This file is distributed under the same license as the Open Social package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Open Social 1.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
 "POT-Creation-Date: 2016-05-29 08:59:01+00:00\n"
-"PO-Revision-Date: 2016-05-29 17:20+0800\n"
-"Last-Translator: XiaoMac <afly@xiaomac.com>\n"
-"Language-Team: playes@qq.com\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2016-11-06 20:44+0000\n"
+"Last-Translator: 轻舞飞扬 <davidliu51@hotmail.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"Plural-Forms: nplurals=1; plural=0"
 
 #: open-social.php:22
 msgid "QQ"
@@ -20,11 +19,11 @@ msgstr ""
 
 #: open-social.php:23
 msgid "Sina"
-msgstr ""
+msgstr "微博"
 
 #: open-social.php:24
 msgid "Google"
-msgstr ""
+msgstr "谷歌"
 
 #: open-social.php:25
 msgid "Microsoft"
@@ -44,7 +43,7 @@ msgstr ""
 
 #: open-social.php:29
 msgid "Facebook"
-msgstr ""
+msgstr "脸书"
 
 #: open-social.php:30
 msgid "Twitter"
@@ -52,6 +51,103 @@ msgstr ""
 
 #: open-social.php:31
 msgid "Github"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: open-social.php:604 open-social.php:837 open-social.php:863
+#: open-social.php:1155
+msgid "Open Social"
+msgstr ""
+
+#: open-social.php:723
+msgid "Username"
+msgstr ""
+
+#: open-social.php:724
+msgid "Email"
+msgstr ""
+
+#: open-social.php:726
+msgid "Website"
+msgstr ""
+
+#: open-social.php:830
+msgid "Settings"
+msgstr ""
+
+#: open-social.php:880
+msgid "Login"
+msgstr "登录"
+
+#: open-social.php:897
+msgid "Share"
+msgstr ""
+
+#: open-social.php:925
+msgid "Users"
+msgstr ""
+
+#: open-social.php:927
+msgid "Profile"
+msgstr ""
+
+#: open-social.php:929
+msgid "General Settings"
+msgstr ""
+
+#: open-social.php:931
+msgid "Discussion Settings"
+msgstr ""
+
+#: open-social.php:1037
+msgid ""
+"<strong>ERROR</strong>: The comment could not be saved. Please try again "
+"later."
+msgstr ""
+
+#: open-social.php:1095
+msgid "Log Out"
+msgstr "登出"
+
+#: open-social.php:1117
+msgid "%s is your new username"
+msgstr ""
+
+#: open-social.php:1122
+msgid "Sorry, that username already exists!"
+msgstr ""
+
+#: open-social.php:1135
+msgid "&laquo; Back"
+msgstr ""
+
+#: open-social.php:1149
+msgid ""
+"Must be at least 4 characters, letters and numbers only. It cannot be "
+"changed, so choose carefully!"
+msgstr ""
+
+#: open-social.php:1388 open-social.php:1420
+msgid "Title:"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.xiaomac.com/201311150.html"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Login or Share with social networks: QQ, WeiBo, Google, Microsoft, DouBan, "
+"XiaoMi, WeChat Open, WeChat MP, GitHub, Twitter, Facebook. No API! Single "
+"PHP!"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Afly"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.xiaomac.com/"
 msgstr ""
 
 #: open-social.php:32
@@ -90,22 +186,12 @@ msgstr "哎呀！"
 msgid "Back"
 msgstr "返回"
 
-#. Plugin Name of the plugin/theme
-#: open-social.php:604 open-social.php:837 open-social.php:863
-#: open-social.php:1155
-msgid "Open Social"
-msgstr ""
-
 #: open-social.php:646
 msgid ""
 "Warning: Unbind the only social login will cause deletion of a user along "
 "with fake email. If this account have published some posts or you just want "
-"to keep it, please renew a valid email that can reset password to login "
-"with, then try again."
-msgstr ""
-"警告：取消绑定唯一的社交登陆会导致填写了虚假邮箱的账号被删除。如果此账号有发"
-"表过文章或者你想保留此账号，请更新为一个可用的邮箱地址这样以后需登陆时可重置"
-"密码，然后再尝试解绑。"
+"to keep it, please renew a valid email that can reset password to login with,"
+" then try again."
 
 #: open-social.php:648
 msgid "Delete Users"
@@ -133,21 +219,9 @@ msgid ""
 "try again."
 msgstr "这个账号已经被其他用户所绑定，请先解绑再尝试绑定。"
 
-#: open-social.php:723
-msgid "Username"
-msgstr ""
-
-#: open-social.php:724
-msgid "Email"
-msgstr ""
-
 #: open-social.php:725 open-social.php:1356
 msgid "Nickname"
 msgstr "昵称"
-
-#: open-social.php:726
-msgid "Website"
-msgstr ""
 
 #: open-social.php:728
 msgid "Create New User"
@@ -159,15 +233,11 @@ msgstr "绑定老用户"
 
 #: open-social.php:731 open-social.php:1072 open-social.php:1163
 msgid "Login with %s"
-msgstr "使用 %s 登陆"
+msgstr "%s登陆"
 
 #: open-social.php:738
 msgid "This account may contain some incompatible characters."
 msgstr "这个账号可能包含了一些不兼容的字符。"
-
-#: open-social.php:830
-msgid "Settings"
-msgstr ""
 
 #: open-social.php:844
 msgid "Post with Sina Weibo"
@@ -180,10 +250,6 @@ msgstr "用户数据转换完成"
 #: open-social.php:872
 msgid "Plugin Homepage"
 msgstr "插件主页"
-
-#: open-social.php:880
-msgid "Login"
-msgstr ""
 
 #: open-social.php:882
 msgid "Show in Login page"
@@ -204,10 +270,6 @@ msgstr "隐藏未启用的登陆账号设置"
 #: open-social.php:886
 msgid "Enable to customize login code"
 msgstr "自定义登陆代码"
-
-#: open-social.php:897
-msgid "Share"
-msgstr ""
 
 #: open-social.php:899
 msgid "Show in Post pages"
@@ -255,33 +317,17 @@ msgstr "当评论有回复时接受邮件通知"
 msgid "Show nickname in users list and orderby registered time desc"
 msgstr "在用户列表中显示昵称并默认按注册时间倒序"
 
-#: open-social.php:925
-msgid "Users"
-msgstr ""
-
 #: open-social.php:926
 msgid "Hide user bar for new user"
 msgstr "新用户默认关闭顶部工具条"
-
-#: open-social.php:927
-msgid "Profile"
-msgstr ""
 
 #: open-social.php:928
 msgid "Use Subscriber role for new user or default role if uncheck"
 msgstr "勾选指定插件新用户为订阅者否则为系统默认等级"
 
-#: open-social.php:929
-msgid "General Settings"
-msgstr ""
-
 #: open-social.php:930
 msgid "Disable Gravatar with a default blank avatar"
 msgstr "当被墙时禁用头像服务并显示为空白头像"
-
-#: open-social.php:931
-msgid "Discussion Settings"
-msgstr ""
 
 #: open-social.php:932
 msgid "Add jQuery.tooltip to the buttons"
@@ -312,12 +358,6 @@ msgstr "删除插件时删除所有保存的配置信息（不推荐）"
 msgid "Account Setting"
 msgstr "账号设置"
 
-#: open-social.php:1037
-msgid ""
-"<strong>ERROR</strong>: The comment could not be saved. Please try again "
-"later."
-msgstr ""
-
 #: open-social.php:1051
 msgid "Login and bind with %s"
 msgstr "登陆并绑定 %s"
@@ -326,33 +366,11 @@ msgstr "登陆并绑定 %s"
 msgid "Inner Login"
 msgstr "默认登陆"
 
-#: open-social.php:1095
-msgid "Log Out"
-msgstr ""
-
-#: open-social.php:1117
-msgid "%s is your new username"
-msgstr ""
-
-#: open-social.php:1122
-msgid "Sorry, that username already exists!"
-msgstr ""
-
 #: open-social.php:1125
 msgid ""
 "Length of Username between 4 and 20, letters and numbers only; Or you "
 "already change it."
 msgstr "用户名长度4到20位，只允许字母和数字；或者你已经修改过。"
-
-#: open-social.php:1135
-msgid "&laquo; Back"
-msgstr ""
-
-#: open-social.php:1149
-msgid ""
-"Must be at least 4 characters, letters and numbers only. It cannot be "
-"changed, so choose carefully!"
-msgstr ""
 
 #: open-social.php:1299
 msgid "Confirm"
@@ -380,15 +398,11 @@ msgstr "注册时间"
 
 #: open-social.php:1384
 msgid "Open Social Login"
-msgstr "Open Social 登陆"
+msgstr "一键登陆"
 
 #: open-social.php:1384
 msgid "Display your Open Social login button"
 msgstr "显示登陆按钮"
-
-#: open-social.php:1388 open-social.php:1420
-msgid "Title:"
-msgstr ""
 
 #: open-social.php:1399
 msgid "Howdy"
@@ -413,144 +427,3 @@ msgstr "浮动按钮"
 #: open-social.php:1444
 msgid "Some floating useful buttons"
 msgstr "一些有用的浮动按钮"
-
-#. Plugin URI of the plugin/theme
-msgid "https://www.xiaomac.com/201311150.html"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"Login or Share with social networks: QQ, WeiBo, Google, Microsoft, DouBan, "
-"XiaoMi, WeChat Open, WeChat MP, GitHub, Twitter, Facebook. No API! Single "
-"PHP!"
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Afly"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://www.xiaomac.com/"
-msgstr ""
-
-#~ msgid "This account has been bound with other user."
-#~ msgstr "这个账号已经被其他用户绑定。"
-
-#~ msgid "This email [%s] has been registered by other user."
-#~ msgstr "这个邮箱 %s 已经被其他用户注册。"
-
-#~ msgid "Show nickname in users list"
-#~ msgstr "在用户列表中显示昵称"
-
-#~ msgid "Allow to login with email address"
-#~ msgstr "允许使用邮箱登陆"
-
-#~ msgid ""
-#~ "Login or Share with social networks: QQ, WeiBo, Baidu, Google, Microsoft, "
-#~ "DouBan, XiaoMi, WeChat Open, WeChat MP, GitHub, Twitter, Facebook. No "
-#~ "API! Single PHP!"
-#~ msgstr ""
-#~ "可用腾讯QQ、新浪微博、百度、谷歌、微软、豆瓣、人人网、开心网、小米、脸书、"
-#~ "推特、微信开放平台、微信公众平台等登录和分享，无第三方平台，单文件、支持昵"
-#~ "称头像等"
-
-#~ msgid "Login Buttons"
-#~ msgstr "登陆按钮"
-
-#~ msgid "Share Buttons"
-#~ msgstr "分享按钮"
-
-#~ msgid "Sina Weibo related userid"
-#~ msgstr "新浪微博分享自（用户ID）"
-
-#~ msgid "Regexp anti-spam to guest"
-#~ msgstr "游客留言正则反垃圾"
-
-#~ msgid "Proxy for server request"
-#~ msgstr "代理"
-
-#~ msgid "Display Language Switcher in profile page"
-#~ msgstr "在用户资料页显示语言切换按钮"
-
-#~ msgid "User Subscriber role for new user or default role if uncheck"
-#~ msgstr "新用户指定为订阅者角色，不勾选则为系统默认角色"
-
-#~ msgid ""
-#~ "Allow binding user change their [Username] one time and only. Check it "
-#~ "CAREFULLY."
-#~ msgstr "允许绑定登陆的用户修改一次用户名，请小心使用。"
-
-#~ msgid ""
-#~ "Delete all configurations in this page after plugin deleted, NOT "
-#~ "RECOMMENDED."
-#~ msgstr "当删除插件时自动删除本页面所有配置内容，不推荐！"
-
-#~ msgid "Please make sure you have a valid email"
-#~ msgstr "请确认你的邮箱地址可用"
-
-#~ msgid "Language Switcher"
-#~ msgstr "语言切换"
-
-#~ msgid "Share with QQWeibo"
-#~ msgstr "分享到QQ微博"
-
-#~ msgid "Share with YoudaoNote"
-#~ msgstr "分享到网易有道笔记"
-
-#~ msgid "QQEmail Me"
-#~ msgstr "给我QQ邮箱发邮件"
-
-#~ msgid "QQChat Me"
-#~ msgstr "给我QQ在线发消息"
-
-#~ msgid "Google Translation"
-#~ msgstr "谷歌翻译"
-
-#~ msgid "Scan me a drink"
-#~ msgstr "扫支啤酒"
-
-#~ msgid "Leave me a link"
-#~ msgstr "挂个连接"
-
-#~ msgid "Give me five"
-#~ msgstr "点个赞"
-
-#~ msgid "Before comment form"
-#~ msgstr "在评论框之前"
-
-#~ msgid "After comment form"
-#~ msgstr "在评论框之后"
-
-#~ msgid "SinaWeibo RelatedID"
-#~ msgstr "新浪微博关联账号"
-
-#~ msgid "QQWeibo AppKey"
-#~ msgstr "腾讯微博转发 AppKey"
-
-#~ msgid "QQEmail Code"
-#~ msgstr "腾讯邮箱邮我代码"
-
-#~ msgid "QQChat Number"
-#~ msgstr "在线发消息QQ号"
-
-#~ msgid "Regexp Anti-SPAM when guest can comment"
-#~ msgstr "针对游客评论开启正则反垃圾"
-
-#~ msgid "Proxy"
-#~ msgstr "代理"
-
-#~ msgid "Proxy for somesite in somewhere"
-#~ msgstr "为某些地区某些网站配置代理"
-
-#~ msgid ""
-#~ "Login and Share with social networks: QQ, Sina, Baidu, Google, Live, "
-#~ "DouBan, RenRen, KaiXin, XiaoMi, CSDN, OSChina, Facebook, Twitter, Github, "
-#~ "WeChat. No API, NO Register!"
-#~ msgstr ""
-#~ "可用腾讯QQ、新浪微博、百度、谷歌、微软LIVE、豆瓣、人人网、开心网、小米、脸"
-#~ "书、推特、微信等登录和分享，无第三方平台、无接口文件冗余、带昵称网址头像等"
-
-#~ msgid ""
-#~ "Length of Username between 4 and 20, only letters and numbers included; "
-#~ "Or you already change it."
-#~ msgstr "用户名长度为4-20，且可包含字母和数字；或者你之前已修改过。"

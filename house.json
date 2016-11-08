@@ -1,25 +1,25 @@
 {
   "Building": {
-    "BathroomTotal": "1",
-    "Bedrooms": "2 + 0",
-    "StoriesTotal": "1",
-    "Type": "Mobile Home"
+    "BathroomTotal": "4",
+    "Bedrooms": "3 + 1",
+    "StoriesTotal": "2"
   },
   "Business": {},
-  "Id": "16384449",
+  "Id": "17557252",
   "Individual": [
     {
-      "CorporationDisplayTypeId": "0",
+      "CorporationDisplayTypeId": "1",
+      "CorporationName": "THE CAROLYN DAVIS STEWART TEAM",
       "DesignationText": "Sales Person",
       "Emails": [
         {
-          "ContactId": "394913946"
+          "ContactId": "395070707"
         }
       ],
-      "FirstName": "Dave",
-      "IndividualID": 1889530,
-      "LastName": "Matheson",
-      "Name": "Dave Matheson",
+      "FirstName": "Carolyn",
+      "IndividualID": 1459528,
+      "LastName": "Davis Stewart",
+      "Name": "Carolyn Davis Stewart",
       "Organization": {
         "Address": {
           "AddressText": "7071 Bayers Rd., Suite 102|Halifax, NS B3L2C2"
@@ -61,87 +61,260 @@
       "Phones": [
         {
           "AreaCode": "902",
-          "PhoneNumber": "877-3085",
+          "PhoneNumber": "456-9134",
           "PhoneType": "Telephone",
           "PhoneTypeId": "1"
         },
         {
           "AreaCode": "902",
-          "PhoneNumber": "404-6964",
+          "PhoneNumber": "455-6738",
           "PhoneType": "Fax",
           "PhoneTypeId": "4"
         }
       ],
-      "Photo": "https://cdn.realtor.ca/individual/lowres/1210837.jpg"
+      "Photo": "https://cdn.realtor.ca/individual/lowres/1034128.jpg",
+      "Websites": [
+        {
+          "Website": "http://www.homesinhalifax.ca",
+          "WebsiteTypeId": "1"
+        }
+      ]
     }
   ],
   "Land": {
     "LandscapeFeatures": "Landscaped",
     "SizeTotal": "under 1/2 acre"
   },
-  "MlsNumber": "201511588",
-  "PhotoChangeDateUTC": "14/12/2015 2:25:12 PM",
-  "PostalCode": "B2Y2A4",
+  "MlsNumber": "201615113",
+  "PhotoChangeDateUTC": "01/11/2016 4:44:21 AM",
+  "PostalCode": "B3H1A1",
   "Property": {
     "Address": {
-      "AddressText": "23 Florence Avenue|Maple Ridge Estates|Halifax, Nova Scotia B2Y2A4",
-      "Latitude": "44.66279",
-      "Longitude": "-63.53323"
+      "AddressText": "5850 Chain Rock Drive|Halifax, Nova Scotia B3H1A1",
+      "Latitude": "44.62296",
+      "Longitude": "-63.57294"
     },
+    "AmmenitiesNearBy": "Park, Playground",
     "OwnershipType": "Freehold",
+    "Parking": [
+      {
+        "Name": "Garage"
+      },
+      {
+        "Name": "Attached garage"
+      },
+      {
+        "Name": "Interlocked"
+      }
+    ],
     "Photo": [
       {
-        "HighResPath": "https://cdn.realtor.ca/listing/TS635856819125430000/reb107/highres/8/201511588_1.jpg",
-        "LastUpdated": "14/12/2015 9:25:12 AM",
-        "LowResPath": "https://cdn.realtor.ca/listing/TS635856819125430000/reb107/lowres/8/201511588_1.jpg",
-        "MedResPath": "https://cdn.realtor.ca/listing/TS635856819125430000/reb107/medres/8/201511588_1.jpg",
+        "HighResPath": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_1.jpg",
+        "LastUpdated": "01/11/2016 12:44:21 AM",
+        "LowResPath": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/lowres/3/201615113_1.jpg",
+        "MedResPath": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_1.jpg",
         "SequenceId": "1"
       }
     ],
-    "Price": "$39,900",
+    "Price": "$1,975,000",
     "Type": "Single Family",
     "TypeId": "300"
   },
-  "PublicRemarks": "Seller is motivated. Why pay rent when you can own your own home. Great value in the heart of Dartmouth. This property is situated in the popular Maple Ridge Estates. Some TLC needed, but there is great potential. New roof and propane furnace in 2014. Good sized private back yard with 2 sheds (12x8 & 8x8). Lots of storage. Close to bus terminal & shopping. THis property won't last long. Come view your new home today.",
-  "RelativeDetailsURL": "/Residential/Single-Family/16384449/23-Florence-Avenue-Maple-Ridge-Estates-Halifax-Nova-Scotia-B2Y2A4-Halifax",
+  "PublicRemarks": "A rare find in the heart of the South end! This eye catching 4 bdrm Cape Cod style home backs directly on Point Pleasant Park & does not disappoint! A John DeCoff build, this 3 yr old energy efficient home has stunning curb appeal & divine Brazilian Ash front porch! Entering the grand 2 storey foyer you???ll notice oak hardwood flooring, custom staircase & incredible Hinkely chandelier. Main level features formal dining room w/ stunning coffered ceiling, study w/ french doors to foyer & open concept kitchen/great room w/ vaulted ceiling, propane fireplace & built in shelving. The Chefs kitchen has high end stainless steel appliances, quartz natural stone countertops, custom cabinetry & butlers pantry. Main floor master bdrm w/ stunning 6 pc ensuite & laundry room just around the corner. Upstairs has open concept hallway, overlooking the great room below, 2 large bedrooms, huge 5 pc bath & bonus room over garage. Lower level would make a lovely secondary suite w/ a walk out to backyard. Currently, a lovely entertainment area w/ wet bar, secondary den/office, bedroom & full bath + ample extra storage space. Heat pumps, solar panels & remote control of room temps from anywhere - this home was designed environmentally friendly & low maintenance!",
+  "RelativeDetailsURL": "/Residential/Single-Family/17557252/5850-Chain-Rock-Drive-Halifax-Nova-Scotia-B3H1A1-Halifax",
   "StatusId": "1",
   "attributes": {
-    "Building Type": "Mobile Home",
-    "Built in": "1971",
+    "Built in": "2013",
     "Community Name": "Halifax",
     "Land Size": "under 1/2 acre",
+    "Parking Type": "Garage, Attached garage, Interlocked",
     "Property Type": "Single Family",
-    "Storeys": "1",
+    "Storeys": "2",
     "Title": "Freehold"
   },
   "details": {
-    "Appliances Included": "Oven, Stove, Dryer, Washer",
-    "Features": "Level",
-    "Rental Equipment": "Propane Tank",
-    "Structures": "Deck"
+    "Amenities Nearby": "Park, Playground",
+    "Appliances Included": "Barbeque, Central Vacuum, Cooktop - Propane, Oven - Electric, Oven - Propane, Dishwasher, Dryer - Electric, Washer, Garburator, Refrigerator, Wine Fridge, Alarm System, Gas stove(s), Jetted Tub",
+    "Features": "Treed",
+    "Parking Type": "Garage, Attached garage, Interlocked",
+    "Structures": "Deck, Patio(s)"
   },
+  "photos": [
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_1.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_1.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_2.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_2.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_3.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_3.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_4.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_4.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_5.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_5.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_6.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_6.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_7.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_7.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_8.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_8.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_9.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_9.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_10.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_10.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_11.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_11.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_12.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_12.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_13.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_13.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_14.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_14.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_15.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_15.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_16.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_16.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_17.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_17.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_18.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_18.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_19.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_19.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_20.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_20.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_21.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_21.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_22.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_22.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_23.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_23.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_24.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_24.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_25.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_25.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_26.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_26.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_27.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_27.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_28.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_28.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_29.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_29.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_30.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_30.jpg"
+    },
+    {
+      "big": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/highres/3/201615113_31.jpg",
+      "small": "https://cdn.realtor.ca/listing/TS636135578613830000/reb107/medres/3/201615113_31.jpg"
+    }
+  ],
   "rooms": {
+    "Lower level": [
+      {
+        "Recreational, Games room": "20.4 x 14"
+      },
+      {
+        "Bedroom": "13.7 x 13.5"
+      },
+      {
+        "Bath (# pieces 1-6)": "4 PC"
+      },
+      {
+        "Storage": "15.8 x 6.9"
+      }
+    ],
     "Main level": [
       {
-        "Kitchen": "13x12"
+        "Den": "14.8 x 10.9"
       },
       {
-        "Bedroom": "10x10"
+        "Dining room": "14.5 x 12.6"
       },
       {
-        "Master bedroom": "13x13"
+        "Kitchen": "34.4 x 17.4 - combo Great Room"
       },
       {
-        "Bath (# pieces 1-6)": "7x8 4pc"
+        "Bath (# pieces 1-6)": "2 PC"
       },
       {
-        "Laundry room": "5x2.5"
+        "Master bedroom": "15 x 14.6"
       },
       {
-        "Foyer": "10.5x5.5"
+        "Ensuite (# pieces 2-6)": "6 PC"
       },
       {
-        "Mud room": "6x12.5"
+        "Laundry room": "8.4 x 7.5"
+      }
+    ],
+    "Second level": [
+      {
+        "Bedroom": "13.5 x 12.8 + jog"
+      },
+      {
+        "Bedroom": "14.1 x 11.1 + jog"
+      },
+      {
+        "Bath (# pieces 1-6)": "5 PC"
+      },
+      {
+        "Recreational, Games room": "26.7 x 21 +jog"
       }
     ],
     "area": 0

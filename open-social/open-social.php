@@ -46,8 +46,8 @@ function open_init() {
 	}
 	define('OPEN_CBURL', osop('extend_callback_url') ? osop('extend_callback_url') : home_url('/'));
 
-	if(count($_GET)==2  && !isset($_GET['action']) && !isset($_GET['client_id']) && isset($_GET['code']) && isset($_GET['state']) && isset($_SESSION['state'])) {
-	//echo "test".var_dump($_GET);
+	if(count($_GET)==2  && !isset($_GET['action']) && !isset($_GET['client_id']) && isset($_GET['code']) && isset($_GET['state']) && !isset($_SESSION['back'])) {
+	echo "test".var_dump($_GET).' '.var_dump($_SESSION);
                     if(!isset($_GET['code']) || isset($_GET['error']) || isset($_GET['error_code']) || isset($_GET['error_description'])){
                         open_next(OPEN_CBURL);
                     }
@@ -1109,8 +1109,8 @@ function open_social_login_html($atts=array()) {
 		if(osop(strtoupper($k))) $html .= open_login_button_show($k, sprintf(__('Login with %s','open-social'), $v), OPEN_CBURL);
 	}
 	$html .= '</div><script>!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);</script><div id="wc-login-qr"></div>';
-    $_SESSION['state'] = uniqid(rand(), true);
-	$html .= '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"'.osop("WECHAT_AKEY").'",scope: "snsapi_login",redirect_uri: "'.OPEN_CBURL.'",state:"'.md5('WECHAT'.$_SESSION['state']).'",style: "black"});</script>';
+    $_SESSION['wechatstate'] = uniqid(rand(), true);
+	$html .= '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"'.osop("WECHAT_AKEY").'",scope: "snsapi_login",redirect_uri: "'.OPEN_CBURL.'",state:"'.md5('WECHAT'.$_SESSION['wechatstate']).'",style: "black"});</script>';
 
 	return $html;
 }

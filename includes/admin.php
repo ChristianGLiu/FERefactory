@@ -29,7 +29,7 @@ class ET_ForumAdmin extends ET_ForumEngine{
 		$this->add_action('init', 'add_menus');
 
 		// kick subscriber user
-		if ( !current_user_can( 'manage_options' ) && basename($_SERVER['SCRIPT_FILENAME']) != 'admin-ajax.php' ){
+		if ( !current_user_can( 'manage_options' ) && !current_user_can( 'manage_product' ) && basename($_SERVER['SCRIPT_FILENAME']) != 'admin-ajax.php' ){
 			wp_redirect( home_url(  ) );
 			exit;
 		}

@@ -33,13 +33,16 @@ function share_button_click(link,ev){
 		var qrDiv = jQuery(elm).parent().find('.open_social_qrcode');
 		if(!qrDiv.find('canvas').length){
 			qrDiv.qrcode({width:180,height:180,correctLevel:0,background:'#fff',foreground:'#111',text:location.href});
+			var canvas = $('.open_social_qrcode canvas');
+			var img = canvas.get(0).toDataURL("image/png");
+			document.write('<img src="'+img+'"/>');
 		}
 		qrDiv.toggle(250);
 	}else{
 		var url = encodeURIComponent(location.href);
 		var title = encodeURIComponent(document.title + (window.jQuery ? (': ' + jQuery('.et-entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,280)+'.. ') : ''));
 		var pic = '';
-		window.jQuery && jQuery('.et-entry-content img,article img,p>img').each(function(){pic+=(pic?'||':'')+encodeURIComponent(jQuery(this).attr('src'));});
+		window.jQuery && jQuery('.et-entry-right img,article img,p>img').each(function(){pic+=(pic?'||':'')+encodeURIComponent(jQuery(this).attr('src'));});
 		window.open(link.replace("%URL%",url).replace("%TITLE%",title).replace("%PIC%",pic),'xmOpenWindow','width=600,height=480,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1');
 	}
 }
@@ -79,9 +82,9 @@ window.jQuery && jQuery(document).ready(function($){
 		wx.ready(function(){
 			var shareData = {
 				title: document.title,
-				desc: jQuery('article .et-entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,280),
+				desc: jQuery('article .et-entry-right').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,280),
 				link: location.href,
-				imgUrl: jQuery('article img').eq(0).attr('src') || ''
+				imgUrl: jQuery('.et-entry-right img').eq(0).attr('src') || ''
 			};
 			wx.onMenuShareAppMessage(shareData);
 			wx.onMenuShareTimeline(shareData);

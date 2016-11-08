@@ -63,27 +63,10 @@ if($check_authorize || is_user_logged_in() || !get_option('user_view', false)){
 					</a>.
 				</span>
 				<span class="author">
-				<?php if ( $thread->et_last_author == false ){
-						_e( 'No reply yet', ET_DOMAIN );
-					} else {
-				?>
-					<span class="last-reply">
-						<?php if($authorize){?>
-							<a href="<?php echo et_get_last_page($thread->ID) ?>">
-						<?php }else{ ?>
-							<a href="#modal_login" id="open_login" data-toggle="modal" data-url="<?php echo et_get_last_page($thread->ID) ?>">
-						<?php }?>
-								<?php _e('Last reply',ET_DOMAIN);?>
-							</a>
-					</span> 
-					<?php _e('by',ET_DOMAIN);?> <?php echo '<span class="semibold"><a href="'.get_author_posts_url($thread->et_last_author->ID).'">'. $thread->et_last_author->display_name .'</a></span>.' ?>
-				<?php
-					}
-				?>
+				<a href="<?php the_permalink() ?>#comments" class="et-entry-comments icon" data-icon="q"><?php echo get_comments_number() ?></a>
 				</span>
 				<span class="user-action">
-					<span class="comment <?php if($thread->replied) echo 'active';?>"><span class="icon" data-icon="w"></span><?php echo $thread->et_replies_count ?></span>
-					<span class="like <?php if($thread->liked) echo 'active';?>"><span class="icon" data-icon="k"></span><?php echo $thread->et_likes_count ?></span>
+					<span class="comment <?php if($thread->replied) echo 'active';?>"><span class="icon" data-icon="w"></span><?php echo bac_PostViews($thread->ID); ?></span>
 				</span>
 				<span class="undo-action hide">
 					<?php printf( __('Want to %s ?',ET_DOMAIN) , '<a href="#" class="act-undo">' . __('undo', ET_DOMAIN) . '</a>' ); ?>

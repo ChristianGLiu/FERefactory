@@ -916,14 +916,73 @@ input:hover:-ms-input-placeholder {
     text-decoration: underline !important;
 }
 
-.one_login_box:first-child {
-    display:none;
-}
-
 .text-search .input-container {
     margin-right: 20% !important;
 }
 
 .marginTop30 {
     overflow: hidden;
+}
+
+.tml-login .tml-submit-wrap input[type=submit] {
+    width: 100% !important;
+    padding: 10px !important;
+}
+
+.gd-cptcat-ul.gd-cptcat-parent.gd-cpt-flat {
+   width: 10% !important;
+}
+
+.hot-user-topic ul li p span.text {
+    margin-left: 0 !important;
+}
+
+.geodir-sidebar-right {
+    float:left !important;
+}
+
+.tml-login .login_box {
+    padding-left: 50px;
+}
+.geodir_locations.geodir_location_listing {
+    padding-bottom: 100px;
+}
+.geodir-category-listing footer {
+    background: transparent !important;
+    position: relative !important;
+}
+
+.widget .category-items {
+    max-height: 440px;
+    overflow: auto;
+}
+
+.login_button {
+    display: inline-block !important;
+}
+
+.geodir-widget.geodir_loginbox {
+    display:none !important;
+}
+
+#menu-shopper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.menu-shopper-container ul.gd-menu-z li {
+    font-size: 14px;
+    margin-left: 20px;
+    color: #9e2323;
+    text-decoration: underline;
+}
+
+.input-group-addon, .input-group-btn {
+    width: auto !important;
+}
+
+.menu-shopper-container>ul>li>ul {
+    display:none;
 }

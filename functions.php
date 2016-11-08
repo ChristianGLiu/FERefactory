@@ -50,8 +50,8 @@ add_theme_support( 'automatic-feed-links');
 add_theme_support('post-thumbnails');
 
 function et_prevent_user_access_wp_admin ()  {
-	if(!current_user_can('manage_options')) {
-		wp_redirect(home_url());
+	if(!current_user_can('manage_options') && !current_user_can('manage_product')) {
+		//wp_redirect(home_url());
 		exit;
 	}
 }
@@ -140,4 +140,70 @@ add_action( 'pre_get_posts', 'add_status_to_search_query' );
 add_filter('et_is_mobile', 'disable_mobile');
 function disable_mobile($mobile){
  return false;
+}
+
+if(!function_exists('bac_PostViews')) {
+function bac_PostViews($post_ID) {
+
+    //Set the name of the Posts Custom Field.
+    $count_key = 'post_views_count';
+
+    //Returns values of the custom field with the specified key from the specified post.
+    $count = get_post_meta($post_ID, $count_key, true);
+
+    //If the the Post Custom Field value is empty.
+    if($count == ''){
+        $count = 0; // set the counter to zero.
+
+        //Delete all custom fields with the specified key from the specified post.
+        delete_post_meta($post_ID, $count_key);
+
+        //Add a custom (meta) field (Name/value)to the specified post.
+        add_post_meta($post_ID, $count_key, '0');
+        return $count . ' View';
+
+    //If the the Post Custom Field value is NOT empty.
+    }else{
+        $count++; //increment the counter by 1.
+        //Update the value of an existing meta key (custom field) for the specified post.
+        update_post_meta($post_ID, $count_key, $count);
+
+        //If statement, is just to have the singular form 'View' for the value '1'
+        if($count == '1'){
+        return $count . ' View';
+        }
+        //In all other cases return (count) Views
+        else {
+        return $count . ' Views';
+        }
+    }
+}
+}
+
+function print_menu_shortcode($atts, $content = null) {
+    extract(shortcode_atts(array( 'name' => null, ), $atts));
+    return wp_nav_menu( array( 'menu' => $name, 'echo' => false ) );
+}
+add_shortcode('menu', 'print_menu_shortcode');
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<div class="container main-center"><div class="row">';
+  echo '<div class="header-bottom header-filter"><div class="main-center container">'.wp_nav_menu( array( 'menu' => '商铺', 'echo' => false ) ).'</div></div>';
+  echo '<div class="col-md-9 col-sm-12 marginTop30">';
+}
+
+function my_theme_wrapper_end() {
+  echo '</div><div class="col-md-3 col-sm-12 sidebar">';
+  echo do_shortcode('[do_widget id=open_social_share_widget-4]');
+  echo do_shortcode('[do_widget id=dc_product_vendors_list-3]');
+  echo do_shortcode('[do_widget id=woocommerce_product_categories-3]');
+  echo do_shortcode('[do_widget id=woocommerce_recently_viewed_products-2]');
+
+  echo '</div></div></div>';
 }

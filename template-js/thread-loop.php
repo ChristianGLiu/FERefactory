@@ -33,28 +33,12 @@
 					<# } #>
 				</span>
 				<span class="author">
-					<# 
-						if ( et_last_author == false ){
+                				<a href="<?php the_permalink() ?>#comments" class="et-entry-comments icon" data-icon="q"><?php echo get_comments_number() ?></a>
+                				</span>
+                				<span class="user-action">
+                				<span class="comment <?php if($thread->replied) echo 'active';?>"><span class="icon" data-icon="w"></span><?php echo bac_PostViews($thread->ID); ?></span>
 
-							<?php _e( 'No reply yet', ET_DOMAIN ); ?>
-
-						} else {
-					#>
-						<span class="last-reply">
-							<a href="{{= et_get_last_page }}"><?php _e('Last reply',ET_DOMAIN);?></a>
-						</span> 
-						<?php _e('by',ET_DOMAIN); ?>
-						<span class="semibold">
-							<a href="">{{= et_last_author.display_name }}</a>
-						</span>.
-					<#
-						} 
-					#>
-				</span>
-				<span class="user-action">
-					<span class="comment <# if(replied) { #> active <# } #>"><span class="icon" data-icon="w"></span>{{= et_replies_count }}</span>
-					<span class="like <# if(liked) { #> active <# } #>"><span class="icon" data-icon="k"></span>{{= et_likes_count }}</span>
-				</span>
+                				</span>
 				<span class="undo-action hide">
 					<?php printf( __('Want to %s ?',ET_DOMAIN) , '<a href="#" class="act-undo">' . __('undo', ET_DOMAIN) . '</a>' ); ?>
 				</span>

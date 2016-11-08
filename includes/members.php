@@ -415,7 +415,9 @@ class FE_Member extends ET_User{
 		    $img_avatar_link = $avatar_data['thumbnail'][0];
 		    if(substr($img_avatar_link,0,2) == '//') {
 		        $img_avatar_link = 'http:'.$img_avatar_link;
-		    }
+		    } else if(substr($img_avatar_link,0,5) == 'http:') {
+                   		        $img_avatar_link = 'https:'.$img_avatar_link;
+                   		    }
 			$avatar = '<img src="'.$img_avatar_link.'" class="'.$class.'" alt="'.$alt.'" />';
 		} else {
 			$link 	= get_avatar( $id, $size );
@@ -428,7 +430,9 @@ class FE_Member extends ET_User{
 			$img_avatar_link = $avatar_data['thumbnail'][0];
             		    if(substr($img_avatar_link,0,2) == '//') {
             		        $img_avatar_link = 'http:'.$img_avatar_link;
-            		    }
+            		    }else if(substr($img_avatar_link,0,5) == 'http:') {
+                                            		        $img_avatar_link = 'https:'.$img_avatar_link;
+                                            		    }
 			$avatar = '<img src="'.$img_avatar_link.'" class="'.$class.'" alt="'.$alt.'" />';
 		}
 		return  apply_filters( 'fe_member_get_avatar', $avatar, $avatar_data, $class, $alt ) ;
