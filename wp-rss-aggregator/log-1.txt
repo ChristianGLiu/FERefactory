@@ -1,0 +1,76 @@
+[05-11-2016 17:43:30] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://cn.nytimes.com/rss.html". This XML document is invalid, likely due to invalid characters. XML error: Invalid character at line 162, column 34
+
+
+[05-11-2016 17:52:07] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://www.zhihu.com/rss". cURL error 6: Could not resolve host: www.zhihu.com
+
+
+[05-11-2016 17:52:53] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://xianguo.com/service/dailyshare". This XML document is invalid, likely due to invalid characters. XML error: EntityRef: expecting ';' at line 25, column 64
+
+
+[05-11-2016 17:53:18] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://xianguo.com/service/dailyshare". This XML document is invalid, likely due to invalid characters. XML error: EntityRef: expecting ';' at line 25, column 64
+
+
+[05-11-2016 17:54:15] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://xianguo.com/service/dailyshare". This XML document is invalid, likely due to invalid characters. XML error: EntityRef: expecting ';' at line 25, column 64
+
+
+[05-11-2016 17:54:25] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://xianguo.com/service/dailyshare". This XML document is invalid, likely due to invalid characters. XML error: EntityRef: expecting ';' at line 25, column 64
+
+
+[05-11-2016 17:56:20] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://xianguo.com/service/dailyshare". This XML document is invalid, likely due to invalid characters. XML error: EntityRef: expecting ';' at line 25, column 64
+
+
+[05-11-2016 19:39:02] [Error] WPRSS:
+The feed URL is not valid! Please recheck: 
+
+
+[05-11-2016 20:57:13] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://www.toodaylab.com/feed". cURL error 28: Operation timed out after 59095 milliseconds with 42899 out of 106304 bytes received
+
+
+[05-11-2016 22:07:25] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://www.toodaylab.com/feed". cURL error 28: Operation timed out after 59261 milliseconds with 11040 out of 106304 bytes received
+
+
+[05-11-2016 22:09:30] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://www.uisdc.com/feed". cURL error 28: Operation timed out after 60000 milliseconds with 228412 bytes received
+
+
+[05-11-2016 23:38:28] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://blog.ecocn.org/feed". cURL error 28: Operation timed out after 60000 milliseconds with 60983 bytes received
+
+
+[05-11-2016 23:39:34] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://blog.ecocn.org/feed". cURL error 28: Operation timed out after 60001 milliseconds with 66271 bytes received
+
+
+[05-11-2016 23:41:43] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://blog.ecocn.org/feed". cURL error 6: Could not resolve host: blog.ecocn.org
+
+
+[05-11-2016 23:46:56] [Error] WPRSS > wprss_get_feed_items:
+Failed to fetch feed "http://fulltext-premium.wprssaggregator.com/makefulltextfeed.php?url=http%3A%2F%2Ffeed.smzdm.com&license=c0d8c85c21703570264a97829ca92eec&site=https%3A%2F%2Feclink.ca". cURL error 28: Operation timed out after 60001 milliseconds with 0 bytes received
+
+
+[07-11-2016 08:48:28] [Error] WPRSS > wprss_ftp_media_sideload_image:
+Error downloading image "http://cinephilia.net/wp-content/uploads/2016/11/161010_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%87%E1%85%A7%E1%86%AF%E1%84%83%E1%85%A2%E1%84%83%E1%85%A1%E1%86%B7_%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AA%E1%84%8B%E1%85%B4%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A2%E1%84%85%E1%85%B3%E1%86%AF%E1%84%86%E1%85%A1%E1%86%AF%E1%84%92%E1%85%A1%E1%84%83%E1%85%A1_Y__63-1024x698.jpeg" for post #5285: The uploaded file could not be moved to wp-content/uploads/2016/11.
+
+[07-11-2016 08:48:29] [Error] WPRSS > wprss_ftp_media_sideload_image:
+Error downloading image "http://cinephilia.net/wp-content/uploads/2016/11/161010_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%87%E1%85%A7%E1%86%AF%E1%84%83%E1%85%A2%E1%84%83%E1%85%A1%E1%86%B7_%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AA%E1%84%8B%E1%85%B4%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A2%E1%84%85%E1%85%B3%E1%86%AF%E1%84%86%E1%85%A1%E1%86%AF%E1%84%92%E1%85%A1%E1%84%83%E1%85%A1_Y__37-1024x732.jpeg" for post #5285: The uploaded file could not be moved to wp-content/uploads/2016/11.
+
+[07-11-2016 08:48:30] [Error] WPRSS > wprss_ftp_media_sideload_image:
+Error downloading image "http://cinephilia.net/wp-content/uploads/2016/11/161010_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%87%E1%85%A7%E1%86%AF%E1%84%83%E1%85%A2%E1%84%83%E1%85%A1%E1%86%B7-1_%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%B4-%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A2%E1%84%85%E1%85%B3%E1%86%AF-%E1%84%86%E1%85%A1%E1%86%AF%E1%84%92%E1%85%A1%E1%84%83%E1%85%A1_%E1%84%92%E1%85%AE%E1%86%AB-_-007-1024x660.jpeg" for post #5285: The uploaded file could not be moved to wp-content/uploads/2016/11.
+
+[07-11-2016 08:48:31] [Error] WPRSS > wprss_ftp_media_sideload_image:
+Error downloading image "http://cinephilia.net/wp-content/uploads/2016/11/161010_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%87%E1%85%A7%E1%86%AF%E1%84%83%E1%85%A2%E1%84%83%E1%85%A1%E1%86%B7_%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AA%E1%84%8B%E1%85%B4%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A2%E1%84%85%E1%85%B3%E1%86%AF%E1%84%86%E1%85%A1%E1%86%AF%E1%84%92%E1%85%A1%E1%84%83%E1%85%A1_Y__41-1024x669.jpeg" for post #5285: The uploaded file could not be moved to wp-content/uploads/2016/11.
+
+[07-11-2016 08:48:32] [Error] WPRSS > wprss_ftp_media_sideload_image:
+Error downloading image "http://cinephilia.net/wp-content/uploads/2016/11/161010_%E1%84%90%E1%85%B3%E1%86%A8%E1%84%87%E1%85%A7%E1%86%AF%E1%84%83%E1%85%A2%E1%84%83%E1%85%A1%E1%86%B7-1_%E1%84%8B%E1%85%A1%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%B4-%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A2%E1%84%85%E1%85%B3%E1%86%AF-%E1%84%86%E1%85%A1%E1%86%AF%E1%84%92%E1%85%A1%E1%84%83%E1%85%A1_%E1%84%92%E1%85%AE%E1%86%AB-_-013-1024x683.jpeg" for post #5285: The uploaded file could not be moved to wp-content/uploads/2016/11.
+
+

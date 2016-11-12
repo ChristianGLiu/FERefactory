@@ -168,3 +168,7 @@
 
             				</ul>
             			</div>
+
+            				<script>!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);</script>
+                            <?php $_SESSION['wechatstate'] = uniqid(rand(), true);
+                        	echo '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"wx862cd09779b34ffd",scope: "snsapi_login",redirect_uri: "https://www.eclink.ca/",state:"'.md5('WECHAT'.$_SESSION['wechatstate']).'",style: "black"});</script>'; ?>

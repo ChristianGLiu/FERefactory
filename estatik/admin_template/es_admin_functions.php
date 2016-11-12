@@ -151,7 +151,7 @@ function estatik_scripts(){
         wp_enqueue_script('es_manager_scripts', DIR_URL . 'admin_template/js/es_manager_scripts.js' , array( 'jquery' ));
         wp_enqueue_script('es_property_scripts', DIR_URL . 'admin_template/js/es_property_scripts.js' , array( 'jquery' ));
         //wp_enqueue_script('es-google-maps', 'http://maps.googleapis.com/maps/api/js?key=AIzaSyAvz0XMOkYmXx2ZdqRTVhx34nMP4AFQfU8' , array( 'jquery' ));
-        wp_enqueue_script('gmap-api-script', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAvz0XMOkYmXx2ZdqRTVhx34nMP4AFQfU8');
+        wp_enqueue_script('gmap-api-script', 'http://ditu.google.cn/maps/api/js?key=AIzaSyDSMKcmPgbFaRy80H50Jq8d4KhTSn9Xksc');
     }
     wp_enqueue_script( 'jquery-ui-sortable');
     if(isset($_GET['page']) && $_GET['page']=='es_data_manager'){

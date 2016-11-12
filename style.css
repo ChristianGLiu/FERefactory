@@ -986,3 +986,7 @@ input:hover:-ms-input-placeholder {
 .menu-shopper-container>ul>li>ul {
     display:none;
 }
+
+.notice-noresult, .list-post li.highlights, .infor-profile, .content-edit-profile .main-edit-profile, .widget ul.category-items > li a.cat-item.current, .dropdown-profile .content-profile {
+    background-color: #e0f1eb !important;
+}

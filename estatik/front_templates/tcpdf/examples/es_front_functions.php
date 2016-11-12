@@ -6,7 +6,10 @@ function es_front_settings(){
 $es_settings = es_front_settings(); 
 function es_head()
 {	
-	global $wpdb, $es_settings;
+	global $wp_query, $wp_rewrite, $post, $current_user , $user_ID, $wpdb, $es_settings;
+        if(!is_page(2620)) {
+            return;
+        }
 	$upload_dir = wp_upload_dir();
 	$head_html='';
 	
@@ -112,7 +115,7 @@ function estatik_front_scripts() {
 	wp_enqueue_style( 'es-jquery-ui-style', DIR_URL . 'admin_template/css/jquery-ui.css');
     //init es_property_map_script
     // if($map_settings == 1) {
-        wp_enqueue_script('gmap-api-script', 'https://maps.googleapis.com/maps/api/js?v=3.exp');
+        wp_enqueue_script('gmap-api-script', 'http://ditu.google.cn/maps/api/js?v=3.exp');
     // }
 	wp_enqueue_script('estatik-front-scripts', DIR_URL . 'front_templates/js/es_front_scripts.js', 
 		array( 'jquery', 'jquery-ui-autocomplete', 'jquery-ui-datepicker', 'gmap-api-script' ));
@@ -305,7 +308,7 @@ function es_print_scripts() {
 add_action( 'wp_footer', 'es_print_scripts' );
 function es_google_map() {	
 	
-	//echo '<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>';
+	//echo '<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?v=3.exp"></script>';
 	if(is_singular('properties')){
 	
 		global $wpdb, $post;
@@ -454,6 +457,11 @@ if ( !function_exists('es_mapview_script') ) {
 	function es_mapview_script(){
 			
 		global $wp_session, $es_settings, $wpdb;
+
+                if(!is_page(2620)) {
+                    return;
+                }
+
 		// $widget_id 		 = $wp_session['es_map_widget_id'];
 		$category  		 = $wp_session['es_map_category'];
 		$map_icon_style  = $wp_session['map_icon_style'];

@@ -320,3 +320,16 @@
     "area": 0
   }
 }
+
+{
+  "$viewValue": null,
+  "$modelValue": null,
+  "$parsers": [],
+  "$formatters": [],
+  "$viewChangeListeners": [],
+  "$pristine": true,
+  "$dirty": false,
+  "$valid": true,
+  "$invalid": false,
+  "$error": {}
+}

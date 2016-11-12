@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Open Social
- * Plugin URI: https://www.xiaomac.com/201311150.html
+ * Plugin URI: https://www.eclink.ca
  * Description: Login or Share with social networks: QQ, WeiBo, Google, Microsoft, DouBan, XiaoMi, WeChat Open, WeChat MP, GitHub, Twitter, Facebook. No API! Single PHP!
- * Author: Afly
- * Author URI: https://www.xiaomac.com/
+ * Author: Gang Liu
+ * Author URI: https://www.eclink.ca
  * Version: 1.8.0
  * License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: open-social
@@ -744,7 +744,7 @@ function open_action($newuser){
 				}
 				$user_ok = 0;
 				if(!username_exists($newuser['user_login'])) $user_ok = $user_ok + 1;
-				if(is_email($newuser['user_email']) && !email_exists($newuser['user_email'])) $user_ok = $user_ok + 5;
+				if(is_email($newuser['user_email']) && !email_exists($newuser['user_email'])) {
 				/**
 				if($user_ok < 6 || !isset($_POST['user_login'])){ //first time confirm
 					$user_ok_arr = array('border:2px solid red','border:2px solid green');
@@ -771,6 +771,13 @@ function open_action($newuser){
 				update_user_meta($wpuid, 'open_user', 1);//mark as plugin register
 				if(osop('extend_user_role',1)) wp_update_user(array('ID'=>$wpuid, 'role'=>'subscriber'));
 				if(osop('extend_send_email',1) && !preg_match('/@fake\.com/',$newuser['user_email'])) wp_send_new_user_notifications($wpuid);
+				} else if(email_exists($newuser['user_email'])){
+				    if(!function_exists('wp_insert_user')) include_once(ABSPATH.WPINC.'/registration.php');
+				     $newuser['display_name'] = $newuser['nickname'];
+                	$newuser['user_pass'] = wp_generate_password();
+                	$newuser['ID']=email_exists($newuser['user_email']);
+				    $wpuid = wp_update_user($newuser);
+				}
 			}
 		} 
 	} 
@@ -1108,9 +1115,10 @@ function open_social_login_html($atts=array()) {
 		if($show && !osin($show.',', $k.',')) continue;
 		if(osop(strtoupper($k))) $html .= open_login_button_show($k, sprintf(__('Login with %s','open-social'), $v), OPEN_CBURL);
 	}
-	$html .= '</div><script>!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);</script><div id="wc-login-qr"></div>';
-    $_SESSION['wechatstate'] = uniqid(rand(), true);
-	$html .= '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"'.osop("WECHAT_AKEY").'",scope: "snsapi_login",redirect_uri: "'.OPEN_CBURL.'",state:"'.md5('WECHAT'.$_SESSION['wechatstate']).'",style: "black"});</script>';
+	//$html .= '</div><script>!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);</script><div id="wc-login-qr"></div>';
+    $html .= '</div><div id="wc-login-qr"></div>';
+   // $_SESSION['wechatstate'] = uniqid(rand(), true);
+	//$html .= '<script>var obj = new WxLogin({id:"wc-login-qr",appid:"'.osop("WECHAT_AKEY").'",scope: "snsapi_login",redirect_uri: "'.OPEN_CBURL.'",state:"'.md5('WECHAT'.$_SESSION['wechatstate']).'",style: "black"});</script>';
 
 	return $html;
 }

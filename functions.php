@@ -108,6 +108,8 @@ if(!function_exists('et_load_mobile')) {
 /**
  * Remove desktop style and script when load mobile version
  */
+
+
 add_action('wp_head', 'et_wp_head');
 function et_wp_head() {
 	if(et_load_mobile()){
@@ -120,6 +122,13 @@ function et_wp_footer() {
 		return;
 	}
 }
+
+//add_action('wp_head', 'et_get_wechat_login_qrcode');
+//function et_get_wechat_login_qrcode() {
+//	$wechat_login_qrcode_script = '<script>!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);</script>';
+   // $_SESSION['wechatstate'] = uniqid(rand(), true);
+//    echo $wechat_login_qrcode_script;
+//}
 
 /**
  * Add closed status to search query.

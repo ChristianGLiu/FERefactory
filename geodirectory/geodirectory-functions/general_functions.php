@@ -135,7 +135,7 @@ function geodir_getlink( $url, $params = array(), $use_existing_arguments = fals
 	if ( strpos( $link, '?' ) === false ) {
 		$link .= '?';
 	} //If there is no '?' add one at the end
-	elseif ( strpos( $link, '//maps.google.com/maps/api/js?language=' ) ) {
+	elseif ( strpos( $link, '//ditu.google.cn/maps/api/js?language=' ) ) {
 		$link .= '&amp;';
 	} //If there is no '&' at the END, add one.
 	elseif ( ! preg_match( '/(\?|\&(amp;)?)$/', $link ) ) {

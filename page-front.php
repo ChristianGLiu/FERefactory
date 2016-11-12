@@ -55,7 +55,7 @@ $thread_query_1 = FE_Threads::get_threads(array(
 'post_type' 	=> 'post',
 'cat' => 56,
 'posts_per_page' => 2,
-'orderby' => 'date',
+'orderby' => 'ID',
 'order'   => 'DESC',
 ));
 
@@ -96,7 +96,7 @@ $thread_query_2 = FE_Threads::get_threads(array(
 'post_type' 	=> 'post',
 'cat' => '116',
 'posts_per_page' => 4,
-'orderby' => 'date',
+'orderby' => 'ID',
 'order'   => 'DESC',
 ));
 
@@ -121,7 +121,7 @@ if (  $thread_query_2->have_posts() ){ ?>
 ?>
 <div class="ad-area">
 <div class=""><a href="/places/canada/nova-scotia/halifax/餐馆/panda-buffet-熊猫自助/" target="_blank"><img src="/wp-content/uploads/2016/10/buffet.jpg"></img></a></div>
-<div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
+<div class=""><img src="/wp-content/uploads/2016/11/Halifax-waterfront2.jpg"></img></div>
 <div class=""><img src="/wp-content/uploads/2016/10/hawi-ad.png"></img></div>
 <div class=""><a href="http://happykidshalifax.ca/" target="_blank"><img src="/wp-content/uploads/2016/10/happykids.gif"></img></a></div><br />
 <div class=""><img src="/wp-content/uploads/2016/10/dsfasdfnew.jpg"></img></div>
@@ -137,7 +137,7 @@ if (  $thread_query_2->have_posts() ){ ?>
 	'paged' 		=> $page,
 	'post__not_in' 	=> $sticky_threads[0],
 	'cat' => '-56,-116',
-	'orderby' => 'date',
+	'orderby' => 'ID',
     'order'   => 'DESC'
 	));
 
@@ -216,6 +216,12 @@ wp_reset_query();
 <?php get_sidebar('home') ?>
 </div>
 </div>
+
+		<div class="ad-area">
+        <div class=""><img src="/wp-content/uploads/2016/11/Screen-Shot-2016-11-09-at-下午1.29.30.png"></img></div>
+        <div class=""><img src="/wp-content/uploads/2016/11/Screen-Shot-2016-11-09-at-下午3.04.56.png"></img></div>
+        <div class=""><a href="http://www.taishanstore.net" target="_blank"><img src="/wp-content/uploads/2016/10/taishanadv.gif"></img></a></div>
+        </div>
 </div>
 
 <?php get_footer(); ?>

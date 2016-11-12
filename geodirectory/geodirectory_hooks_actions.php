@@ -1506,7 +1506,7 @@ add_filter('clean_url', 'so_handle_038', 99, 3);
  */
 function so_handle_038($url, $original_url, $_context)
 {
-    if (strstr($url, "maps.google.com/maps/api/js") !== false) {
+    if (strstr($url, "ditu.google.cn/maps/api/js") !== false) {
         $url = str_replace("&#038;", "&amp;", $url); // or $url = $original_url
     }
 

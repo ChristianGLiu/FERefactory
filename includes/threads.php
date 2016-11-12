@@ -1000,7 +1000,8 @@ class FE_Threads extends ET_PostType{
 	public static function get_threads($args = array()){
 		// modify query
 		add_action('posts_join', array('ET_ForumFront', '_thread_join'));
-		add_action('posts_orderby', array('ET_ForumFront', '_thread_orderby'));
+	/**
+			add_action('posts_orderby', array('ET_ForumFront', '_thread_orderby'));
 
 		if ( isset($args['orderby']) ){
 			global $et_meta_order;
@@ -1011,16 +1012,17 @@ class FE_Threads extends ET_PostType{
 			add_action('posts_join', array('FE_Threads', 'meta_order_join'), 20);
 			add_action('posts_orderby', array('FE_Threads', 'meta_order_orderby'), 20);
 		}
+		**/
 		$args = wp_parse_args(  $args, array(
 			'post_type'   => 'post'
 		) );
 		$query = new WP_Query($args);
 		// remove modified query
 		remove_action('posts_join', array('ET_ForumFront', '_thread_join'));
-		remove_action('posts_orderby', array('ET_ForumFront', '_thread_orderby'));
+		//remove_action('posts_orderby', array('ET_ForumFront', '_thread_orderby'));
 
 		remove_action('posts_join', array('FE_Threads', 'meta_order_join'));
-		remove_action('posts_orderby', array('FE_Threads', 'meta_order_orderby'));
+		//remove_action('posts_orderby', array('FE_Threads', 'meta_order_orderby'));
 		return $query;
 	}
 

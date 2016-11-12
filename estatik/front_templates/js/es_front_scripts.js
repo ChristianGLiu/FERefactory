@@ -107,7 +107,13 @@ function single_page_navigation() {
     });
 }
 function single_page_slider() {
-    var pagerWidth = jQuery('#es_prop_single_pager_outer').width()/EstatikApp.prop_singleview_photo_thumb_width;
+    var thumb_width;
+    if (typeof EstatikApp != 'undefined') {
+        thumb_width = EstatikApp.prop_singleview_photo_thumb_width;
+    } else {
+        thumb_width = 100;
+    }
+    var pagerWidth = jQuery('#es_prop_single_pager_outer').width() / thumb_width;
     jQuery('.es_prop_single_pics').bxSlider({
         slideWidth: jQuery('#es_prop_single_slider_in').width(),
         slideMargin: 0,
@@ -117,7 +123,7 @@ function single_page_slider() {
         pagerCustom: '.es_prop_single_pager'
     });
     jQuery('.es_prop_single_pager').bxSlider({
-        slideWidth: EstatikApp.prop_singleview_photo_thumb_width,
+        slideWidth: thumb_width,
         slideMargin: 10,
         pager: false,
         infiniteLoop: false,
